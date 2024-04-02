@@ -34,7 +34,7 @@ const buffetSchema = new mongoose.Schema({
         required: true,
     },
 },
-{timeStamp: true, collection: "buffets"}
+    {timeStamps: true, collection: "buffets"}
 );
 
 const Buffet = mongoose.model("buffet", buffetSchema);
