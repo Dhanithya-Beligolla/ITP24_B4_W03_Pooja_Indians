@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Grid, Input, Typography, Button } from "@mui/material";
 
-const UserForm = ({ addUser, submitted }) => {
+const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
 
     const [id, setID] = useState(0);
     const [name, setNAME] = useState('');
@@ -24,6 +24,19 @@ const UserForm = ({ addUser, submitted }) => {
             setWORK_EXPERIENCE('');
         }
     }, [submitted]);
+
+    useEffect( () => {
+        if(data?.id && data.id !== 0){
+            setID(data.id);
+            setNAME(data.name);
+            setJOB_TITLE(data.job_title);
+            setEMAIL(data.email);
+            setCONTACT_NUMBER(data.contact_number);
+            setAGE(data.age);
+            setEDUCATION_QUALIFICATION(data.education_qualification);
+            setWORK_EXPERIENCE(data.work_experience);
+        }
+    }, [data])
 
 
     return(
@@ -280,9 +293,11 @@ const UserForm = ({ addUser, submitted }) => {
                             backgroundColor: '#00c6e6',
                         }
                     }}
-                    onClick={() => addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience })}
+                    onClick={() => isEdit ? updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience }) : ({ id, name, job_title, email, contact_number, age, education_qualification, work_experience })}
                 >
-                    Submit
+                    {
+                        isEdit ? 'UPDATE' : 'SUBMITE'
+                    }
                 </Button>
             </Grid>
 

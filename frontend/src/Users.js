@@ -10,6 +10,8 @@ const Users = () => {
 
     const [users, setUsers] = useState([]);
     const [submitted, setSubmitted] = useState(false);
+    const [selectedUser, setSelectedUser] = useState({});
+    const [isEdit, setIsEdit] = useState(false);
 
     useEffect(() => {
         getUsers();
@@ -42,6 +44,31 @@ const Users = () => {
             .then(() => {
                 getUsers();
                 setSubmitted(false);
+                isEdit(false);
+            })
+            .catch(error => {
+                console.error("Axios error :", error);
+            });
+    }
+
+    const updateUser = (data) => {
+        setSubmitted(true);
+
+        const payload = {
+            id: data.id,
+            name: data.name,
+            job_title: data.job_title,
+            email: data.email,
+            contact_number: data.contact_number,
+            age: data.age,
+            education_qualification: data.education_qualification,
+            work_experience: data.work_experience,
+        }
+        Axios.post('http://localhost:3001/api/updateuser', payload)
+            .then(() => {
+                getUsers();
+                setSubmitted(false);
+                isEdit(false);
             })
             .catch(error => {
                 console.error("Axios error :", error);
@@ -60,9 +87,18 @@ const Users = () => {
         >
                     <UserForm
                         addUser={addUser}
+                        updateUser={updateUser}
                         submitted={submitted}
+                        data={selectedUser}
+                        isEdit={isEdit}
                     />
-                    <UsersTable rows={users} />
+                    <UsersTable
+                        rows={users}
+                        selectedUser={data =>{
+                            setSelectedUser(data);
+                            setIsEdit(true);
+                        }}
+                    />
             </Box>
 
             </Grid>
