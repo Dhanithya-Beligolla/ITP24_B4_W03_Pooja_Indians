@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Input, Typography, Button } from "@mui/material";
 
-const UserForm = props => {
+const UserForm = ({ addUser, submitted }) => {
 
-    const [ID, setID] = useState(0);
-    const [NAME, setNAME] = useState('');
-    const [JOB_TITLE, setJOB_TITLE] = useState('');
-    const [EMAIL, setEMAIL] = useState('');
-    const [CONTACT_NUMBER, setCONTACT_NUMBER] = useState(+11-1234567890);
-    const [AGE, setAGE] = useState('');
-    const [EDUCATION_QUALIFICATION, setEDUCATION_QUALIFICATION] = useState('');
-    const [WORK_EXPERIENCE, setWORK_EXPERIENCE] = useState('');
+    const [id, setID] = useState(0);
+    const [name, setNAME] = useState('');
+    const [job_title, setJOB_TITLE] = useState('');
+    const [email, setEMAIL] = useState('');
+    const [contact_number, setCONTACT_NUMBER] = useState(+11-1234567890);
+    const [age, setAGE] = useState('');
+    const [education_qualification, setEDUCATION_QUALIFICATION] = useState('');
+    const [work_experience, setWORK_EXPERIENCE] = useState('');
+
+    useEffect(() => {
+        if(!submitted){
+            setID(0);
+            setNAME('');
+            setJOB_TITLE('');
+            setEMAIL('');
+            setCONTACT_NUMBER(+11-1234567890);
+            setAGE('');
+            setEDUCATION_QUALIFICATION('');
+            setWORK_EXPERIENCE('');
+        }
+    }, [submitted]);
 
 
     return(
@@ -48,7 +61,7 @@ const UserForm = props => {
                     id='id'
                     name="id"
                     sx={{ widows: '400px' }}
-                    value={ID}
+                    value={id}
                     onChange={e => setID(e.target.value)}
                 />
             </Grid>
@@ -76,7 +89,7 @@ const UserForm = props => {
                     id='name'
                     name="name"
                     sx={{ widows: '400px' }}
-                    value={NAME}
+                    value={name}
                     onChange={e => setNAME(e.target.value)}
                 />
             </Grid>
@@ -89,7 +102,7 @@ const UserForm = props => {
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
-                    htmlFor="jobtitle" 
+                    htmlFor="job_title" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -102,10 +115,10 @@ const UserForm = props => {
                 </Typography>
                 <Input
                     type="text"
-                    id='jobtitle'
-                    name="jobtitle"
+                    id='job_title'
+                    name="job_title"
                     sx={{ widows: '400px' }}
-                    value={JOB_TITLE}
+                    value={job_title}
                     onChange={e => setJOB_TITLE(e.target.value)}
                 />
             </Grid>
@@ -134,7 +147,7 @@ const UserForm = props => {
                     id='email'
                     name="email"
                     sx={{ widows: '400px' }}
-                    value={EMAIL}
+                    value={email}
                     onChange={e => setEMAIL(e.target.value)}
                 />
             </Grid>
@@ -146,7 +159,7 @@ const UserForm = props => {
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
-                    htmlFor="contacnumber" 
+                    htmlFor="contact_number" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -159,10 +172,10 @@ const UserForm = props => {
                 </Typography>
                 <Input
                     type="number"
-                    id='contacnumber'
-                    name="contacnumber"
+                    id='contact_number'
+                    name="contact_number"
                     sx={{ widows: '400px' }}
-                    value={CONTACT_NUMBER}
+                    value={contact_number}
                     onChange={e => setCONTACT_NUMBER(e.target.value)}
                 />
             </Grid>
@@ -191,7 +204,7 @@ const UserForm = props => {
                     id='age'
                     name="age"
                     sx={{ widows: '400px' }}
-                    value={AGE}
+                    value={age}
                     onChange={e => setAGE(e.target.value)}
                 />
             </Grid>
@@ -204,7 +217,7 @@ const UserForm = props => {
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
-                    htmlFor="eduqualification" 
+                    htmlFor="education_qualification" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -217,10 +230,10 @@ const UserForm = props => {
                 </Typography>
                 <Input
                     type="text"
-                    id='eduqualification'
-                    name="eduqualification"
+                    id='education_qualification'
+                    name="education_qualification"
                     sx={{ widows: '400px' }}
-                    value={EDUCATION_QUALIFICATION}
+                    value={education_qualification}
                     onChange={e => setEDUCATION_QUALIFICATION(e.target.value)}
                 />
             </Grid>
@@ -232,7 +245,7 @@ const UserForm = props => {
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
-                    htmlFor="experience" 
+                    htmlFor="work_experience" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -245,10 +258,10 @@ const UserForm = props => {
                 </Typography>
                 <Input
                     type="text"
-                    id='experience'
-                    name="experience"
+                    id='work_experience'
+                    name="work_experience"
                     sx={{ widows: '400px' }}
-                    value={WORK_EXPERIENCE}
+                    value={work_experience}
                     onChange={e => setWORK_EXPERIENCE(e.target.value)}
                 />
             </Grid>
@@ -267,6 +280,7 @@ const UserForm = props => {
                             backgroundColor: '#00c6e6',
                         }
                     }}
+                    onClick={() => addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience })}
                 >
                     Submit
                 </Button>

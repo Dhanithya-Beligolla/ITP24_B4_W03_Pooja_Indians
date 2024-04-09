@@ -9,6 +9,7 @@ const Users = () => {
     const navigate = useNavigate();
 
     const [users, setUsers] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
 
     useEffect(() => {
         getUsers();
@@ -18,6 +19,29 @@ const Users = () => {
         Axios.get('http://localhost:3001/api/users')
             .then(response => {
                 setUsers(response.data?.response || []);
+            })
+            .catch(error => {
+                console.error("Axios error :", error);
+            });
+    }
+
+    const addUser = (data) =>{
+        setSubmitted(true);
+
+        const payload = {
+            id: data.id,
+            name: data.name,
+            job_title: data.job_title,
+            email: data.email,
+            contact_number: data.contact_number,
+            age: data.age,
+            education_qualification: data.education_qualification,
+            work_experience: data.work_experience,
+        }
+        Axios.post('http://localhost:3001/api/createuser', payload)
+            .then(() => {
+                getUsers();
+                setSubmitted(false);
             })
             .catch(error => {
                 console.error("Axios error :", error);
@@ -34,7 +58,10 @@ const Users = () => {
                     marginTop: '100px',
                 }}
         >
-                    <UserForm />
+                    <UserForm
+                        addUser={addUser}
+                        submitted={submitted}
+                    />
                     <UsersTable rows={users} />
             </Box>
 
