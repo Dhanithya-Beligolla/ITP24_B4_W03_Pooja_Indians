@@ -293,10 +293,10 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                             backgroundColor: '#00c6e6',
                         }
                     }}
-                    onClick={() => isEdit ? updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience }) : ({ id, name, job_title, email, contact_number, age, education_qualification, work_experience })}
+                    onClick={() => isEdit ? updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience }) : addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience })}
                 >
                     {
-                        isEdit ? 'UPDATE' : 'SUBMITE'
+                        isEdit ? 'UPDATE' : 'ADD'
                     }
                 </Button>
             </Grid>

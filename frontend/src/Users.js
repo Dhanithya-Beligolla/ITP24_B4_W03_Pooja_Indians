@@ -75,6 +75,16 @@ const Users = () => {
             });
     }
 
+    const deleteUser = (data) => {
+        Axios.post('http://localhost:3001/api/deleteuser', data)
+            .then(() => {
+                getUsers();
+            })
+            .catch(error => {
+                console.error("Axios error :", error);
+            });
+    }
+
     return(
         <Grid>
             <Grid>
@@ -98,6 +108,7 @@ const Users = () => {
                             setSelectedUser(data);
                             setIsEdit(true);
                         }}
+                        deleteUser={data => window.confirm('Do you want to delete this appication?') && deleteUser(data)}
                     />
             </Box>
 
