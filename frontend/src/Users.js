@@ -31,16 +31,17 @@ const Users = () => {
     return(
         <Grid>
             <Grid>
-                <Box
-                    sx={{
-                        width: 'calc(100% - 100px)',
-                        margin: 'auto',
-                        marginTop: '100px',
-                    }}
-                >
+            <Box
+                sx={{
+                    width: 'calc(100% - 100px)',
+                    margin: 'auto',
+                    marginTop: '100px',
+                }}
+        >
                     <UserForm />
                     <UsersTable rows={users} />
-                </Box>
+            </Box>
+
             </Grid>
             <Grid item xs={12}>
                 <Button

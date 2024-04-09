@@ -31,8 +31,8 @@ const UserForm = props => {
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="id" 
+                    component={'label'} 
+                    htmlFor="id" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -59,8 +59,8 @@ const UserForm = props => {
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="name" 
+                    component={'label'} 
+                    htmlFor="name" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -88,8 +88,8 @@ const UserForm = props => {
 
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="jobtitle" 
+                    component={'label'} 
+                    htmlFor="jobtitle" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -117,8 +117,8 @@ const UserForm = props => {
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="email" 
+                    component={'label'} 
+                    htmlFor="email" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -145,8 +145,8 @@ const UserForm = props => {
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="contacnumber" 
+                    component={'label'} 
+                    htmlFor="contacnumber" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -174,8 +174,8 @@ const UserForm = props => {
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="age" 
+                    component={'label'} 
+                    htmlFor="age" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -203,8 +203,8 @@ const UserForm = props => {
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="eduqualification" 
+                    component={'label'} 
+                    htmlFor="eduqualification" 
                     sx={{
                         color: '#000000',
                         display: 'block',
@@ -231,8 +231,8 @@ const UserForm = props => {
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
-                    component={'labal'} 
-                    htmlfor="experience" 
+                    component={'label'} 
+                    htmlFor="experience" 
                     sx={{
                         color: '#000000',
                         display: 'block',
