@@ -13,6 +13,7 @@ const password = encodeURIComponent('emply@1234');
 const uri = `mongodb+srv://emply:${password}@cluster0.dnh01im.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 
+
 const connect = async () => {
     try {
         await mongoose.connect(uri);
