@@ -19,16 +19,16 @@ const UsersTable = ({ rows }) => {
                 </TableHead>
                 <TableBody>
                     {
-                        rows.length > 0 ? rows.map((row, index) => (
-                            <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                <TableCell component='th' scope="row">{row.ID}</TableCell>
-                                <TableCell>{row.NAME}</TableCell>
-                                <TableCell>{row.JOB_TITLE}</TableCell>
-                                <TableCell>{row.EMAIL}</TableCell>
-                                <TableCell>{row.CONTACT_NUMBER}</TableCell>
-                                <TableCell>{row.AGE}</TableCell>
-                                <TableCell>{row.EDUCATION_QUALIFICATION}</TableCell>
-                                <TableCell>{row.WORK_EXPERIENCE}</TableCell>
+                        rows.length > 0 ? rows.map(row => (
+                            <TableRow key={row.ID} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                <TableCell component='th' scope="row">{row.id}</TableCell>
+                                <TableCell component='th' scope="row">{row.name}</TableCell>
+                                <TableCell component='th' scope="row">{row.job_title}</TableCell>
+                                <TableCell component='th' scope="row">{row.email}</TableCell>
+                                <TableCell component='th' scope="row">{row.contact_number}</TableCell>
+                                <TableCell component='th' scope="row">{row.age}</TableCell>
+                                <TableCell component='th' scope="row">{row.education_qualification}</TableCell>
+                                <TableCell component='th' scope="row">{row.work_experience}</TableCell>
                                 <TableCell>
                                     <Button
                                         sx={{ margin: '0px 10px' }}
@@ -47,7 +47,7 @@ const UsersTable = ({ rows }) => {
                             </TableRow>
                         )) : (
                             <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
-                                <TableCell colSpan={9} align="center">NO DATA</TableCell>
+                                <TableCell component='th' scope="row">NO DATA</TableCell>
                             </TableRow>
                         )
                     }

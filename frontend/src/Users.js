@@ -2,32 +2,28 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button, Grid } from "@mui/material";
 import UserForm from "./UserForm";
 import UsersTable from "./UsersTable";
-
-const users = [
-    {
-        ID:1,
-        NAME: 'John Doe',
-        JOB_TITLE: 'Chef',
-        EMAIL: 'johndoe@gmail.com',
-        CONTACT_NUMBER: '1234567890',
-        AGE: 25,
-        EDUCATION_QUALIFICATION: 'B.Tech',
-        WORK_EXPERIENCE: '2 years',
-    },
-    {
-        ID:2,
-        NAME: 'Marry Doe',
-        JOB_TITLE: 'Delivery boy',
-        EMAIL: 'marrydoe@gmail.com',
-        CONTACT_NUMBER: '0987654321',
-        AGE: 22,
-        EDUCATION_QUALIFICATION: 'M.Tech',
-        WORK_EXPERIENCE: '3 years',
-    }
-];
+import Axios from "axios";
+import { useEffect, useState } from 'react';
 
 const Users = () => {
     const navigate = useNavigate();
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        getUsers();
+    }, []);
+
+    const getUsers = () => {
+        Axios.get('http://localhost:3001/api/users')
+            .then(response => {
+                setUsers(response.data?.response || []);
+            })
+            .catch(error => {
+                console.error("Axios error :", error);
+            });
+    }
+
     return(
         <Grid>
             <Grid>
