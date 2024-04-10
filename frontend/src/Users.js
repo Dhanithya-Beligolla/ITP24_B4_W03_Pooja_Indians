@@ -118,13 +118,13 @@ const Users = () => {
                     sx={{
                         margin: 'auto',
                         marginBottom: '20px',
-                        backgroundColor: '#00c6e6',
+                        backgroundColor: '#3a7e5c',
                         color: '#ffffff',
                         marginLeft: '15px', 
                         marginTop: '20px',
                         '&:hover': {
                             opacity: '0.7',
-                            backgroundColor: '#00c6e6',
+                            backgroundColor: '#34654d',
                         }
                     }}
                     onClick={() => navigate('/SkillsBar')}

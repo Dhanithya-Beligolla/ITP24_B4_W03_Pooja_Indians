@@ -284,13 +284,13 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     sx={{
                         margin: 'auto',
                         marginBottom: '20px',
-                        backgroundColor: '#00c6e6',
+                        backgroundColor: '#3a7e5c',
                         color: '#ffffff',
                         marginLeft: '15px',
                         marginTop: '20px',
                         '&:hover': {
                             opacity: '0.7',
-                            backgroundColor: '#00c6e6',
+                            backgroundColor: '#34654d',
                         }
                     }}
                     onClick={() => isEdit ? updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience }) : addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience })}
