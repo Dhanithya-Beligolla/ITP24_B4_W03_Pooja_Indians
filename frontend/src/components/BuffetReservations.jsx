@@ -1,12 +1,16 @@
 import React from "react";
 import BuffetReservation from "./BuffetReservation";
+import { useNavigate } from "react-router-dom";
+import {useQuery} from "react-query"
+import {getAllBuffetReservations} from "../fetchBuffetReservation/FetchBuffetReservation";
+
 
 const BuffetReservations = () => {
 
     // create some dummy data
     const data1 = [
         {
-            fristname: "Dana ",
+            firstname: "Dana ",
             lastname: "Beli ",
             mobile: 7671,
             email: "dbel@gmail.com ",
@@ -16,7 +20,7 @@ const BuffetReservations = () => {
             price: 300
         },
         {
-            fristname: "thevi ",
+            firstname: "thevi ",
             lastname: "sathnara ",
             mobile: 1234,
             email: "thevin@gmail.com ",
@@ -26,7 +30,7 @@ const BuffetReservations = () => {
             price: 200
         },
         {
-            fristname: "nike ",
+            firstname: "nike ",
             lastname: "hapu ",
             mobile: 456,
             email: "nhpu@gmail.com ",
@@ -36,6 +40,12 @@ const BuffetReservations = () => {
             price: 260
         },
     ];
+    
+    const {data, isLoading, isError} = useQuery("buffet", getAllBuffetReservations);
+    
+
+    const navigate = useNavigate();
+
     return (
         <div className="w-[80%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
         rounded-lg relative">
@@ -43,7 +53,7 @@ const BuffetReservations = () => {
 
         <div className="text-right mr-10">
             <button
-                onClick={() => navigate("#")}
+                onClick={() => navigate("/make-reservation")}
                 className="button text-sm px-4">
                 Make Reservation
             </button>
@@ -51,9 +61,13 @@ const BuffetReservations = () => {
 
             {/* map through our data */}
             <div className="p-4 lg:p-7 flex item-center flex-wrap gap-5 w-[95%] mx-auto">
-                {data1.map((buffetreservation, i) => (
-                    <BuffetReservation reservation={buffetreservation} key={i}/>
-                ))}
+                {isLoading && <p>Loading data...</p>}
+                {isError && <p>Something went wrong!!!</p>}
+                {data?.length === 0 ? (
+                <p> No Reservations are available !</p>
+                ) : (
+                data?.map((buffetreservation, i) => <BuffetReservation buffetreservation={buffetreservation} key={i}/>)
+                )}
             </div>
 
         </div>

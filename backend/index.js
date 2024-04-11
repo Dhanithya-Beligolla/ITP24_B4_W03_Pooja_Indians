@@ -2,10 +2,10 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./database/database.js");
 const buffetRouter = require("./routes/buffet.js");
-
+const cors = require('cors'); // Add this line
 const app = express();
 dotenv.config();
-
+app.use(cors()); // And add this line
 app.use(express.json());
 
 app.get("/", (req, res) => {
