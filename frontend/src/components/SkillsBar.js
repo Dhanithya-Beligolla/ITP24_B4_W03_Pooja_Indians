@@ -1,61 +1,43 @@
 import React from "react";
 import './style.css';
 
-function SkillsBar () {
+function JobStatusBar() {
    return (
        <div className="container">
-           <h1 className="title-text">React Progress Bar</h1>
+           <h1 className="title-text">Job Status Bar</h1>
 
-           <div className="skill-box">
-               <span className="title">HTML</span>
-               <div className="skill-bar">
-                   <span className="skill-per html">
-                       <span className="tooltip">95%</span>
-                   </span>
+           <div className="application">
+               <span className="name">Application 1</span>
+               <div className="status-bar">
+                   <div className="status" style={{width: '80%'}}></div>
                </div>
            </div>
-           <div className="skill-box">
-               <span className="title">CSS</span>
-               <div className="skill-bar">
-                   <span className="skill-per css">
-                       <span className="tooltip">80%</span>
-                   </span>
+           <div className="application">
+               <span className="name">Application 2</span>
+               <div className="status-bar">
+                   <div className="status" style={{width: '60%'}}></div>
                </div>
            </div>
-           <div className="skill-box">
-               <span className="title">JavaScript</span>
-               <div className="skill-bar">
-                   <span className="skill-per javascript">
-                       <span className="tooltip">60%</span>
-                   </span>
+           <div className="application">
+               <span className="name">Application 3</span>
+               <div className="status-bar">
+                   <div className="status" style={{width: '40%'}}></div>
                </div>
            </div>
-           <div className="skill-box">
-               <span className="title">NodeJS</span>
-               <div className="skill-bar">
-                   <span className="skill-per nodejs">
-                       <span className="tooltip">40%</span>
-                   </span>
+           <div className="application">
+               <span className="name">Application 4</span>
+               <div className="status-bar">
+                   <div className="status" style={{width: '20%'}}></div>
                </div>
            </div>
-           <div className="skill-box">
-               <span className="title">ReactJS</span>
-               <div className="skill-bar">
-                   <span className="skill-per reactjs">
-                       <span className="tooltip">70%</span>
-                   </span>
-               </div>
-           </div>
-           <div className="skill-box">
-               <span className="title">ExpressJS</span>
-               <div className="skill-bar">
-                   <span className="skill-per expressjs">
-                       <span className="tooltip">75%</span>
-                   </span>
+           <div className="application">
+               <span className="name">Application 5</span>
+               <div className="status-bar">
+                   <div className="status" style={{width: '90%'}}></div>
                </div>
            </div>
        </div>
    )
 }
 
-export default SkillsBar;
+export default JobStatusBar;
