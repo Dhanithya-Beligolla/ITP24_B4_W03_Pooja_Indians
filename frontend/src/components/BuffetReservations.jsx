@@ -4,13 +4,12 @@ import { useNavigate } from "react-router-dom";
 import {useQuery} from "react-query"
 import {getAllBuffetReservations} from "../fetchBuffetReservation/FetchBuffetReservation";
 
-
 const BuffetReservations = () => {
 
     // create some dummy data
     const data1 = [
         {
-            firstname: "Dana ",
+            fristname: "Dana ",
             lastname: "Beli ",
             mobile: 7671,
             email: "dbel@gmail.com ",
@@ -20,7 +19,7 @@ const BuffetReservations = () => {
             price: 300
         },
         {
-            firstname: "thevi ",
+            fristname: "thevi ",
             lastname: "sathnara ",
             mobile: 1234,
             email: "thevin@gmail.com ",
@@ -30,7 +29,7 @@ const BuffetReservations = () => {
             price: 200
         },
         {
-            firstname: "nike ",
+            fristname: "nike ",
             lastname: "hapu ",
             mobile: 456,
             email: "nhpu@gmail.com ",

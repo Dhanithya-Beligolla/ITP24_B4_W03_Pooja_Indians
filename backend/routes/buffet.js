@@ -7,8 +7,8 @@ const route = express.Router();
 //get all Buffet reservations 
 route.get("/", async (req, res) => {
     try {
-        const allBuffets = await Buffet.find({});
-        res.status(200).json({status: "SUCCESS", allBuffets});
+        const allReservations = await Buffet.find({});
+        res.status(200).json({status: "SUCCESS", allReservations});
     } catch (error) {
         res.status(500).json({status: "FAILED", error}); 
     }
@@ -17,8 +17,8 @@ route.get("/", async (req, res) => {
 //create a Buffet reservation
 route.post("/create", async (req, res) => {
     try {
-        const newBuffet = await Buffet.create(req.body);
-        res.status(200).json({status: "SUCCESS", newBuffet});
+        const newReservation= await Buffet.create(req.body);
+        res.status(200).json({status: "SUCCESS", newReservation});
     } catch (error) {
         res.status(500).json({status: "FAILED", error});
     }
@@ -28,8 +28,8 @@ route.post("/create", async (req, res) => {
 route.get("/:id", async (req, res) => {
     const id = req.params.id;
     try {
-        const singleBuffet = await Buffet.findById(id);
-        res.status(200).json({status: "SUCCESS", singleBuffet});
+        const singleReservation = await Buffet.findById(id);
+        res.status(200).json({status: "SUCCESS", singleReservation});
     } catch (error) {
         res.status(500).json({status: "FAILED", error});
     }
@@ -39,8 +39,8 @@ route.get("/:id", async (req, res) => {
 route.put("/update/:id", async (req, res) => {
     const id = req.params.id;
     try {
-        const updatedSingleBuffet = await Buffet.findByIdAndUpdate(id, req.body);
-        res.status(200).json({status: "SUCCESS", updatedSingleBuffet});
+        const updatedSingleReservation = await Buffet.findByIdAndUpdate(id, req.body);
+        res.status(200).json({status: "SUCCESS", updatedSingleReservation});
     } catch (error) {
         res.status(500).json({status: "FAILED", error});
     }
@@ -51,8 +51,8 @@ route.put("/update/:id", async (req, res) => {
 route.delete("/delete/:id", async (req, res) => {
     const id = req.params.id;
     try {
-        const removedSingleBuffet = await Buffet.findByIdAndDelete(id);
-        res.status(200).json({status: "SUCCESS", removedSingleBuffet});
+        const removedSingleReservation = await Buffet.findByIdAndDelete(id);
+        res.status(200).json({status: "SUCCESS", removedSingleReservation});
     } catch (error) {
         res.status(500).json({status: "FAILED", error});
     }

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const buffetSchema = new mongoose.Schema({
+const buffetReservationSchema = new mongoose.Schema({
     fristname: {
         type: String,
         required: true,
@@ -37,6 +37,6 @@ const buffetSchema = new mongoose.Schema({
     {timeStamps: true, collection: "buffetReservations"}
 );
 
-const Buffet = mongoose.model("buffet", buffetSchema);
+const Buffet = mongoose.model("buffet", buffetReservationSchema);
 
 module.exports = Buffet;
