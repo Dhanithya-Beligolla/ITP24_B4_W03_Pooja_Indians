@@ -7,25 +7,19 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
     const [name, setNAME] = useState('');
     const [job_title, setJOB_TITLE] = useState('');
     const [email, setEMAIL] = useState('');
-    const [contact_number, setCONTACT_NUMBER] = useState(+11-1234567890);
+    const [contact_number, setCONTACT_NUMBER] = useState('');
     const [age, setAGE] = useState('');
     const [education_qualification, setEDUCATION_QUALIFICATION] = useState('');
     const [work_experience, setWORK_EXPERIENCE] = useState('');
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         if(!submitted){
-            setID(0);
-            setNAME('');
-            setJOB_TITLE('');
-            setEMAIL('');
-            setCONTACT_NUMBER(+11-1234567890);
-            setAGE('');
-            setEDUCATION_QUALIFICATION('');
-            setWORK_EXPERIENCE('');
+            resetForm();
         }
     }, [submitted]);
 
-    useEffect( () => {
+    useEffect(() => {
         if(data?.id && data.id !== 0){
             setID(data.id);
             setNAME(data.name);
@@ -38,8 +32,76 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
         }
     }, [data])
 
+    const resetForm = () => {
+        setID(0);
+        setNAME('');
+        setJOB_TITLE('');
+        setEMAIL('');
+        setCONTACT_NUMBER('');
+        setAGE('');
+        setEDUCATION_QUALIFICATION('');
+        setWORK_EXPERIENCE('');
+        setErrors({});
+    }
 
-    return(
+    const validateForm = () => {
+        let errors = {};
+        let isValid = true;
+
+        if (!name) {
+            errors.name = 'Name is required';
+            isValid = false;
+        }
+
+        if (!job_title) {
+            errors.job_title = 'Job title is required';
+            isValid = false;
+        }
+
+        if (!email) {
+            errors.email = 'Email is required';
+            isValid = false;
+        } else if (!email.endsWith('@gmail.com')) {
+            errors.email = 'Invalide email address';
+            isValid = false;
+        }        
+
+        if (!contact_number) {
+            errors.contact_number = 'Contact number is required';
+            isValid = false;
+        }
+
+        if (!age) {
+            errors.age = 'Age is required';
+            isValid = false;
+        }
+
+        if (!education_qualification) {
+            errors.education_qualification = 'Education qualification is required';
+            isValid = false;
+        }
+
+        if (!work_experience) {
+            errors.work_experience = 'Work experience is required';
+            isValid = false;
+        }
+
+        setErrors(errors);
+        return isValid;
+    };
+
+    const handleSubmit = () => {
+        if (validateForm()) {
+            if (isEdit) {
+                updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience });
+            } else {
+                addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience });
+            }
+            resetForm();
+        }
+    };
+
+    return (
         <Grid
             container
             spacing={2}
@@ -50,10 +112,8 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
             }}
         >
             <Grid item xs={12}>
-                <Typography component={'h1'} sx= {{ color: '#000000'}} >Vacancy Application Form</Typography>
+                <Typography component={'h1'} sx={{ color: '#000000' }} >Vacancy Application Form</Typography>
             </Grid>
-
-            
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
@@ -78,10 +138,6 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     onChange={e => setID(e.target.value)}
                 />
             </Grid>
-
-
-
-
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
@@ -105,12 +161,8 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     value={name}
                     onChange={e => setNAME(e.target.value)}
                 />
+                {errors.name && <Typography sx={{ color: 'red' }}>{errors.name}</Typography>}
             </Grid>
-
-
-
-
-
 
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
@@ -134,13 +186,9 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     value={job_title}
                     onChange={e => setJOB_TITLE(e.target.value)}
                 />
+                {errors.job_title && <Typography sx={{ color: 'red' }}>{errors.job_title}</Typography>}
             </Grid>
 
-
-
-
-
-            
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
@@ -156,19 +204,16 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     EMAIL
                 </Typography>
                 <Input
-                    type="text"
+                    type="email"
                     id='email'
                     name="email"
                     sx={{ widows: '400px' }}
                     value={email}
                     onChange={e => setEMAIL(e.target.value)}
                 />
+                {errors.email && <Typography sx={{ color: 'red' }}>{errors.email}</Typography>}
             </Grid>
 
-
-
-
-            
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
@@ -184,20 +229,16 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     CONTACT NUMBER
                 </Typography>
                 <Input
-                    type="number"
+                    type="text"
                     id='contact_number'
                     name="contact_number"
                     sx={{ widows: '400px' }}
                     value={contact_number}
                     onChange={e => setCONTACT_NUMBER(e.target.value)}
                 />
+                {errors.contact_number && <Typography sx={{ color: 'red' }}>{errors.contact_number}</Typography>}
             </Grid>
 
-
-
-
-
-            
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
@@ -220,13 +261,9 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     value={age}
                     onChange={e => setAGE(e.target.value)}
                 />
+                {errors.age && <Typography sx={{ color: 'red' }}>{errors.age}</Typography>}
             </Grid>
 
-
-
-
-
-            
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
@@ -249,12 +286,9 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     value={education_qualification}
                     onChange={e => setEDUCATION_QUALIFICATION(e.target.value)}
                 />
+                {errors.education_qualification && <Typography sx={{ color: 'red' }}>{errors.education_qualification}</Typography>}
             </Grid>
 
-
-
-
-            
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
                     component={'label'} 
@@ -277,6 +311,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     value={work_experience}
                     onChange={e => setWORK_EXPERIENCE(e.target.value)}
                 />
+                {errors.work_experience && <Typography sx={{ color: 'red' }}>{errors.work_experience}</Typography>}
             </Grid>
 
             <Grid item xs={12}>
@@ -293,11 +328,9 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                             backgroundColor: '#34654d',
                         }
                     }}
-                    onClick={() => isEdit ? updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience }) : addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience })}
+                    onClick={handleSubmit}
                 >
-                    {
-                        isEdit ? 'UPDATE' : 'ADD'
-                    }
+                    {isEdit ? 'UPDATE' : 'ADD'}
                 </Button>
             </Grid>
 
