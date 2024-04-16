@@ -1,14 +1,18 @@
 import React from 'react'
 import { FaTrashAlt } from "react-icons/fa";
 import { MdEdit } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 
-function BuffetPage  ({buffetAdmin = {}}) {
+const BuffetPage = ({ buffetAdmin}) =>{
+  const navigate = useNavigate();
+
+  console.log('Buffet data:', buffetAdmin);
   const { buffetType, buffetPrice, buffetDescription, image, specialOffers } = buffetAdmin;
 
   return (
     <div>
-      <div className={`border-2 border-blue-100 shadow-md shadow-gray-400 rounded-lg p-4 w-[30%]`}>
+      <div className={`border-2 border-blue-100 shadow-md shadow-gray-400 rounded-lg p-4 w-[100%]`}>
         <h2 className="text-lg font-bold text-gray-700">{buffetType} </h2>
         <img className="w-full h-[12rem] object-cover" src={image && folder + image} alt="buffetImg" />
         <p className="text-gray-600"> {buffetDescription}</p>
@@ -25,7 +29,7 @@ function BuffetPage  ({buffetAdmin = {}}) {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default BuffetPage;

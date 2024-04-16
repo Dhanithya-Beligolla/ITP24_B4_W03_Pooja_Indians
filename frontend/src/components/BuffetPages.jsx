@@ -23,20 +23,19 @@ const BuffetPages = () => {
 
       <div className="text-right mr-10">
         <button
-          onClick={() => navigate("/make-reservation")}
+          onClick={() => navigate("/add-buffet")}
           className="button text-sm px-4">
           Add Buffet
         </button>
       </div>
-
+       {/* map through our data */}
       <div className="p-4 lg:p-7 flex items-center flex-wrap gap-5 w-[95%] mx-auto">
-        {isLoading && "Loading..."}
-        {isError && "Something went wrong..."}
-        {data && data.getAllBuffets && data.getAllBuffets.length === 0 ?  (
-          <p className="w-full text-center">No Buffets exist</p>
-        ) : (
-          data && data.getAllBuffets && data.getAllBuffets.map((buffetAdmin, i) => <BuffetPage buffetAdmin={buffetAdmin} key={i} />)
-        )}
+            {isLoading && "Loading..."}
+            {isError && "Something went wrong..."}
+            {data && data.map((buffetAdmin, i) => (
+                <BuffetPage buffetAdmin={buffetAdmin} key={i} />
+            ))}
+
       </div>
     </div>
   )
