@@ -86,15 +86,20 @@ const Users = () => {
     }
 
     return(
-        <Grid>
+        <Grid
+            sx={{
+                backgroundColor: '#88D3C3',
+            }}
+        >
             <Grid>
             <Box
                 sx={{
                     width: 'calc(100% - 100px)',
                     margin: 'auto',
-                    marginTop: '100px',
+                    marginTop: '0px',
                 }}
         >
+                <Grid>
                     <UserForm
                         addUser={addUser}
                         updateUser={updateUser}
@@ -102,6 +107,8 @@ const Users = () => {
                         data={selectedUser}
                         isEdit={isEdit}
                     />
+                </Grid>
+                <Grid>
                     <UsersTable
                         rows={users}
                         selectedUser={data =>{
@@ -110,6 +117,7 @@ const Users = () => {
                         }}
                         deleteUser={data => window.confirm('Do you want to delete this appication?') && deleteUser(data)}
                     />
+                </Grid>
             </Box>
 
             </Grid>

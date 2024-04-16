@@ -106,7 +106,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
             container
             spacing={2}
             sx={{
-                backgroundColor: '#ffffff',
+                backgroundColor: '#f0f0f0',
                 marginBottom: '20px',
                 display: 'block',
             }}

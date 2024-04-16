@@ -3,7 +3,7 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 const UsersTable = ({ rows, selectedUser, deleteUser }) => {
     return (
         <TableContainer component={Paper}>
-            <Table>
+            <Table sx={{backgroundColor: '#f0f0f0'}}>
                 <TableHead>
                     <TableRow>
                         <TableCell>ID</TableCell>
