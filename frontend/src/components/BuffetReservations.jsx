@@ -48,7 +48,7 @@ const BuffetReservations = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-[80%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
+        <div className="w-[100%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
         rounded-lg relative">
             <h1 className="p-6 text-center flex-1 text-2xl font-bold text-gray-700">Buffet Reservations</h1>
 
@@ -71,16 +71,20 @@ const BuffetReservations = () => {
             <div className="p-4 lg:p-7 flex item-center flex-wrap gap-5 w-[95%] mx-auto">
                 {isLoading && <p>Loading data...</p>}
                 {isError && <p>Something went wrong!!!</p>}
-                {data?.length === 0 ? (
+                {data && data.length === 0 ? (
                 <p> No Reservations are available !</p>
                 ) : (
-                data
-                  .filter((reservation) =>
-                    reservation.fristname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    reservation.lastname.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                    reservation.email.toLowerCase().includes(searchTerm.toLowerCase())
-                  )
-                  .map((filteredReservation, i) => <BuffetReservation buffetreservation={filteredReservation} key={i}/>)
+                data && data
+                    .filter((reservation) =>
+                        reservation.fristname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        reservation.lastname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        reservation.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        reservation.buffetType.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        reservation.date.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                        reservation.quantity.toString().includes(searchTerm) ||
+                        reservation.price.toString().includes(searchTerm)
+                    )
+                    .map((filteredReservation, i) => <BuffetReservation buffetreservation={filteredReservation} key={i}/>)
                 )}
             </div>
 
