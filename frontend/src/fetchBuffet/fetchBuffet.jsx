@@ -52,3 +52,13 @@ export const deleteBuffet = async (id) => {
         
     }
 };
+
+
+//update buffet
+export const updateBuffet = async (buffet) => {
+    try {
+        await axios.put(`${baseURL}/api/buffetadmin/update/${buffet._id}`, buffet);
+    } catch (error) {
+        throw new Error("Failed to update buffet. Please try again."); 
+    }
+};

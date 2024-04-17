@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState} from "react";
+import { FiSearch } from 'react-icons/fi';
 import BuffetReservation from "./BuffetReservation";
 import { useNavigate } from "react-router-dom";
 import {useQuery} from "react-query"
@@ -40,7 +41,8 @@ const BuffetReservations = () => {
         },
     ];
     
-    const [searchTerm, setSearchTerm] = React.useState("");
+    const [searchTerm, setSearchTerm] = useState("");
+    const [searchInput, setSearchInput] = useState('');
 
     const {data, isLoading, isError} = useQuery("buffet", getAllBuffetReservations);
     
@@ -48,16 +50,22 @@ const BuffetReservations = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="w-[100%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
-        rounded-lg relative">
+        <div className="w-[100%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400 rounded-lg relative">
             <h1 className="p-6 text-center flex-1 text-2xl font-bold text-gray-700">Buffet Reservations</h1>
 
+            <div className="flex items-center w-[25%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400 rounded-lg relative">
             <input
-              type="text"
-              placeholder="Search..."
-              value={searchTerm}
-              onChange={(event) => setSearchTerm(event.target.value)}
-            />
+                    type="text"
+                    placeholder="Search..."
+                    value={searchInput}
+                    onChange={(event) => setSearchInput(event.target.value)}
+                    className="mr-2" // Add some margin to the right of the input
+                    style={{ flex: "1" }}
+                />
+                <button onClick={() => setSearchTerm(searchInput)} style={{ backgroundColor: "lightblue", flex: "1",height:"100%" }}>
+                Search
+                </button>
+            </div>
 
         <div className="text-right mr-10">
             <button

@@ -4,22 +4,35 @@ import { MdEdit } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";
 import { deleteBuffet } from '../fetchBuffet/fetchBuffet';
+import { BuffetContextShare } from "../context/Context";
 
 
-const BuffetPage = ({ buffetAdmin}) =>{
+const BuffetAdminPage = ({ buffetAdmin}) =>{
   const { buffetType, buffetPrice, buffetDescription, image, specialOffers, _id } = buffetAdmin;
   const navigate = useNavigate();
+  const {setUpdate, update} = BuffetContextShare();
+
+  console.log(update);
 
   const folder = import.meta.env.VITE_REACT_FOLDER;
 
-  console.log('Buffet data:', buffetAdmin);
+
 
   //delete buffet
   const queryClient = useQueryClient();
   const {mutate, isLoading, isError} = useMutation(["buffetadmin", _id],deleteBuffet, {
     onSuccess: () => queryClient.invalidateQueries("buffetadmin"),
   });
-  
+
+  //update buffet
+  const handleUpdate = () => {
+    setUpdate(buffetAdmin);
+    navigate("/add-buffet");
+  };
+
+
+
+  if(isError) return "Something went wrong...";
 
   return (
     <div>
@@ -36,7 +49,7 @@ const BuffetPage = ({ buffetAdmin}) =>{
           <button onClick={() => mutate(_id)} className="cursor-pointer text-red-700 hover:opacity-75">
             <FaTrashAlt />
           </button>
-          <button className="text-xl text-blue-600 hover:opacity-75">
+          <button onClick={handleUpdate} className="text-xl text-blue-600 hover:opacity-75">
             <MdEdit />
           </button>
         </div>
@@ -45,4 +58,4 @@ const BuffetPage = ({ buffetAdmin}) =>{
   );
 };
 
-export default BuffetPage;
+export default BuffetAdminPage;

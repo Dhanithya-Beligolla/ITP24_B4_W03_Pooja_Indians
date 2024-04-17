@@ -14,9 +14,9 @@ const BuffetAdminPages = () => {
 
   return (
     <div
-      className="w-[80%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
+      className="w-[100%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
       rounded-lg relative">
-      <div />
+      
       <h1 className="p-6 text-center flex-1 text-2xl font-bold text-gray-700">
         Buffet Page
       </h1>
