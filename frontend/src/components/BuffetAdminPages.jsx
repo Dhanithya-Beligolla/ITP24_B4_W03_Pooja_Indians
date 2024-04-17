@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query"
-import BuffetPage from './BuffetPage';
+import BuffetAdminPage from './BuffetAdminPage';
 import { getAllBuffets } from '../fetchBuffet/fetchBuffet';
 
 
-const BuffetPages = () => {
+const BuffetAdminPages = () => {
 
   const {data, isLoading, isError} = useQuery("buffetadmin", getAllBuffets);
     
@@ -33,7 +33,7 @@ const BuffetPages = () => {
             {isLoading && "Loading..."}
             {isError && "Something went wrong..."}
             {data && data.map((buffetAdmin, i) => (
-                <BuffetPage buffetAdmin={buffetAdmin} key={i} />
+                <BuffetAdminPage buffetAdmin={buffetAdmin} key={i} />
             ))}
 
       </div>
@@ -41,4 +41,4 @@ const BuffetPages = () => {
   )
 }
 
-export default BuffetPages;
+export default BuffetAdminPages;

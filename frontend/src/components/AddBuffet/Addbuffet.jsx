@@ -11,9 +11,11 @@ const Addbuffet = () => {
     buffetDescription: "",
     buffetPrice: "",
     image: "",
+    specialOffers:"",
   }); // Default value is an empty array
 
 
+  // Add buffet
   const queryClient = useQueryClient();
   const {mutate , isLoading, isError} = useMutation(addBuffet,{
     onSuccess: () => queryClient.invalidateQueries("buffetadmin"), 
@@ -23,7 +25,7 @@ const Addbuffet = () => {
     e.preventDefault();
     mutate(buffet);
     console.log(buffet);
-    navigate("/buffet-pages");
+    navigate("/buffet-admin");
     
   }
 
@@ -38,6 +40,7 @@ const Addbuffet = () => {
           <input value={buffet.buffetType} onChange={(e) => setBuffet({...buffet,buffetType:e.target.value})} className="input"  type="text" placeholder="Buffet Type" />
           <input value={buffet.buffetDescription} onChange={(e) => setBuffet({...buffet,buffetDescription:e.target.value})} className="input"  type="text" placeholder="Buffet Description" />
           <input value={buffet.buffetPrice} onChange={(e) => setBuffet({...buffet,buffetPrice:e.target.value})} className="input"  type="number" placeholder="Buffet Price" />
+          <input value={buffet.specialOffers} onChange={(e) => setBuffet({...buffet,specialOffers:e.target.value})} className="input"  type="text" placeholder="Special Offers" />
           <input onChange={(e) => setBuffet({...buffet,image:e.target.files[0]})} className="input"  type="file"/>
           <button type="submit" className="button">Add Buffet</button>
 

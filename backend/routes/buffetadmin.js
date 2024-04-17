@@ -50,7 +50,7 @@ route.put("/update/:id", async (req, res) => {
 route.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const removedBuffet = await BuffetAdmin.findByIdAndDetete(id);
+    const removedBuffet = await BuffetAdmin.findByIdAndDelete(id);
     res.status(200).json({ status: "SUCCESS", removedBuffet });
   } catch (error) {
     res.status(500).json({ statue: "FAILED", error });
