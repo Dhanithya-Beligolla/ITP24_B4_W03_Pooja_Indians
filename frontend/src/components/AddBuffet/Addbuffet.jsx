@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 import { addBuffet } from '../../fetchBuffet/fetchBuffet';
 
 const Addbuffet = () => {
@@ -13,19 +13,19 @@ const Addbuffet = () => {
     image: "",
   }); // Default value is an empty array
 
+
+  const queryClient = useQueryClient();
   const {mutate , isLoading, isError} = useMutation(addBuffet,{
-    onSuccess : (data) => console.log(data),
+    onSuccess: () => queryClient.invalidateQueries("buffetadmin"), 
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    mutate({ buffet });
+    mutate(buffet);
     console.log(buffet);
     navigate("/buffet-pages");
     
   }
-
-
 
   return (
     <section>

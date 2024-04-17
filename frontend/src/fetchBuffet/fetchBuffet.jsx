@@ -1,7 +1,8 @@
 import axios from "axios";
 
 //base url
-const baseURL = import.meta.env.VITE_BASEURL;
+//const baseURL = import.meta.env.VITE_BASEURL;
+const baseURL = "http://localhost:5500";
 
 //get all data from the api
 export const getAllBuffets = async () => {
@@ -13,8 +14,22 @@ export const getAllBuffets = async () => {
     }
 };
 
-//make a reservation
+//add buffet
 export const addBuffet = async (data) => {
+
+    if (data.image) {
+        const form = new FormData();
+        const name = Date.now() + data.image.name;
+        form.append("name", name);
+        form.append("file", data.image);
+        data.image = name;
+    
+        try {
+          await axios.post(`${baseURL}/api/upload`, form);
+        } catch (error) {
+          throw Error(error);
+        }
+    }
 
     try {
         const res = await axios.post(`${baseURL}/api/buffetadmin/create`, data);
@@ -24,5 +39,16 @@ export const addBuffet = async (data) => {
         // Handle server error
         console.error('Error making reservation:', error);
         throw new Error('Failed to make reservation. Please check your input and try again.');
+    }
+};
+
+// delete buffet
+export const deleteBuffet = async (id) => {
+    try {
+        await axios.delete(`${baseURL}/api/buffetadmin/delete/${id}`);
+        
+    } catch (error) {
+        throw new Error("Failed to delete buffet. Please try again.");
+        
     }
 };

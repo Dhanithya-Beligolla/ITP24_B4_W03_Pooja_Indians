@@ -1,7 +1,8 @@
 import axios from "axios";
 
 //base url
-const baseURL = import.meta.env.VITE_BASEURL;
+//const baseURL = import.meta.env.VITE_BASEURL;
+const baseURL = "http://localhost:5500";
 
 //get all data from the api
 export const getAllBuffetReservations = async () => {
@@ -23,5 +24,26 @@ export const makeBuffetReservation = async (data) => {
         // Handle server error
         console.error('Error making reservation:', error);
         throw new Error('Failed to make reservation. Please check your input and try again.');
+    }
+};
+
+// delete reservation
+export const deleteBuffetReservation = async (id) => {
+    try {
+        await axios.delete(`${baseURL}/api/buffet/delete/${id}`);
+        
+    } catch (error) {
+        throw new Error("Failed to delete reservation. Please try again.");
+        
+    }
+};
+
+// update reservation
+export const updateBuffetReservation = async (buffetreservation) => {
+    try {
+        await axios.put(`${baseURL}/api/buffet/update/${buffetreservation._id}`, buffetreservation);
+    } catch (error) {
+        console.error('Error updating reservation:', error);
+        throw new Error('Failed to update reservation. Please check your input and try again.');
     }
 };

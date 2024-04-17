@@ -40,6 +40,8 @@ const BuffetReservations = () => {
         },
     ];
     
+    const [searchTerm, setSearchTerm] = React.useState("");
+
     const {data, isLoading, isError} = useQuery("buffet", getAllBuffetReservations);
     
 
@@ -49,6 +51,13 @@ const BuffetReservations = () => {
         <div className="w-[80%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
         rounded-lg relative">
             <h1 className="p-6 text-center flex-1 text-2xl font-bold text-gray-700">Buffet Reservations</h1>
+
+            <input
+              type="text"
+              placeholder="Search..."
+              value={searchTerm}
+              onChange={(event) => setSearchTerm(event.target.value)}
+            />
 
         <div className="text-right mr-10">
             <button
@@ -65,7 +74,13 @@ const BuffetReservations = () => {
                 {data?.length === 0 ? (
                 <p> No Reservations are available !</p>
                 ) : (
-                data?.map((buffetreservation, i) => <BuffetReservation buffetreservation={buffetreservation} key={i}/>)
+                data
+                  .filter((reservation) =>
+                    reservation.fristname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    reservation.lastname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                    reservation.email.toLowerCase().includes(searchTerm.toLowerCase())
+                  )
+                  .map((filteredReservation, i) => <BuffetReservation buffetreservation={filteredReservation} key={i}/>)
                 )}
             </div>
 

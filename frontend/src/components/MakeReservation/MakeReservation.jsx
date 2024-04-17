@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useMutation } from "react-query";
-import { makeBuffetReservation } from "../../fetchBuffetReservation/FetchBuffetReservation";
+import { useMutation, useQueryClient } from "react-query";
+import { makeBuffetReservation, updateBuffetReservation } from "../../fetchBuffetReservation/FetchBuffetReservation";
+import { BuffetContextShare } from "../../context/Context";
+
 
 // Initialize counter outside of the component so it doesn't reset on every render
 let counter = 1;
@@ -9,6 +11,9 @@ let counter = 1;
 const MakeReservation = () => {
 
     const navigate = useNavigate();
+    const {setUpdate, update} = BuffetContextShare();
+
+    console.log(update);
 
     const [buffetReservation, setBuffetReservation] = useState({
         fristname: "",
@@ -21,9 +26,33 @@ const MakeReservation = () => {
         price: "",
     }); // Default value is an empty array 
 
+    useEffect(() => {
+        if(update){
+            setBuffetReservation({
+                ...buffetReservation,
+                fristname: update.fristname,
+                lastname: update.lastname,
+                mobile: update.mobile,
+                email: update.email,
+                buffetType: update.buffetType,
+                date: update.date.split("T")[0],
+                quantity: update.quantity,
+                price: update.price,
+                _id: update._id,
+            });
+        }
+    }, []);
+
     //make new reservation
+    const queryClient = useQueryClient();
     const {mutate , isLoading, isError} = useMutation(makeBuffetReservation,{
-        onSuccess : (data) => console.log(data),
+        onSuccess : () => queryClient.invalidateQueries("buffet"),
+    });
+
+    //update reservation
+
+    const {mutate:updateBuffetReservations , isLoading:updateLoading, isError:updateError} = useMutation(updateBuffetReservation,{
+        onSuccess : () => queryClient.invalidateQueries("buffet"),
     });
 
     const [quantity, setQuantity] = useState(0);
@@ -41,11 +70,16 @@ const MakeReservation = () => {
         e.preventDefault();
         // Generate reservationID
         //const reservationID = String(counter++).padStart(4, '0');
-
         // Include reservationID in the data sent to the server
-        mutate({ buffetReservation });
-        navigate("/");
-        console.log(buffetReservation);
+        //console.log(buffetReservation);
+        if(update){
+            updateBuffetReservations(buffetReservation);
+            navigate("/");
+        }
+        else{
+            mutate(buffetReservation);
+            navigate("/");
+        }
 
     };
 
@@ -58,7 +92,7 @@ const MakeReservation = () => {
             <div className="flex items-center justify-center h-screen">
                 <form onSubmit={handleSubmit} className="border border-gray-400 w-[30rem] p-5 flex flex-col gap-5 rounded-md shadow-md shadow-gray-400 m-5 lg:-0">
 
-                    <h1 className="text-center text-xl font-medium">Reservation Form</h1>
+                    <h1 className="text-center text-xl font-medium">{update ? "Update Reservation" : "Reservation Form"}</h1>
 
                     <input value={buffetReservation.fristname} onChange={(e) => setBuffetReservation({...buffetReservation,fristname:e.target.value})} className="input" type="text" placeholder="First Name" />
                     <input value={buffetReservation.lastname} onChange={(e) => setBuffetReservation({...buffetReservation,lastname:e.target.value})} className="input" type="text" placeholder="Last Name" />
@@ -94,10 +128,10 @@ const MakeReservation = () => {
                             setPrice(newPrice);
                             setBuffetReservation({...buffetReservation, quantity: newQuantity, price: newPrice});
                         }} />
-                     </div>
+                    </div>
                     <p className="input">Total Amount = {price}</p>
                                     
-                    <button type="submit" className="button">Make Reservation</button>
+                    <button type="submit" className="button">{update ? "Update" : "Submit"}</button>
                 </form>
             </div>
         </section>
