@@ -4,6 +4,7 @@ import './App.css';
 import AddRooms from './componenet/addrooms';
 import Header from './componenet/header';
 import Reportdetails from './componenet/report';
+import RoomsDetails from './componenet/roomdetails';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
   <Route path="/" element={<AddRooms/>}></Route>
 
   <Route path="/report" element={<Reportdetails/>}></Route>
+
+  <Route path="/roomsdetails" element={<RoomsDetails/>}></Route>
     
     
   </Routes>  

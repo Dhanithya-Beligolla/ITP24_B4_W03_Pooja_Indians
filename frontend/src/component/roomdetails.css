@@ -1,0 +1,54 @@
+.showrooms {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 10%;
+  }
+  
+  .showrooms table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .showrooms th,
+  .showrooms td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .showrooms th {
+    background-color: #f2f2f2;
+  }
+  
+  .showrooms tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .showrooms tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  
+  .showrooms a {
+    text-decoration: none;
+    color: #007bff;
+    margin-right: 10px;
+  }
+  
+  .showrooms a:hover {
+    text-decoration: underline;
+  }
+  
+  .showrooms button {
+    padding: 5px 10px;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .showrooms button:hover {
+    background-color: #c82333;
+  }
+  
