@@ -8,6 +8,7 @@ import RoomsDetails from './componenet/roomdetails';
 import UpdateRooms from './componenet/updaterooms';
 
 
+import AddAccount from './register_component/adduser';
 import Login from './login_component/login';
 
 function App() {
@@ -28,7 +29,7 @@ function App() {
 
 
 
-
+  <Route path="/addaccount" element={<AddAccount/>}></Route>
 
 
 
