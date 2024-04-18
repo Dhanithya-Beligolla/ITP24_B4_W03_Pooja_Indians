@@ -7,6 +7,9 @@ import Reportdetails from './componenet/report';
 import RoomsDetails from './componenet/roomdetails';
 import UpdateRooms from './componenet/updaterooms';
 
+
+import Login from './login_component/login';
+
 function App() {
   return (
     <div className="App">
@@ -21,6 +24,16 @@ function App() {
   <Route path="/roomsdetails" element={<RoomsDetails/>}></Route>
 
   <Route path="/roomsupdate/:id" element={<UpdateRooms/>}></Route>
+
+
+
+
+
+
+
+
+
+  <Route path="/login" element={<Login/>}></Route>
     
     
   </Routes>  
