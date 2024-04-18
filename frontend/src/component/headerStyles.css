@@ -1,0 +1,75 @@
+/* headerStyle.css */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #a14acd;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #fff;
+  }
+  
+  .lnk {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+  }
+  
+  .lnk.active {
+    color: #f7f7f9;
+    padding-left: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .lnk:hover {
+    color: #000;
+  }
+  
+  .srchform {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 240%;
+  }
+  
+  .srchinput {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  .srchbtn {
+    background-color: #a14acd;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-left: 10px;
+  }
+  
+  .srchbtn:hover {
+    background-color: #0bea1e;
+  }
+  ul{
+    list-style: none;
+    display: flex;
+    padding: 10px;
+  }
