@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
 import AddRooms from './componenet/addrooms';
+import Header from './componenet/header';
 
 function App() {
   return (
