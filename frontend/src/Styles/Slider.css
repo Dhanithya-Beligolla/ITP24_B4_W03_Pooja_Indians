@@ -1,0 +1,28 @@
+.loader span {
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+    line-height: 55px;
+    transition: all 0.5s;
+    letter-spacing: 0.4em;
+}
+
+@keyframes blur {
+
+    25%,
+    100% {
+        filter: blur(0);
+    }
+
+    75% {
+        filter: blur(1px);
+    }
+}
+
+.slide-container {
+    /* background-color: rgb(192, 202, 199); */
+    border: 1px solid black;
+    background-image: url('../Images/smart1.png');
+    /* background: radial-gradient(circle at top, #82d8e9 , #81e9dd) */
+
+}

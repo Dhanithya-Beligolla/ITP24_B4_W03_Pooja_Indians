@@ -1,0 +1,19 @@
+.btnLink{
+    font-weight: bold;
+    color: black; 
+    font-size: 17px;
+}
+
+.btnLink:hover{
+    color:rgb(255, 255, 255);
+}
+
+.navLink1{
+    font-weight: bold;
+    color: black; 
+    font-size: 17px;
+    border-right: 1px solid black;
+}
+.navLink1:hover{
+    color:rgb(255, 255, 255);
+}
