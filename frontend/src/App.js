@@ -9,6 +9,7 @@ import UpdateRooms from './componenet/updaterooms';
 
 
 import AddAccount from './register_component/adduser';
+import UpdateUser from './register_component/updateuser';
 import Login from './login_component/login';
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
 
   <Route path="/addaccount" element={<AddAccount/>}></Route>
+  <Route path="/updateregitser/:id" element={<UpdateUser/>}></Route>
 
 
 
