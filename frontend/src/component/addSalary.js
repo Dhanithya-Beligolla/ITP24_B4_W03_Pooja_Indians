@@ -85,7 +85,7 @@ function AddSalary(){
               type="text"              
               id="ot"
               name="ot"
-              placeholder="Enter OT hours"
+              placeholder="Enter OT Hours"
               onChange={handleonchange}
             />
             <br/><br/>
