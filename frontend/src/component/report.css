@@ -1,38 +1,37 @@
 .report-rooms {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .report-rooms h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-  }
-  
-  .report-rooms p {
-    margin-bottom: 10px;
-  }
-  
-  .report-rooms table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .report-rooms th,
-  .repoart-rooms td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .report-rooms th {
-    background-color: #f2f2f2;
-  }
-  
-  .report-rooms tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
-  .report-rooms tbody tr:hover {
-    background-color: #f2f2f2;
-  }
-  
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.report-rooms h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.report-rooms p {
+  margin-bottom: 10px;
+}
+
+.report-rooms table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.report-rooms th,
+.repoart-rooms td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.report-rooms th {
+  background-color: #f2f2f2;
+}
+
+.report-rooms tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.report-rooms tbody tr:hover {
+  background-color: #f2f2f2;
+}

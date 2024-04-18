@@ -53,14 +53,16 @@ body {
 }
 
 .add-user button:hover {
-    background-color:black;
-    color: white; /* Lighter shade of pink */
+    background-color: black;
+    color: white;
+    /* Lighter shade of pink */
 }
-#btn{
-    color:white;
-    background-color:#ff69b4;
+
+#btn {
+    color: white;
+    background-color: #ff69b4;
     width: 25%;
     font-size: 20px;
-    
-    
+
+
 }
