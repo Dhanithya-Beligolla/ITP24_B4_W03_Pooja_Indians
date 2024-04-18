@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Users from './Users';
 import SkillsBar from './components/SkillsBar';
+import AddPosters from './components/AddPosters/AddPosters';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,6 +15,7 @@ root.render(
       <Route path='/' element={<App />} />
       <Route path='/users' element={<Users />} />
       <Route path='/skillsBar' element={<SkillsBar />} />
+      <Route path='/AddPosters' element={<AddPosters />} />
     </Routes>
   </BrowserRouter>
 );
