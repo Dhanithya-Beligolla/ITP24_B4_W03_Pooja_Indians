@@ -129,35 +129,37 @@ const Users = () => {
                     />
                 )}
                 {activeTab === 1 && (
-                    <UsersTable
-                        rows={users}
-                        selectedUser={data =>{
-                            setSelectedUser(data);
-                            setIsEdit(true);
-                        }}
-                        deleteUser={data => window.confirm('Do you want to delete this application?') && deleteUser(data)}
-                    />
+                    <>
+                        <UsersTable
+                            rows={users}
+                            selectedUser={data =>{
+                                setSelectedUser(data);
+                                setIsEdit(true);
+                            }}
+                            deleteUser={data => window.confirm('Do you want to delete this application?') && deleteUser(data)}
+                        />
+                        <Grid item xs={12}>
+                            <Button
+                                sx={{
+                                    margin: 'auto',
+                                    marginBottom: '20px',
+                                    backgroundColor: '#3a7e5c',
+                                    color: '#ffffff',
+                                    marginLeft: '15px',
+                                    marginTop: '20px',
+                                    '&:hover': {
+                                        opacity: '0.7',
+                                        backgroundColor: '#34654d',
+                                    }
+                                }}
+                                onClick={() => navigate('/SkillsBar')}
+                            >
+                                States Bar
+                            </Button>
+                        </Grid>
+                    </>
                 )}
             </Box>
-            <Grid item xs={12}>
-                <Button
-                    sx={{
-                        margin: 'auto',
-                        marginBottom: '20px',
-                        backgroundColor: '#3a7e5c',
-                        color: '#ffffff',
-                        marginLeft: '15px',
-                        marginTop: '20px',
-                        '&:hover': {
-                            opacity: '0.7',
-                            backgroundColor: '#34654d',
-                        }
-                    }}
-                    onClick={() => navigate('/SkillsBar')}
-                >
-                    States Bar
-                </Button>
-            </Grid>
         </Grid>
     );
 }

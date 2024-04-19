@@ -1,6 +1,16 @@
-import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Button, Container, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
+import { useRef } from "react";
+import {useReactToPrint} from 'react-to-print';
 
 const UsersTable = ({ rows, selectedUser, deleteUser }) => {
+
+    const ComponentsRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => ComponentsRef.current,
+        DocumentTitele:"User Application Report",
+        onafterprint:()=>alert("User Application Report Download Successfully!"),
+    })
+
     return (
         <TableContainer 
             component={Paper} 
@@ -10,7 +20,9 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                 justifyContent: 'center', 
                 height: '100vh',
                 }}>
+                    
             <Table>
+                <Grid ref={ComponentsRef}>
                     <Container
                         sx={{
                             border: '1px solid #CBD5E0',
@@ -27,6 +39,16 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                             },
                         }}
                     >
+                        <Grid item xs={12}>
+                            <Typography 
+                                variant="h1" sx={{
+                                textAlign: 'center', 
+                                fontSize: '1.25rem', 
+                                fontWeight: '500', 
+                            }} 
+                            >Application Table
+                </Typography>
+            </Grid>
                 <TableHead>
                     <TableRow>
                         <TableCell>ID</TableCell>
@@ -78,6 +100,14 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                     }
                 </TableBody>
                 </Container>
+                </Grid>
+                <Grid>
+                    <Button
+                        onClick={handlePrint}
+                    >
+                        Download Report
+                    </Button>
+                </Grid>
             </Table>
         </TableContainer>
     );
