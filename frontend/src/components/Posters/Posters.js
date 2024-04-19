@@ -49,6 +49,8 @@ const Posters = () => {
             boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
             borderRadius: '0.5rem',
             position: 'relative',
+            display: 'flex',
+            flexDirection: 'column',
           }}
         >
             <Grid
@@ -76,6 +78,9 @@ const Posters = () => {
                         height: '40px',
                         width: '100px',
                         fontSize: '0.75rem',
+                        alignSelf: 'flex-end',
+                        marginBottom: '1rem',
+                        marginRight: '1rem',
                     }}
                     onClick={() => navigate('/AddPosters')}
                 >Add Vacancies</Button>
