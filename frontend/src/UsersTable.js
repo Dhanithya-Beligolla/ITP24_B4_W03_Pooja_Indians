@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import SearchBar from './components/searchbar/SearchBar';
 import { useReactToPrint } from 'react-to-print';
+import { LuDownload } from "react-icons/lu";
 
 const UsersTable = ({ rows, selectedUser, deleteUser }) => {
     const [filteredRows, setFilteredRows] = useState(rows);
@@ -77,6 +78,7 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                 <Button
                     onClick={handlePrint}
                 >
+                    <LuDownload />
                     Download Report
                 </Button>
             </Table>
