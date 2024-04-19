@@ -8,7 +8,7 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                 display: 'flex',
                 alignItems: 'center', 
                 justifyContent: 'center', 
-                height: '100vh', 
+                height: '100vh',
                 }}>
             <Table>
                     <Container
@@ -23,7 +23,7 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                             borderRadius: '0.375rem',
                             boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
                             '@media (min-width: 1024px)': {
-                              margin: '0', 
+                              margin: 'auto', 
                             },
                         }}
                     >
