@@ -120,7 +120,7 @@ const RegisterUser = () => {
         >
           <Title level={5}>Already have an account ? <span
             style={{
-              color: "lightblue",
+              color: "#fe7412",
               cursor: "pointer"
             }}
 

@@ -10,7 +10,7 @@ function NavLink() {
 
   const navigate = useNavigate()
   return (
-    <Navbar style={{ backgroundColor: '#00d8ff' }} expand="lg">
+    <Navbar style={{ backgroundColor: '#fe7412' }} expand="lg">
       <Container fluid style={{ marginLeft: '3%', marginRight: '3%' }}>
         <Navbar.Brand href="/">
           <img

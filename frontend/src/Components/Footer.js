@@ -17,7 +17,7 @@ function Footer() {
 
 
         <div style={{ backgroundColor: 'red', marginBottom: '0%' }} >
-            <Grid container style={{ height: '300px', backgroundColor: '#00d8ff', display: 'flex', justifyContent: 'center' }}
+            <Grid container style={{ height: '300px', backgroundColor: '#fe7412', display: 'flex', justifyContent: 'center' }}
             >
                 <Grid item xs={12} md={6} style={{ height: '100%', display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', paddingTop: '5px' }}>
                     <p style={{ color: 'white' }}>Pooja Indian's Restaurant</p>
