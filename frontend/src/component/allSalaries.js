@@ -36,14 +36,14 @@ const handledelete=async(id)=>{
 
 //Search Button
 const generateSearch = (e)=>{
-    getData(searchbtn)
+    filterdata(searchbtn)
 }
 
-const getData = (searchbtn)=>{
-    const getdata = salarylist.filter(salary=> 
-        salary.allowance.toLowerCase().includes(searchbtn.toLowerCase())
-        );
-        setsalarylist(getdata);
+const filterdata = (searchKey) => {
+    const filteredData = salarylist.filter(customer =>
+        customer && customer.basicSalary && customer.basicSalary.toLowerCase().includes(searchKey.toLowerCase())
+    );
+    setsalarylist(filteredData);
 }
 
 // Calculate net salary

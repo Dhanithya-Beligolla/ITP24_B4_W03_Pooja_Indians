@@ -9,7 +9,7 @@ app.use(express.json());
 const PORT=process.env.PORT||8040
 
 const dataschema=mongoose.Schema({
-    basicSalary:Number,
+    basicSalary:String,
     allowance:Number,
     ot:Number,
     bonus:Number,
