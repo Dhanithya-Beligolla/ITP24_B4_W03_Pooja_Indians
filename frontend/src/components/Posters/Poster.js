@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
@@ -47,9 +47,21 @@ const Poster = ({ poster }) => {
                     gap: '0.5rem', 
                   }}
             >
-                <button
+                <Button
+                    variant="contained"
+                    sx={{
+                        borderRadius: '5px',
+                        backgroundColor: '#317864',
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: '#75A99B',
+                        },
+                        height: '25px',
+                        minWidth: '40px',
+                        fontSize: '0.75rem',
+                    }}
                     onClick={() => navigate('/users')}
-                >Apply</button>
+                >Apply</Button>
             </Grid>
         </Grid>
     );
