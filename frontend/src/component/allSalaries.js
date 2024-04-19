@@ -41,7 +41,7 @@ const generateSearch = (e)=>{
 
 const getData = (searchbtn)=>{
     const getdata = salarylist.filter(salary=> 
-        salary.basicSalary.toLowerCase().includes(searchbtn.toLowerCase())
+        salary.allowance.toLowerCase().includes(searchbtn.toLowerCase())
         );
         setsalarylist(getdata);
 }
