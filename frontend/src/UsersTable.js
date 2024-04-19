@@ -19,8 +19,8 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
     const componentsRef = useRef();
     const handlePrint = useReactToPrint({
         content : () => componentsRef.current,
-        DocumentTitle: "Users Report",
-        onafterPrint: ()=>alert("Users Report Download Successfully!"),
+        documentTitle: "Users Report",
+        onAfterPrint: ()=>alert("Users Report Download Successfully!"),
     })
 
     return (
