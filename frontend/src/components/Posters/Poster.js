@@ -10,29 +10,29 @@ const Poster = ({ poster }) => {
     return (
         <Grid
             sx={{
-                width: '17rem', // w-[17rem]
-                boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)', // shadow-md shadow-gray-400
-                overflow: 'hidden', // overflow-hidden
-                borderRadius: '0.5rem', // rounded-lg
+                width: '17rem',
+                boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+                overflow: 'hidden',
+                borderRadius: '0.5rem',
             }}
         >
             <img
                 src={image} alt="posterImg"
                 style={{
-                    width: '100%', // w-full
-                    height: '12rem', // h-[12rem]
-                    objectFit: 'cover', // object-cover
+                    width: '100%', 
+                    height: '12rem', 
+                    objectFit: 'cover',
                 }}
             />
 
             
             <Grid
                 sx={{
-                    padding: '0.75rem', // p-3
-                    fontSize: '0.875rem', // text-sm
-                    display: 'flex', // flex
-                    flexDirection: 'column', // flex-col
-                    gap: '0.25rem', // gap-1
+                    padding: '0.75rem',
+                    fontSize: '0.875rem', 
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '0.25rem',
                   }}
             >
                 <p>Job Title: { title }</p>
@@ -40,11 +40,11 @@ const Poster = ({ poster }) => {
             </Grid>
             <Grid
                 sx={{
-                    padding: '0.75rem', // p-3
-                    display: 'flex', // flex
-                    alignItems: 'center', // items-center
-                    justifyContent: 'flex-end', // justify-end
-                    gap: '0.5rem', // gap-2
+                    padding: '0.75rem', 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end', 
+                    gap: '0.5rem', 
                   }}
             >
                 <button

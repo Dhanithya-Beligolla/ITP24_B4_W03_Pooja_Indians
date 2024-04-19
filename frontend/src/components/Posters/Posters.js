@@ -38,23 +38,23 @@ const Posters = () => {
     return (
         <Grid
         sx={{
-            width: '80%', // w-[80%]
-            margin: 'auto', // mx-auto
-            marginTop: '3rem', // my-[3rem]
-            border: '2px solid #E0E7FF', // border-2 border-blue-100
-            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)', // shadow-md shadow-gray-400
-            borderRadius: '0.5rem', // rounded-lg
-            position: 'relative', // relative
+            width: '80%',
+            margin: 'auto',
+            marginTop: '3rem',
+            border: '2px solid #E0E7FF',
+            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+            borderRadius: '0.5rem',
+            position: 'relative',
           }}
         >
             <Grid
                 sx={{
-                    padding: '1.5rem', // p-6
-                    textAlign: 'center', // text-center
-                    flex: '1', // flex-1
-                    fontSize: '1.75rem', // text-2xl
-                    fontWeight: 'bold', // font-bold
-                    color: '#4B5563', // text-gray-700
+                    padding: '1.5rem',
+                    textAlign: 'center',
+                    flex: '1', 
+                    fontSize: '1.75rem',
+                    fontWeight: 'bold',
+                    color: '#4B5563',
                   }}                  
             >   
             <h4>Available Job Vacancies</h4>
@@ -63,16 +63,16 @@ const Posters = () => {
             {/*map through our data*/}
             <Grid
                 sx={{
-                    padding: '1rem', // p-4
+                    padding: '1rem',
                     '@media (min-width: 1024px)': {
-                      padding: '1.75rem', // lg:p-7
+                      padding: '1.75rem',
                     },
-                    display: 'flex', // flex
-                    alignItems: 'center', // items-center
-                    flexWrap: 'wrap', // flex-wrap
-                    gap: '1.25rem', // gap-5
-                    width: 'calc(95% - 100px)', // w-[95%]
-                    margin: 'auto', // mx-auto
+                    display: 'flex',
+                    alignItems: 'center',
+                    flexWrap: 'wrap',
+                    gap: '1.25rem', 
+                    width: 'calc(95% - 100px)',
+                    margin: 'auto', 
                   }}                  
             >
                 {data1.map((poster, i) => (
