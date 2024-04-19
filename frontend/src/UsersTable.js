@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { Button, Grid, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from "@mui/material";
 import SearchBar from './components/searchbar/SearchBar';
+import { useReactToPrint } from 'react-to-print';
 
 const UsersTable = ({ rows, selectedUser, deleteUser }) => {
     const [filteredRows, setFilteredRows] = useState(rows);
@@ -15,8 +16,16 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
         setFilteredRows(prevRows => prevRows.filter(filteredRow => filteredRow.id !== row.id));
     };
 
+    const componentsRef = useRef();
+    const handlePrint = useReactToPrint({
+        content : () => componentsRef.current,
+        DocumentTitle: "Users Report",
+        onafterPrint: ()=>alert("Users Report Download Successfully!"),
+    })
+
     return (
         <TableContainer component={Paper}>
+            <Grid ref={componentsRef}>
             <Grid container justifyContent="center">
                 <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '1.25rem', fontWeight: '500' }}>
                     Application Table
@@ -65,7 +74,13 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                         )
                     }
                 </TableBody>
+                <Button
+                    onClick={handlePrint}
+                >
+                    Download Report
+                </Button>
             </Table>
+            </Grid>
         </TableContainer>
     );
 }
