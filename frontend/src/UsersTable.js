@@ -12,7 +12,6 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
 
     const handleDelete = (row) => {
         deleteUser(row);
-        // Remove the deleted row from the filteredRows state
         setFilteredRows(prevRows => prevRows.filter(filteredRow => filteredRow.id !== row.id));
     };
 
