@@ -1,11 +1,9 @@
 import { Button, Grid } from '@mui/material';
-import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 const Poster = ({ poster }) => {
     const { title, description, image } = poster;
 
-    const navigate = useNavigate();
 
     return (
         <Grid
@@ -60,7 +58,6 @@ const Poster = ({ poster }) => {
                         minWidth: '40px',
                         fontSize: '0.75rem',
                     }}
-                    onClick={() => navigate('/users')}
                 >Apply</Button>
             </Grid>
         </Grid>

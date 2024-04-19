@@ -1,8 +1,8 @@
 import React from 'react'
-import Posters from './components/Posters/Posters'
+import UserPosters from './components/UserPosters/UserPosters'
 
 const App = () => {
-  return <Posters />
+  return <UserPosters />
 }
 
 export default App
