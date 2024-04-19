@@ -1,0 +1,42 @@
+.header.header {
+    background: white;
+    padding: 0;
+    border-bottom: 1px solid #e72929;
+  }
+  
+  .header a {
+    color: #af1313;
+  }
+  
+  .header a:hover {
+    background: #e72929;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .logo{
+    font-weight: bold;
+    padding: 1rem;
+
+  }
+  .header ul a{
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+  }
+.menu_container{
+    position: relative;
+}
+
+.menu{
+    position: absolute;
+    z-index: 1;
+    background-color: whitesmoke;
+    display: none;
+}
