@@ -91,13 +91,26 @@ const Users = () => {
 
     return (
         <Grid
-            sx={{
-                backgroundColor: '#88D3C3',
-            }}
+        sx={{
+            backgroundImage: 'url("https://www.t-systems.com/resource/image/608558/ratio3x2/1440/960/d871eba91b7383568cee4c1ac72228cd/4630D1CE0AE81DC8FDA980245DA58EE5/im-application-management-services.jpg")',
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            minHeight: '100vh',
+        }}
         >
             <Tabs value={activeTab} onChange={handleChangeTab}>
-                <Tab label="Form" />
-                <Tab label="Application Table" />
+                <Tab label="Form"
+                    sx={{ 
+                        color: '#FFFFFF',
+                        fontWeight: 'bold',
+                    }}
+                />
+                <Tab label="Application Table"
+                    sx={{ 
+                        color: '#FFFFFF', 
+                        fontWeight: 'bold',
+                    }}
+                />
             </Tabs>
             <Box
                 sx={{
