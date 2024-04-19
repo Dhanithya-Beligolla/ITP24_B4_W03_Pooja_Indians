@@ -1,5 +1,7 @@
 import { Button, Grid } from '@mui/material';
 import React from 'react';
+import { FiEdit } from "react-icons/fi";
+import { RiDeleteBin5Line } from "react-icons/ri";
 
 const Poster = ({ poster }) => {
     const { title, description, image } = poster;
@@ -58,7 +60,7 @@ const Poster = ({ poster }) => {
                         minWidth: '40px',
                         fontSize: '0.75rem',
                     }}
-                >Edit</Button>
+                ><FiEdit /></Button>
                 <Button
                     variant="contained"
                     sx={{
@@ -72,7 +74,7 @@ const Poster = ({ poster }) => {
                         minWidth: '40px',
                         fontSize: '0.75rem',
                     }}
-                >Delete</Button>
+                ><RiDeleteBin5Line /></Button>
             </Grid>
         </Grid>
     );
