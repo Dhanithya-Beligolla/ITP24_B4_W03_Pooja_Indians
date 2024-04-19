@@ -103,8 +103,7 @@ const ReservationDetails = () => {
                         <div style={{textAlign: 'right'}} className="bill-value">{reservation.price}</div>
                     </div>
                 </div>
-            </div>
-            <div>
+                <div>
                 <PDFDownloadLink
                 document={<ReservationPDF reservation={reservation} />}
                     fileName="reservation.pdf"
@@ -127,7 +126,9 @@ const ReservationDetails = () => {
                         loading ? 'Loading document...' : 'Download receipt'
                     }
                 </PDFDownloadLink>
-            </div>           
+            </div>  
+            </div>
+         
         </div>
     );
 

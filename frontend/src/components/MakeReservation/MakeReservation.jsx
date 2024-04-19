@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { useMutation, useQueryClient } from "react-query";
 import { makeBuffetReservation, updateBuffetReservation } from "../../fetchBuffetReservation/FetchBuffetReservation";
 import { BuffetContextShare } from "../../context/Context";
+import backgroundImage from '../../assets/bgimage.jpg';// replace with the actual path to your image
 
-
+//
 // Initialize counter outside of the component so it doesn't reset on every render
 let counter = 1;
 
@@ -87,13 +88,25 @@ const MakeReservation = () => {
     };
 
     return (
-        <section>
+        <div style={{ position: 'relative' }}>
+        <div style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          filter: 'blur(8px)',
+          width: '100vw',
+          height: '100vh',
+          position: 'fixed',
+          zIndex: -1
+        }}></div>
+        <section >
             <button onClick={() => navigate(-1)} className="absolute top-[2rem] left-[4rem] button px-5 ext-sm">
                 Go Back
             </button>
 
             <div className="flex items-center justify-center h-screen">
-                <form onSubmit={handleSubmit} className="border border-gray-400 w-[30rem] p-5 flex flex-col gap-5 rounded-md shadow-md shadow-gray-400 m-5 lg:-0">
+            <form onSubmit={handleSubmit} style={{ backgroundColor: '#ffffff' }} className="border border-gray-400 w-[30rem] p-5 flex flex-col gap-5 rounded-md shadow-md shadow-gray-400 m-5 lg:-0">
 
                     <h1 className="text-center text-xl font-medium">{update ? "Update Reservation" : "Reservation Form"}</h1>
 
@@ -139,6 +152,7 @@ const MakeReservation = () => {
                 </form>
             </div>
         </section>
+        </div>
     );
 };
 

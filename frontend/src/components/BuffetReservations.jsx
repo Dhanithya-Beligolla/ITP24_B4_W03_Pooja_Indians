@@ -53,16 +53,16 @@ const BuffetReservations = () => {
         <div className="w-[100%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400 rounded-lg relative">
             <h1 className="p-6 text-center flex-1 text-2xl font-bold text-gray-700">Buffet Reservations</h1>
 
-            <div className="flex items-center w-[25%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400 rounded-lg relative">
-            <input
+            <div style={{ display: 'flex', justifyContent: 'center', marginTop: '3rem', marginBottom: '1.5rem' }} className="container">
+            <input 
+                    style={{ borderRadius: '10rem 0 0 10rem', border: 'none', height: '3rem', width: '20rem', backgroundColor: '#c7bebe86', padding: '1.2rem', fontSize: '1rem', fontWeight: '500', outline: 'none' }}
                     type="text"
                     placeholder="Search..."
                     value={searchInput}
                     onChange={(event) => setSearchInput(event.target.value)}
-                    className="mr-2" // Add some margin to the right of the input
-                    style={{ flex: "1" }}
+                    
                 />
-                <button onClick={() => setSearchTerm(searchInput)} style={{ backgroundColor: "lightblue", flex: "1",height:"100%", width:"10%" }}>
+                <button onClick={() => setSearchTerm(searchInput)} style={{ color: 'grey', height: '3rem', width: '5rem', fontSize: '1rem', borderRadius: '0 10rem 10rem 0', border: 'none', backgroundColor: '#87ceeb', color: 'white', opacity: '0.8', outline: 'none' }} >
                 Search
                 </button>
             </div>
