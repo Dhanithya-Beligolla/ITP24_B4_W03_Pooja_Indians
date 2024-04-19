@@ -51,7 +51,7 @@ const Poster = ({ poster }) => {
                     variant="contained"
                     sx={{
                         borderRadius: '5px',
-                        backgroundColor: '#317864',
+                        backgroundColor: '#34654d',
                         color: 'white',
                         '&:hover': {
                             backgroundColor: '#75A99B',
