@@ -26,10 +26,14 @@ function RoomsDetails() {
 
     // Function to delete item
     const handleDelete = async (id) => {
-        const data = await axios.delete('http://localhost:8030/delete/${id}');
-        if (data.data.success) {
-            getFetchData();
-            alert("Reservation item deleted successfully!");
+        try {
+            const data = await axios.delete(`http://localhost:8030/delete/${id}`);
+            if (data.data.success) {
+                getFetchData();
+                alert("Reservation item deleted successfully!");
+            }
+        } catch (err) {
+            alert(err);
         }
     };
 
@@ -69,7 +73,7 @@ function RoomsDetails() {
                             <td>{room.quentity_rooms}</td>
                             <td>{room.quentity_people}</td>
                             <td>
-                                <a href={'/roomsupdate/${room._id}'}>Edit Details</a>
+                                <a href={`/roomsupdate/${room._id}`}>Edit Details</a>
                                 <button onClick={() => handleDelete(room._id)}>Delete Item</button>
                             </td>
                         </tr>
@@ -80,4 +84,4 @@ function RoomsDetails() {
     );
 }
 
-export default RoomsDetails;
+export default RoomsDetails;
