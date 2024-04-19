@@ -1,0 +1,22 @@
+.star-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  
+  .star {
+    cursor: pointer;
+    font-size: 2rem;
+    color: gray;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition effect */
+  }
+  
+  .star:hover {
+    transform: scale(1.1); /* Increase size on hover */
+  }
+  
+  .star.selected {
+    color: gold;
+    transform: scale(1.3); /* Increase size when selected */
+  }
