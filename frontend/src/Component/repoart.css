@@ -1,0 +1,40 @@
+.repoart {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .repoart h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .repoart p {
+    margin-bottom: 10px;
+  }
+  
+  .repoart table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .repoart th,
+  .repoart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .repoart th {
+    background-color: #f2f2f2;
+  }
+  
+  .repoart tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .repoart tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  

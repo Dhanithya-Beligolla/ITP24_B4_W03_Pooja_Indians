@@ -1,0 +1,46 @@
+.add-order {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  
+    margin-top:10%;
+  }
+  .img{
+    position: absolute;
+    top:4%;
+    left:85%
+  }
+  .add-order form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-order label {
+    margin-bottom: 5px;
+  }
+  
+  .add-order input[type="text"],
+  .add-order input[type="date"] {
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .add-order button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .add-order button:hover {
+    background-color: #0056b3;
+  }
+  
