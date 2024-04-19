@@ -1,9 +1,32 @@
-import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
+import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 
 const UsersTable = ({ rows, selectedUser, deleteUser }) => {
     return (
-        <TableContainer component={Paper}>
-            <Table sx={{backgroundColor: '#f0f0f0'}}>
+        <TableContainer 
+            component={Paper} 
+            sx={{
+                display: 'flex',
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                height: '100vh', 
+                }}>
+            <Table>
+                    <Container
+                        sx={{
+                            border: '1px solid #CBD5E0',
+                            backgroundColor: '#f0f0f0',
+                            width: 'auto',
+                            padding: '1.25rem',
+                            display: 'flex',
+                            flexDirection: 'column', 
+                            gap: '1.25rem',
+                            borderRadius: '0.375rem',
+                            boxShadow: '0px 4px 14px rgba(0, 0, 0, 0.1)',
+                            '@media (min-width: 1024px)': {
+                              margin: '0', 
+                            },
+                        }}
+                    >
                 <TableHead>
                     <TableRow>
                         <TableCell>ID</TableCell>
@@ -46,12 +69,15 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                                 </TableCell>
                             </TableRow>
                         )) : (
-                            <TableRow sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                            <TableRow sx={{ 
+                                '&:last-child td, &:last-child th': { border: 0 } 
+                                }}>
                                 <TableCell component='th' scope="row">NO DATA</TableCell>
                             </TableRow>
                         )
                     }
                 </TableBody>
+                </Container>
             </Table>
         </TableContainer>
     );

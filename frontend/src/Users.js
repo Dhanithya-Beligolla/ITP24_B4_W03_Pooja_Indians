@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Box, Button, Grid } from "@mui/material";
+import { Box, Button, Grid, Tab, Tabs } from "@mui/material";
 import UserForm from "./UserForm";
 import UsersTable from "./UsersTable";
 import Axios from "axios";
@@ -12,10 +12,14 @@ const Users = () => {
     const [submitted, setSubmitted] = useState(false);
     const [selectedUser, setSelectedUser] = useState({});
     const [isEdit, setIsEdit] = useState(false);
-
+    const [activeTab, setActiveTab] = useState(0);
     useEffect(() => {
         getUsers();
     }, []);
+
+    const handleChangeTab = (event, newValue) => {
+        setActiveTab(newValue);
+    };
 
     const getUsers = () => {
         Axios.get('http://localhost:3001/api/users')
@@ -85,21 +89,24 @@ const Users = () => {
             });
     }
 
-    return(
+    return (
         <Grid
             sx={{
                 backgroundColor: '#88D3C3',
             }}
         >
-            <Grid>
+            <Tabs value={activeTab} onChange={handleChangeTab}>
+                <Tab label="Form" />
+                <Tab label="Application Table" />
+            </Tabs>
             <Box
                 sx={{
                     width: 'calc(100% - 100px)',
                     margin: 'auto',
                     marginTop: '0px',
                 }}
-        >
-                <Grid>
+            >
+                {activeTab === 0 && (
                     <UserForm
                         addUser={addUser}
                         updateUser={updateUser}
@@ -107,20 +114,18 @@ const Users = () => {
                         data={selectedUser}
                         isEdit={isEdit}
                     />
-                </Grid>
-                <Grid>
+                )}
+                {activeTab === 1 && (
                     <UsersTable
                         rows={users}
                         selectedUser={data =>{
                             setSelectedUser(data);
                             setIsEdit(true);
                         }}
-                        deleteUser={data => window.confirm('Do you want to delete this appication?') && deleteUser(data)}
+                        deleteUser={data => window.confirm('Do you want to delete this application?') && deleteUser(data)}
                     />
-                </Grid>
+                )}
             </Box>
-
-            </Grid>
             <Grid item xs={12}>
                 <Button
                     sx={{
@@ -128,7 +133,7 @@ const Users = () => {
                         marginBottom: '20px',
                         backgroundColor: '#3a7e5c',
                         color: '#ffffff',
-                        marginLeft: '15px', 
+                        marginLeft: '15px',
                         marginTop: '20px',
                         '&:hover': {
                             opacity: '0.7',
@@ -141,7 +146,6 @@ const Users = () => {
                 </Button>
             </Grid>
         </Grid>
-        
     );
 }
 
