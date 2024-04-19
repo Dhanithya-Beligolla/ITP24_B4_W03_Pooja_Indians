@@ -1,8 +1,12 @@
 import React from 'react'
 import Poster from './Poster';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const Posters = () => {
+
+    const navigate = useNavigate();
+
     const data1 = [
         {
             id: 1,
@@ -57,8 +61,24 @@ const Posters = () => {
                     color: '#4B5563',
                   }}                  
             >   
-            <h4>Available Job Vacancies</h4>
+            <h4>Job Vacancies Management</h4>
             </Grid>
+
+            <Button
+                    variant="contained"
+                    sx={{
+                        borderRadius: '5px',
+                        backgroundColor: '#2A606F',
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: '#90BDC9',
+                        },
+                        height: '40px',
+                        width: '100px',
+                        fontSize: '0.75rem',
+                    }}
+                    onClick={() => navigate('/AddPosters')}
+                >Add Vacancies</Button>
 
             {/*map through our data*/}
             <Grid

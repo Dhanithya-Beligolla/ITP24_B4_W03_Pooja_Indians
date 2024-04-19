@@ -58,7 +58,21 @@ const Poster = ({ poster }) => {
                         minWidth: '40px',
                         fontSize: '0.75rem',
                     }}
-                >Apply</Button>
+                >Edit</Button>
+                <Button
+                    variant="contained"
+                    sx={{
+                        borderRadius: '5px',
+                        backgroundColor: '#34654d',
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: '#75A99B',
+                        },
+                        height: '25px',
+                        minWidth: '40px',
+                        fontSize: '0.75rem',
+                    }}
+                >Delete</Button>
             </Grid>
         </Grid>
     );
