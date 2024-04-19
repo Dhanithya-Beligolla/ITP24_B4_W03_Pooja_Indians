@@ -1,8 +1,12 @@
 import { Grid, Typography } from '@mui/material'
 import React from 'react'
 import { TextField, Button, Container } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const AddPosters = () => {
+
+  const navigate = useNavigate();
+
   return (
     <Grid
     sx={{
@@ -13,6 +17,24 @@ const AddPosters = () => {
     }}
     >
       <Grid>
+      <Button
+                    variant="contained"
+                    sx={{
+                        borderRadius: '5px',
+                        backgroundColor: '#2A606F',
+                        color: 'white',
+                        '&:hover': {
+                            backgroundColor: '#90BDC9',
+                        },
+                        height: '40px',
+                        width: '100px',
+                        fontSize: '0.75rem',
+                        alignSelf: 'flex-end',
+                        marginBottom: '1rem',
+                        marginRight: '1rem',
+                    }}
+                    onClick={() => navigate('/Posters')}
+                >Vacancy Page</Button>
         <form>
             <Container sx={{
                       border: '1px solid #CBD5E0',
