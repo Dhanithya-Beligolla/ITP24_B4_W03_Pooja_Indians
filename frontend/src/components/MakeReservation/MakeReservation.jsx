@@ -15,6 +15,9 @@ const MakeReservation = () => {
 
     console.log(update);
 
+    const buffetTypes = ['Breakfast', 'Lunch', 'Hightea', 'Dinner']; // Buffet types
+    
+
     const [buffetReservation, setBuffetReservation] = useState({
         fristname: "",
         lastname: "",
@@ -56,14 +59,14 @@ const MakeReservation = () => {
     });
 
     const [quantity, setQuantity] = useState(0);
-    const [price, setPrice] = useState(0); // Default price for breakfast
+    const [price, setPrice] = useState(0); // Default price for Buffets
     const [buffetType, setBuffetType] = useState("");
 
     const buffetPrices = {
-        breakfast: 100,
-        lunch: 200,
-        dinner: 300,
-        hightea: 150
+        Breakfast: 100,
+        Lunch: 200,
+        Dinner: 300,
+        Hightea: 150
     };
 
     const handleSubmit = (e) => {
@@ -109,10 +112,11 @@ const MakeReservation = () => {
                             setBuffetReservation({...buffetReservation, buffetType: newBuffetType, price: newPrice});
                         }}>
                             <option value="">Choose one</option>
-                            <option value="breakfast">Breakfast</option>
-                            <option value="lunch">Lunch</option>
-                            <option value="dinner">Dinner</option>
-                            <option value="hightea">High Tea</option>
+                            {buffetTypes.map((type, index) => (
+                            <option key={index} value={type}>
+                                {type}
+                            </option>
+                            ))}
                         </select>
                     </div>
                     <div>

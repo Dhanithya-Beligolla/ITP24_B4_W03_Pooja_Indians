@@ -62,3 +62,9 @@ export const updateBuffet = async (buffet) => {
         throw new Error("Failed to update buffet. Please try again."); 
     }
 };
+
+//get buffet price
+export const fetchBuffetPrices = async () => {
+    const response = await axios.get('/api/buffet-prices');
+    return response.data;
+  };

@@ -5,6 +5,7 @@ import BuffetAdminPages from "./components/BuffetAdminPages";
 import Addbuffet from "./components/AddBuffet/Addbuffet";
 import AdminPanel from "./components/AdminPanel";
 import BuffetPages from "./components/BuffetPages";
+import ReservationDetails from "./components/ReservationDetails";
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <Route path="/add-buffet" element={<Addbuffet />} />
       <Route path="/admin-panel" element={<AdminPanel />} />
       <Route path="/buffet-page" element={<BuffetPages/>} />
-      
+      <Route path="/reservation/:id" element={<ReservationDetails />} /> 
     </Routes>
   );   
 };

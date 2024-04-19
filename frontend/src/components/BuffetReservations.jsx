@@ -62,7 +62,7 @@ const BuffetReservations = () => {
                     className="mr-2" // Add some margin to the right of the input
                     style={{ flex: "1" }}
                 />
-                <button onClick={() => setSearchTerm(searchInput)} style={{ backgroundColor: "lightblue", flex: "1",height:"100%" }}>
+                <button onClick={() => setSearchTerm(searchInput)} style={{ backgroundColor: "lightblue", flex: "1",height:"100%", width:"10%" }}>
                 Search
                 </button>
             </div>
@@ -82,7 +82,7 @@ const BuffetReservations = () => {
                 {data && data.length === 0 ? (
                 <p> No Reservations are available !</p>
                 ) : (
-                data && data
+                    data && data
                     .filter((reservation) =>
                         reservation.fristname.toLowerCase().includes(searchTerm.toLowerCase()) ||
                         reservation.lastname.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -92,7 +92,20 @@ const BuffetReservations = () => {
                         reservation.quantity.toString().includes(searchTerm) ||
                         reservation.price.toString().includes(searchTerm)
                     )
-                    .map((filteredReservation, i) => <BuffetReservation buffetreservation={filteredReservation} key={i}/>)
+                    .length === 0 ? (
+                        <p>No matching reservations found for the search term.</p>
+                    ) : (
+                        data && data
+                            .filter((reservation) =>
+                                reservation.fristname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                reservation.lastname.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                reservation.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                reservation.buffetType.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                reservation.date.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                reservation.quantity.toString().includes(searchTerm) ||
+                                reservation.price.toString().includes(searchTerm)
+                            )
+                            .map((filteredReservation, i) => <BuffetReservation buffetreservation={filteredReservation} key={i}/>))
                 )}
             </div>
 

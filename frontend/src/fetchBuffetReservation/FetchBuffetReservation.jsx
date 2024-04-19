@@ -19,6 +19,7 @@ export const makeBuffetReservation = async (data) => {
 
     try {
         const res = await axios.post(`${baseURL}/api/buffet/create`, data);
+        console.log(res.newReservation);
         return res.newReservation;
     } catch (error) {
         // Handle server error

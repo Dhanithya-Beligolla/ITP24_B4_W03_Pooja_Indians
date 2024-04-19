@@ -10,6 +10,8 @@ const Addbuffet = () => {
 
   console.log(update);
 
+  const buffetTypes = ['Breakfast', 'Lunch', 'High Tea', 'Dinner']; // Buffet types
+
   const [buffet, setBuffet] = useState({
     buffetType: "",
     buffetDescription: "",
@@ -65,7 +67,18 @@ const Addbuffet = () => {
       <div className="flex items-center justify-center h-screen">
         <form onSubmit={handleSubmit} className="border border-gray-400 w-[30rem] p-5 flex flex-col gap-5 rounded-md shadow-md shadow-gray-400 m-5 lg:-0">
           <h1 className="text-center text-xl font-medium">{update ? "Update Buffet" : "Add Buffets"}</h1>
-          <input value={buffet.buffetType} onChange={(e) => setBuffet({...buffet,buffetType:e.target.value})} className="input"  type="text" placeholder="Buffet Type" />
+          <select 
+            value={buffet.buffetType} 
+            onChange={(e) => setBuffet({...buffet, buffetType: e.target.value})}
+            className="input"
+          >
+            <option value="">Select Buffet Type</option>
+            {buffetTypes.map((type, index) => (
+              <option key={index} value={type}>
+                {type}
+              </option>
+            ))}
+          </select>
           <input value={buffet.buffetDescription} onChange={(e) => setBuffet({...buffet,buffetDescription:e.target.value})} className="input"  type="text" placeholder="Buffet Description" />
           <input value={buffet.buffetPrice} onChange={(e) => setBuffet({...buffet,buffetPrice:e.target.value})} className="input"  type="number" placeholder="Buffet Price" />
           <input value={buffet.specialOffers} onChange={(e) => setBuffet({...buffet,specialOffers:e.target.value})} className="input"  type="text" placeholder="Special Offers" />
