@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import axios from "axios"
 import './report.css'
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 function Reportdetails() {
     const [countlist, setcountlist] = useState([]);
@@ -25,11 +27,33 @@ function Reportdetails() {
 
 
 
-
-
-
+    const pdfRef = useRef();
+    
+    const downloadPDF = () => {
+        const input = pdfRef.current;
+        html2canvas(input).then((canvas) => {
+          const imgData = canvas.toDataURL('image/jpeg');
+          const pdf = new jsPDF('p', 'mm', 'a4', true);
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+    
+          const pdfHeight = pdf.internal.pageSize.getHeight();
+    
+          const imgWidth = canvas.width;
+    
+          const imgHeight = canvas.height;
+    
+          const ratio = Math.min(pdfWidth / imgWidth, pdfHeight / imgHeight);
+    
+          const imgX = (pdfWidth - imgWidth * ratio) / 2;
+    
+          const imgY = 30;
+          pdf.addImage(imgData, 'jpeg', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
+          pdf.save('Room Details.pdf');
+    
+        })
+      };
     return (
-        <div className='report-rooms'>
+        <div className='report-rooms' ref={pdfRef}>
             <h3>Total Rooms in Customeres needed </h3>
             {countlist !== null ? (
                 <p>Total Rooms: {countlist}
@@ -84,7 +108,9 @@ function Reportdetails() {
 
 
 
-
+            <div className='row text-center mt-5'>
+    <button className="btn btn-primary" onClick={downloadPDF} style={{ marginLeft: '-20px' }}>Download PDF</button>
+</div>
 
 
         </div>
