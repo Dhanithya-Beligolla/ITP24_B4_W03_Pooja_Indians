@@ -47,6 +47,7 @@ function AddPayment(){
         {paymentOptions.map((type,index) => (
             <option key={index} value={type}>{type}</option>
         ))}
+        
     </select><br></br>
     <lable>Amount :</lable>
     <input type="text" id="Amount" name="Amount" /><br></br>
@@ -54,10 +55,14 @@ function AddPayment(){
     <input type="text" id="number" name="number" /><br></br>
     <lable>Address:</lable>
     <input type="text" id="Address" name="Address" /><br></br> 
+    <lable>Email:</lable>
+    <input type="text" id="email" name="email" /><br></br>
     <lable>Date:</lable>
     <input type="date" id="date_p" name="date_p" /><br></br> 
-    <button>payment</button>
+    <button>Place Order</button>
+
     <button>Add Card Details</button>
+    
     </form><br></br> 
    
         </div>

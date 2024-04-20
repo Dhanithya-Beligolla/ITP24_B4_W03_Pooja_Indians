@@ -124,7 +124,7 @@ const handledelete= async(id)=>{
                             <td>
                               <a href={`/updateorder/${e1._id}`}>Edit Order</a>
                               <button onClick={()=>handledelete(e1._id)}>Delete Order</button>
-                              <a href="pay">Pay Now</a>
+                              <a href="pay">check Out</a>
                             </td>
                           </tr>
                       )
