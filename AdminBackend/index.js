@@ -6,6 +6,8 @@ const posterRouter = require("./routes/poster.js");
 const app = express();
 dotenv.config();
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
     res.status(200).json("this new is the main page of the api");
 });
