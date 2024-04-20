@@ -12,6 +12,7 @@ const dataschema=mongoose.Schema({
     fname:String,
     fid:String,
     ftitle:String,
+    femail:String,
     basicSalary:String,
     allowance:Number,
     ot:Number,

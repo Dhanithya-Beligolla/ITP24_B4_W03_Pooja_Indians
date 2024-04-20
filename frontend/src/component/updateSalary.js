@@ -9,6 +9,7 @@ function UpdateSalary() {
         fname:"",
         fid:"",
         ftitle:"",
+        femail:"",
         basicSalary:"",
         allowance:"",
         ot:"",
@@ -122,7 +123,25 @@ function UpdateSalary() {
               value={salarydata.ftitle}
               />
               <br></br>
-          
+            
+
+            <label for="bonus" className="form-label1">
+              E-Mail :
+            </label>
+            <br></br>
+            <input
+              type="email"              
+              id="femail"
+              name="femail"
+              placeholder="Enter the E-Mail"
+              onChange={handleInputChange}
+              value={salarydata.femail}
+              />
+
+
+
+
+
             <label for="basicSalary" className="form-label1">
               Basic Salary : 
             </label>

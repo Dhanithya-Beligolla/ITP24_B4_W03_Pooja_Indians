@@ -9,6 +9,7 @@ function AddSalary(){
         fname:"",
         fid:"",
         ftitle:"",
+        femail:"",
         basicSalary:"",
         allowance:"",
         ot:"",
@@ -84,6 +85,20 @@ function AddSalary(){
               placeholder="Enter the Job Title"
               onChange={handleonchange}
             /><br/><br/>
+
+            <label for="bonus" className="form-label1">
+              E-Mail:
+            </label>
+            <br></br>
+            <input
+              type="email"              
+              id="femail"
+              name="femail"
+              placeholder="Enter the E-Mail"
+              onChange={handleonchange}
+            /><br/><br/>
+
+
 
 
        
