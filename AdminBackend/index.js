@@ -5,6 +5,10 @@ const dotenv = require("dotenv");
 const app = express();
 dotenv.config();
 
+app.get("/", (req, res) => {
+    res.status(200).json("this new is the main page of the api");
+});
+
 app.listen(process.env.PORT, () => {
     console.log("App is running at port " + process.env.PORT);
 })
