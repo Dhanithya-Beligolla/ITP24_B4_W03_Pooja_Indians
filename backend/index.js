@@ -15,6 +15,7 @@ const PORT=process.env.PORT||8020
 
 const orderschema=mongoose.Schema({
     type:String,
+    quentity:String,
     extra:String,
     quentity:String,
     date:String,
@@ -99,7 +100,7 @@ app.get("/order/:id", async (req, res) => {
 const paymentchema=mongoose.Schema({
     type_p:String,
     number:String,
-  
+    number:String,
     date_p:String,
   
   
