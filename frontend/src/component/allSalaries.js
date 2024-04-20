@@ -84,7 +84,7 @@ const calculateNetSalary = (e1) => {
                         <tr>
                             <th>Name</th>
                             <th>ID</th>
-                            <th>JOb Title</th>
+                            <th>Job Title</th>
 
                         <th>Basic Salary</th>
                         <th>Allowance</th>

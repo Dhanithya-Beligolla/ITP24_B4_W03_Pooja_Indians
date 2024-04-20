@@ -11,6 +11,7 @@ const PORT=process.env.PORT||8040
 const dataschema=mongoose.Schema({
     fname:String,
     fid:String,
+    ftitle:String,
     basicSalary:String,
     allowance:Number,
     ot:Number,
