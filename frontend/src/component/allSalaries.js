@@ -84,6 +84,8 @@ const calculateNetSalary = (e1) => {
                         <tr>
                             <th>Name</th>
                             <th>ID</th>
+                            <th>JOb Title</th>
+
                         <th>Basic Salary</th>
                         <th>Allowance</th>
                         <th>OT Hours</th>
@@ -104,6 +106,7 @@ const calculateNetSalary = (e1) => {
                                     <tr> 
                                         <td>{e1.fname}</td>
                                         <td>{e1.fid}</td>
+                                        <td>{e1.ftitle}</td> 
                                       <td> {e1.basicSalary}</td> 
                                       <td> {e1.allowance}</td> 
                                       <td> {e1.ot}</td> 

@@ -8,6 +8,7 @@ function UpdateSalary() {
     const [salarydata,setsalarydata]=useState({
         fname:"",
         fid:"",
+        ftitle:"",
         basicSalary:"",
         allowance:"",
         ot:"",
@@ -93,7 +94,7 @@ function UpdateSalary() {
 
             />
 
-<br></br>
+             <br></br>
             <label for="bonus" className="form-label1">
               ID :
             </label>
@@ -107,6 +108,20 @@ function UpdateSalary() {
               value={salarydata.fid}
 
             />
+            <br></br>
+            <label for="bonus" className="form-label1">
+              Job Title :
+            </label>
+            <br></br>
+            <input
+              type="text"              
+              id="ftitle"
+              name="ftitle"
+              placeholder="Enter the Job Title"
+              onChange={handleInputChange}
+              value={salarydata.ftitle}
+              />
+              <br></br>
           
             <label for="basicSalary" className="form-label1">
               Basic Salary : 
@@ -202,7 +217,7 @@ function UpdateSalary() {
             <br/><br/><br></br>
 
 
-<label for="other" className="form-label1">
+            <label for="other" className="form-label1">
               Other Compensations :
             </label>
             <br></br>
