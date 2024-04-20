@@ -32,6 +32,17 @@ route.get("/:id", async(req, res) => {
     } catch (error) {
         res.status(500).json({status : "FAILED", error});
     }
+});
+
+//update poster 
+route.post("/update/:id", async(req, res) => {
+    const id = req.params.id;
+    try {
+        const updatePoster = await Poster.findByIdAndUpdate(id, req.body);
+        res.status(200).json({status : "SUCCESS", updatePoster });
+    } catch (error) {
+        res.status(500).json({status : "FAILED", error});
+    }
 })
 
 module.exports = route;
