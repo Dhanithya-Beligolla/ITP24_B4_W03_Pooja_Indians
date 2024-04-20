@@ -92,7 +92,7 @@ function AddSalary(){
             </label>
             <br></br>
             <input
-              type="text"
+              type="number"
               id="basicSalary"
               name="basicSalary"
               placeholder="Enter Basic Salary "
@@ -108,7 +108,7 @@ function AddSalary(){
             </label>
             <br></br>
             <input
-              type="text"              
+              type="number"              
               id="allowance"
               name="allowance"
               placeholder="Enter the Allowance"
@@ -122,7 +122,7 @@ function AddSalary(){
             </label>
             <br></br>
             <input
-              type="text"              
+              type="number"              
               id="ot"
               name="ot"
               placeholder="Enter OT Hours"
@@ -136,7 +136,7 @@ function AddSalary(){
             </label>
             <br></br>
             <input
-              type="text"              
+              type="number"              
               id="bonus"
               name="bonus"
               placeholder="Enter the Bonus Added"
@@ -152,7 +152,7 @@ function AddSalary(){
             </label>
             <br></br>
             <input
-              type="text"              
+              type="number"              
               id="deductionTax"
               name="deductionTax"
               placeholder="Enter the Taxes"
@@ -166,7 +166,7 @@ function AddSalary(){
             </label>
             <br></br>
             <input
-              type="text"              
+              type="number"              
               id="deductionOther"
               name="deductionOther"
               placeholder="Enter Other Deductions"
@@ -180,7 +180,7 @@ function AddSalary(){
             </label>
             <br></br>
             <input
-              type="text"
+              type="number"
               id="other"
               name="other"
               placeholder="Enter Other Compensations"
