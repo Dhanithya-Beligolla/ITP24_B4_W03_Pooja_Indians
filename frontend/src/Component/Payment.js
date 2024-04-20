@@ -61,7 +61,7 @@ function AddPayment(){
     <input type="text" id="email" name="email"onChange={handleonchange} /><br></br>
     <lable>Date:</lable>
     <input type="date" id="date_p" name="date_p"onChange={handleonchange} /><br></br> 
-    <button>Add Payment</button>
+    <button>Payment</button>
 
     </form><br></br> 
    <a href="repoart">check out</a>
