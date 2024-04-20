@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState,useRef } from 'react'
 import axios from "axios"
 import './repoart.css'
+import {useReactToPrint} from 'react-to-print';
 
 function Repoart(){
     const [countlist,setcountlist]=useState([]);
@@ -23,8 +24,13 @@ useEffect(()=>{
     getfetchdata()   
 },[])
 
-
-
+const ComponentsRef=useRef();
+    const handlePrint=useReactToPrint({
+        content:()=>ComponentsRef.current,
+        DocumentTitle:"Complains report",
+        onAfterPrint:()=>alert("Complain report download successfully!")
+        
+    });
 
 
     
@@ -50,7 +56,7 @@ return(
     
 
                   
-                         <table>
+                         <table ref={ComponentsRef}>
                             <tr>
                             <th>Basic Salary</th>
                             <th>  Increasing Basic salary According to Allowance </th>
@@ -84,9 +90,9 @@ paylist.map((e)=>{
                             </tbody>
                         </table>
                         
+         <button onClick={handlePrint} >Download pdf</button>
             
-              
-
+       
                      
                     
                 
