@@ -13,7 +13,7 @@ import AddAccount from './register_component/adduser';
 import Registerdetails from './register_component/userdetails';
 import UpdateUser from './register_component/updateuser';
 import Login from './login_component/login';
-import Homepage from './component/Homepage';
+
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
 
 
 
-          <Route path="/Home" element={<Homepage />}></Route>
+          
 
           <Route path="/addaccount" element={<AddAccount />}></Route>
           <Route path="/registerdetails" element={<Registerdetails />}></Route>

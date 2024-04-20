@@ -53,7 +53,7 @@ function Login() {
             <img className="imglogin" src={logo} alt="Logo" width="35%"></img>
             <form onSubmit={handleSubmit}>
                 <lable> Email:</lable>
-                <input type="text" id="email" name="email" onChange={handleOnChange} /><br></br>
+                <input type="email" id="email" name="email" onChange={handleOnChange} /><br></br>
                 <lable>Password:</lable>
                 <input type="text" id="password" name="password" onChange={handleOnChange} /><br></br>
 

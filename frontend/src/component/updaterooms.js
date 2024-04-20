@@ -76,15 +76,15 @@ function UpdateRooms() {
       <lable>Name:</lable>
       <input type="text" id="name" name="name" onChange={handleInputChange} value={updaterooms?.name} /><br></br>
       <lable>Phone Number:</lable>
-      <input type="text" id="phone" name="phone" onChange={handleInputChange} value={updaterooms?.phone} /><br></br>
+      <input type="number" id="phone" name="phone" onChange={handleInputChange} value={updaterooms?.phone} /><br></br>
       <lable>Email:</lable>
-      <input type="text" id="email" name="email" onChange={handleInputChange} value={updaterooms?.email} /><br></br>
+      <input type="email" id="email" name="email" onChange={handleInputChange} value={updaterooms?.email} /><br></br>
       <lable>Date:</lable>
       <input type="date" id="date" name="date" onChange={handleInputChange} value={updaterooms?.date} /><br></br>
       <lable>Quentity:</lable>
-      <input type="text" id="quentity_rooms" name="quentity_rooms" onChange={handleInputChange} value={updaterooms?.quentity_rooms} /><br></br>
+      <input type="number" id="quentity_rooms" name="quentity_rooms" onChange={handleInputChange} value={updaterooms?.quentity_rooms} /><br></br>
       <lable>Number of Guests:</lable>
-      <input type="text" id="quentity_people" name="quentity_people" onChange={handleInputChange} value={updaterooms?.quentity_people} /><br></br>
+      <input type="number" id="quentity_people" name="quentity_people" onChange={handleInputChange} value={updaterooms?.quentity_people} /><br></br>
 
 
 

@@ -73,7 +73,7 @@ function AddAccount() {
         <lable>Last Name:</lable>
         <input type="text" id="lname" name="lname" value={user.lname} onChange={handleonchange} /><br></br>
         <lable>Email Address:</lable>
-        <input type="text" id="email" name="email" value={user.email} onChange={handleonchange} /><br></br>
+        <input type="email" id="email" name="email" value={user.email} onChange={handleonchange} /><br></br>
         {errors.email && <span style={{ color: 'red' }}>{errors.email}</span>}<br />
         <lable>Password:</lable>
         <input type="text" id="password" name="password" value={user.password} onChange={handleonchange} /><br></br>

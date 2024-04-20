@@ -78,7 +78,7 @@ function UpdateUser() {
       <lable>Last Name:</lable>
       <input type="text" id="lname" name="lname" onChange={handleInputChange} value={updatediscount?.lname} /><br></br>
       <lable>Email Address:</lable>
-      <input type="text" id="email" name="email" onChange={handleInputChange} value={updatediscount?.email} /><br></br>
+      <input type="email" id="email" name="email" onChange={handleInputChange} value={updatediscount?.email} /><br></br>
       <lable>Password:</lable>
       <input type="text" id="password" name="password" onChange={handleInputChange} value={updatediscount?.password} /><br></br>
 
