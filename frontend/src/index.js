@@ -8,6 +8,7 @@ import Users from './Users';
 import SkillsBar from './components/SkillsBar';
 import AddPosters from './components/AddPosters/AddPosters';
 import Posters from './components/Posters/Posters';
+import AdminSkillsBar from './components/AdminSkillsBar';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
       <Route path='/skillsBar' element={<SkillsBar />} />
       <Route path='/Posters' element={<Posters />} />
       <Route path='/AddPosters' element={<AddPosters />} />
+      <Route path='/AdminSkillsBar' element={<AdminSkillsBar />} />
     </Routes>
   </BrowserRouter>
 );
