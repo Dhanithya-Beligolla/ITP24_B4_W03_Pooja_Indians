@@ -6,8 +6,9 @@ import logo from './134-1344280_add-items-to-cart-minimalist-shopping-cart.jpg'
 function AddOrder(){
     const [order,setorder]=useState({
         type:"",
-        extra:"",
         quentity:"",
+        extra:"",
+        subquentity:"",
         date:"",
     })
 
@@ -40,14 +41,17 @@ function AddOrder(){
 <h2>Order Place</h2>
     <form onSubmit={handlesubmit}>
     <lable>Order Items:</lable>
-    <input type="text" id="type" name="type" onChange={handleonchange}/><br></br>
-    <lable>Another Sub Items :</lable>
     <input type="text" id="extra" name="extra" onChange={handleonchange}/><br></br>
-    <lable>Enter Quentity:</lable>
+    <lable>Quentity:</lable>
+    <input type="number" id="quentity" name="quentity" onChange={handleonchange}/>
+   <br></br> 
+    <lable>Sub Items :</lable>
+    <input type="text" id="extra" name="extra" onChange={handleonchange}/><br></br>
+    <lable>Sub Quentity:</lable>
     <input type="number" id="quentity" name="quentity" onChange={handleonchange}/>
    <br></br> 
     <lable>Date</lable>
-    <input type="date" id="date" name="date" onChange={handleonchange}/><br></br> 
+    <input type="date" id="date" name="date" onChange={handleonchange}/><br></br>
     <button>Add to cart</button>
     </form><br></br> 
    

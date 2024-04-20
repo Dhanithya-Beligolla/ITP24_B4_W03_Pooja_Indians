@@ -98,8 +98,9 @@ const handledelete= async(id)=>{
               
               <tr>
               <th>Order Items</th>
-              <th>Order Sub Type</th>
-              <th>Order Quentity</th>
+              <th>Quentity</th>
+              <th>Sub Items</th>
+              <th>Sub Quentity</th>
               <th>Date</th>
               <th>Action</th>
              
@@ -113,9 +114,11 @@ const handledelete= async(id)=>{
                       return(
                           <tr> 
                             <td> {e1.type}</td> 
+                            <td> {e1.Quentity}</td>
                             <td> {e1.extra}</td> 
                             <td> {e1.quentity}</td> 
-                            <td> {e1.date}</td> 
+                            <td> {e1.date}</td>
+                           
                          
                            
                             <td>

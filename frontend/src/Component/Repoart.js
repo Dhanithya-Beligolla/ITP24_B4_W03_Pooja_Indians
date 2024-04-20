@@ -55,6 +55,7 @@ return(
                             <th>Order Types</th>
               <th>Order Sub Type</th>
               <th>Order Quentity</th>
+             
             
              
                             </tr>
@@ -72,6 +73,7 @@ customerlist.map((e)=>{
                                 <td>
                                 {e.quentity}
                                 </td>
+                                
                                
                                
                             </tr>
