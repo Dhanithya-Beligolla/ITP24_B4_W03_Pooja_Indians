@@ -32,7 +32,7 @@ function AddPayment(){
          
      
     }
-    const paymentOptions = ['a','b','c'];
+    const paymentOptions = ['COD','Cash','Card'];
 
 
     return(
@@ -49,7 +49,7 @@ function AddPayment(){
     </select><br></br>
     <lable>Amount :</lable>
     <input type="text" id="Amount" name="Amount" /><br></br>
-    <lable>Number :</lable>
+    <lable>Phone Number :</lable>
     <input type="text" id="number" name="number" /><br></br>
     
 

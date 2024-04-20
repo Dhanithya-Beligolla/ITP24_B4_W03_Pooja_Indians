@@ -32,22 +32,23 @@ function AddOrder(){
          
      
     }
-
+    
 
     return(
         <div className="add-order">
            <a className='img' href="/orderdetails"> <img src={logo} alt='Logo' width="130px"></img></a>
 <h2>Order Place</h2>
     <form onSubmit={handlesubmit}>
-    <lable>Order Type:</lable>
+    <lable>Order Items:</lable>
     <input type="text" id="type" name="type" onChange={handleonchange}/><br></br>
     <lable>Another Sub Items :</lable>
     <input type="text" id="extra" name="extra" onChange={handleonchange}/><br></br>
     <lable>Enter Quentity:</lable>
-    <input type="text" id="quentity" name="quentity" onChange={handleonchange}/><br></br> 
-    <lable>What is the date u need:</lable>
+    <input type="number" id="quentity" name="quentity" onChange={handleonchange}/>
+   <br></br> 
+    <lable>Date</lable>
     <input type="date" id="date" name="date" onChange={handleonchange}/><br></br> 
-    <button>Order Placed</button>
+    <button>Add to cart</button>
     </form><br></br> 
    
         </div>
