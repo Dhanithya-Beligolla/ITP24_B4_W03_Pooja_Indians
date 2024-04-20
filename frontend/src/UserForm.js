@@ -48,13 +48,24 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
         let errors = {};
         let isValid = true;
 
+        const namePattern = /^[a-zA-Z]+$/;
+        const numberPattern = /^[0-9]+$/;
+
         if (!name) {
             errors.name = 'Name is required';
+            isValid = false;
+        }
+        else if (!namePattern.test(name)) {
+            errors.name = 'Invalid name format';
             isValid = false;
         }
 
         if (!job_title) {
             errors.job_title = 'Job title is required';
+            isValid = false;
+        }
+        else if (!namePattern.test(job_title)) {
+            errors.job_title = 'invalid job title format';
             isValid = false;
         }
 
@@ -70,9 +81,17 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
             errors.contact_number = 'Contact number is required';
             isValid = false;
         }
+        else if (!numberPattern.test(contact_number)) {
+            errors.contact_number = 'Invalid contact number format';
+            isValid = false;
+        }
 
         if (!age) {
             errors.age = 'Age is required';
+            isValid = false;
+        }
+        else if (!numberPattern.test(age)) {
+            errors.age = 'Age should contain only numbers';
             isValid = false;
         }
 
