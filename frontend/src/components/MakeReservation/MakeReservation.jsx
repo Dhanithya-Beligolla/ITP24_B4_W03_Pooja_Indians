@@ -5,9 +5,6 @@ import { makeBuffetReservation, updateBuffetReservation } from "../../fetchBuffe
 import { BuffetContextShare } from "../../context/Context";
 import backgroundImage from '../../assets/bgimage.jpg';// replace with the actual path to your image
 
-//
-// Initialize counter outside of the component so it doesn't reset on every render
-let counter = 1;
 
 const MakeReservation = () => {
 
@@ -50,13 +47,17 @@ const MakeReservation = () => {
     //make new reservation
     const queryClient = useQueryClient();
     const {mutate , isLoading, isError} = useMutation(makeBuffetReservation,{
-        onSuccess : () => queryClient.invalidateQueries("buffet"),
+        onSuccess : () => {
+            alert("Successfully Added");
+        queryClient.invalidateQueries("buffet")},
     });
 
     //update reservation
 
     const {mutate:updateBuffetReservations , isLoading:updateLoading, isError:updateError} = useMutation(updateBuffetReservation,{
-        onSuccess : () => queryClient.invalidateQueries("buffet"),
+        onSuccess : () => {
+            alert("Successfully Updated");
+            queryClient.invalidateQueries("buffet")},
     });
 
     const [quantity, setQuantity] = useState(0);

@@ -17,11 +17,15 @@ const BuffetReservation = ({buffetreservation}) => {
   //delete reservation
   const queryClient = useQueryClient();
   const {mutate, isLoading, isError} = useMutation(["buffetreservation", _id],deleteBuffetReservation, {
-    onSuccess: () => queryClient.invalidateQueries("buffet"),
+    onSuccess: () => {
+      alert("Successfully Deleted");
+      queryClient.invalidateQueries("buffet");
+    },
   });
 
   //update reservation
   const handleUpdate = () => {
+    
     setUpdate(buffetreservation);
     navigate("/make-reservation");
   }
