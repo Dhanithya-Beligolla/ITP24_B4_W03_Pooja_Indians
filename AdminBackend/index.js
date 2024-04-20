@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const connectDB = require("./database/database.js");
 const posterRouter = require("./routes/poster.js");
+const multer = require("multer");
 
 const app = express();
 dotenv.config();
@@ -10,6 +11,22 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
     res.status(200).json("this new is the main page of the api");
+});
+
+//upload poster image
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, "upload");
+    },
+    filename: (req, file, cb) => {
+        cb(null, "image.png");
+    },
+});
+
+const upload = multer({ storage: storage });
+
+app.post("/api/upload", upload.single("file"), (req, res) => {
+    res.status(200).json({status : "SUCCESS", msg : "Image has been upload"});
 });
 
 //route
