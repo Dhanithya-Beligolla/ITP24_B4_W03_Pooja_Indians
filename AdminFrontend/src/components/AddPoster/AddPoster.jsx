@@ -12,6 +12,7 @@ const AddPoster = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(poster);
   };
   return (
     <section>
