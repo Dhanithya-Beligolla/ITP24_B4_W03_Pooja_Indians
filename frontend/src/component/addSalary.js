@@ -55,7 +55,7 @@ function AddSalary(){
               type="text"
               id="basicSalary"
               name="basicSalary"
-              placeholder="Enter basic salary "
+              placeholder="Enter Basic Salary "
               onChange={handleonchange}
             /><br/><br/>
       
@@ -71,7 +71,7 @@ function AddSalary(){
               type="text"              
               id="allowance"
               name="allowance"
-              placeholder="Enter the allowance"
+              placeholder="Enter the Allowance"
               onChange={handleonchange}
             />
             <br/><br/>
@@ -99,7 +99,7 @@ function AddSalary(){
               type="text"              
               id="bonus"
               name="bonus"
-              placeholder="Enter the bonus added"
+              placeholder="Enter the Bonus Added"
               onChange={handleonchange}
             />
             <br/><br/>
@@ -115,7 +115,7 @@ function AddSalary(){
               type="text"              
               id="deductionTax"
               name="deductionTax"
-              placeholder="Enter the taxes"
+              placeholder="Enter the Taxes"
               onChange={handleonchange}
             />
             <br/><br/>
@@ -129,7 +129,7 @@ function AddSalary(){
               type="text"              
               id="deductionOther"
               name="deductionOther"
-              placeholder="Enter other deductions"
+              placeholder="Enter Other Deductions"
               onChange={handleonchange}
             />
             <br/><br/><br></br>
@@ -143,7 +143,7 @@ function AddSalary(){
               type="text"
               id="other"
               name="other"
-              placeholder="Enter other compensations"
+              placeholder="Enter Other Compensations"
               onChange={handleonchange}
             />
 
