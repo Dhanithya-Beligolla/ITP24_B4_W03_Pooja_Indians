@@ -29,6 +29,7 @@ useEffect(()=>{
 
     
 return(
+   
     <div className='repoart'>
   <h3>Total Orders :</h3>
             {countlist !== null ? (
@@ -52,14 +53,17 @@ return(
                   
                          <table>
                             <tr>
-                            <th>Order Types</th>
-              <th>Order Sub Type</th>
-              <th>Order Quentity</th>
+                            <th>Order Items</th>
+                            <th>Quentity</th>
+              <th>Sub Items</th>
+              <th>Sub Quentity</th>
              
             
              
                             </tr>
+                            
 <tbody>
+    
     {
 customerlist.map((e)=>{
                 return(
@@ -68,7 +72,7 @@ customerlist.map((e)=>{
                                 {e.type} 
                                 </td>
                                 <td>
-                                {e.quentitys}
+                                {e.Quentity}
                                 </td>
                                 <td>
                                 {e.extra}
@@ -86,7 +90,7 @@ customerlist.map((e)=>{
                             </tbody>
                         </table>
                         
-            
+              
               
 
                      

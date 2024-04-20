@@ -15,7 +15,7 @@ const PORT=process.env.PORT||8020
 
 const orderschema=mongoose.Schema({
     type:String,
-    quentity:String,
+    Quentity:String,
     extra:String,
     quentity:String,
     date:String,

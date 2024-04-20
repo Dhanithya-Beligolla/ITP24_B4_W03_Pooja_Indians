@@ -7,7 +7,8 @@ function AddPayment(){
     const [order,setorder]=useState({
         type_p:"",
         number:"",
-      
+        amount:"",
+        address:"",
         date_p:"",
     })
 
@@ -51,8 +52,8 @@ function AddPayment(){
     <input type="text" id="Amount" name="Amount" /><br></br>
     <lable>Phone Number :</lable>
     <input type="text" id="number" name="number" /><br></br>
-    
-
+    <lable>Address:</lable>
+    <input type="text" id="Address" name="Address" /><br></br> 
     <lable>Date:</lable>
     <input type="date" id="date_p" name="date_p" /><br></br> 
     <button>payment</button>

@@ -114,7 +114,7 @@ const handledelete= async(id)=>{
                       return(
                           <tr> 
                             <td> {e1.type}</td> 
-                            <td> {e1.Quentity}</td>
+                            <td > {e1.Quentity}</td>
                             <td> {e1.extra}</td> 
                             <td> {e1.quentity}</td> 
                             <td> {e1.date}</td>
