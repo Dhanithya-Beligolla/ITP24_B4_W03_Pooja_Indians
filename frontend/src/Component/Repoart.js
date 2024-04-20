@@ -57,10 +57,12 @@ return(
                             <th>Quentity</th>
               <th>Sub Items</th>
               <th>Sub Quentity</th>
+              
              
             
              
                             </tr>
+                            
                             
 <tbody>
     
@@ -81,16 +83,19 @@ customerlist.map((e)=>{
                                 {e.quentity}
                                 </td>
                                 
+                                
+                                
                                
                                
                             </tr>
                 )
                               })
 }
-                            </tbody>
+                                 
+</tbody>
                         </table>
                         
-              
+              <button>Order Place</button>
               
 
                      

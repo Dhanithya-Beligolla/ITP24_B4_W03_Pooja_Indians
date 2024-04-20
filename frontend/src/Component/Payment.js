@@ -39,9 +39,9 @@ function AddPayment(){
     return(
         <div className="add-order">
            
-<h2>payment</h2>
+<h2>Check Out</h2>
     <form onSubmit={handlesubmit}>
-    <lable>Payment Option:</lable>
+    <lable>Payment Method:</lable>
     <select>
         <option value="">choose one</option>
         {paymentOptions.map((type,index) => (
@@ -59,10 +59,8 @@ function AddPayment(){
     <input type="text" id="email" name="email" /><br></br>
     <lable>Date:</lable>
     <input type="date" id="date_p" name="date_p" /><br></br> 
-    <button>Place Order</button>
+    <button>Check Out</button>
 
-    <button>Add Card Details</button>
-    
     </form><br></br> 
    
         </div>
