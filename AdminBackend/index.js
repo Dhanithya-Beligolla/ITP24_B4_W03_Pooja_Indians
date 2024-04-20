@@ -3,11 +3,14 @@ const dotenv = require("dotenv");
 const connectDB = require("./database/database.js");
 const posterRouter = require("./routes/poster.js");
 const multer = require("multer");
+const path = require("path");
+const cors = require("cors");
 
 const app = express();
 dotenv.config();
 
 app.use(express.json());
+app.use(cors({credentials: true, origin: true}));
 
 app.get("/", (req, res) => {
     res.status(200).json("this new is the main page of the api");

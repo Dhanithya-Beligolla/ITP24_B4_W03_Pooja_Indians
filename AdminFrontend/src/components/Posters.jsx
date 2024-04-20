@@ -1,9 +1,11 @@
 import React from 'react'
 import Poster from './Poster';
 import { useNavigate } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { getAllData } from '../fetchPoster/fetchPoster';
 
 const Posters = () => {
-    const data = [
+    const data1 = [
         {
             id: 1,
             title: "Poster 1",
@@ -36,6 +38,8 @@ const Posters = () => {
         },
     ];
 
+    const { data, isLoading, isError} = useQuery("poster", getAllData);
+
     const navigate = useNavigate();
     return (
         <div className="w-[80%] mx-auto my-[3rem] border-2 border-blue-100 shadow-md shadow-gray-400
@@ -51,9 +55,12 @@ const Posters = () => {
 
             {/* maping data*/}
             <div className="p-4 lg:p-7 flex items-center flex-wrap gap-5 w-[95%] mx-auto">
-                {data.map((poster, i) => (
-                    <Poster poster={ poster } key={ i } />
-                ))}
+                {isLoading && <p>Loading...</p>}
+                {isError && <p>Something went wrong!!..</p>}
+                {data?.length == 0  ? (<p>No Poster exist</p>
+                ) : (
+                    data?.map((poster, i) => <Poster poster={ poster } key={ i } />)
+                )}
             </div>
         </div>
     )

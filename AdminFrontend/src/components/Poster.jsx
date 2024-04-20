@@ -20,4 +20,4 @@ const Poster = ({poster}) => {
     )
 }
 
-export default Poster
+export default Poster;

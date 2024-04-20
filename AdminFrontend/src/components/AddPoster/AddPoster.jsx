@@ -1,8 +1,18 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddPoster = () => {
   const navigate = useNavigate();
+
+  const [poster, setPoster] = useState({
+    title: "",
+    description: "",
+    image: "",
+  });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
   return (
     <section>
         <button
@@ -11,12 +21,35 @@ const AddPoster = () => {
         >vacancy posters</button>
 
         <div className="flex items-center justify-center h-screen">
-            <form className="border border-gray-400 w-[30rem] p-5 flex flex-col gap-5 rounded-md
-            shadow-md shadow-gray-400 m-5 lg:m-0">
+            <form 
+                onSubmit={handleSubmit}
+                className="border border-gray-400 w-[30rem] p-5 flex flex-col gap-5 rounded-md
+                  shadow-md shadow-gray-400 m-5 lg:m-0">
+
+
                 <h1 className="text-center text-xl font-medium">Add job vacancies</h1>
-                <input className='input' type='text' placeholder='enter job title...' />
-                <input className='input' type='text' placeholder='enter description...' />
-                <input type='file' />
+                <input
+                  value={poster.title} 
+                  onChange={(e) => setPoster({...poster, title : e.target.value})
+                } 
+                  className='input' 
+                  type='text' 
+                  placeholder='enter job title...' 
+                />
+                <input
+                  value={poster.description} 
+                  onChange={(e) => setPoster({...poster, description : e.target.value})
+                } 
+                  className='input' 
+                  type='text' 
+                  placeholder='enter description...'
+                />
+                <input
+                onChange={(e) => 
+                  setPoster({...poster, image : e.target.files[0]})
+                } 
+                  type='file' 
+                />
                 <button className='button'>Submit</button>
             </form>
         </div>
@@ -24,4 +57,4 @@ const AddPoster = () => {
   )
 }
 
-export default AddPoster
+export default AddPoster;
