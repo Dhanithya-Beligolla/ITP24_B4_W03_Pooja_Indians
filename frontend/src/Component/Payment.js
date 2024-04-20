@@ -5,10 +5,12 @@ import axios from "axios";
 
 function AddPayment(){
     const [order,setorder]=useState({
-        type_p:"",
-        number:"",
         amount:"",
+
+        number:"",
+      
         address:"",
+        email:"",
         date_p:"",
     })
 
@@ -29,11 +31,11 @@ function AddPayment(){
        e.preventDefault()
        const data=await axios.post("http://localhost:8020/create_payment",order)
           console.log(data)
-          alert("Order added to Cart!")
+          alert("add payment!")
          
      
     }
-    const paymentOptions = ['COD','Cash','Card'];
+  
 
 
     return(
@@ -42,27 +44,27 @@ function AddPayment(){
 <h2>Check Out</h2>
     <form onSubmit={handlesubmit}>
     <lable>Payment Method:</lable>
-    <select>
-        <option value="">choose one</option>
-        {paymentOptions.map((type,index) => (
-            <option key={index} value={type}>{type}</option>
-        ))}
+    <select  id="p_method" name="p_method" onChange={handleonchange}>
+      
+      <option>card</option>
+      <option>cash</option>
+      <option>cod</option>
         
     </select><br></br>
     <lable>Amount :</lable>
-    <input type="text" id="Amount" name="Amount" /><br></br>
+    <input type="text" id="Amount" name="Amount" onChange={handleonchange} /><br></br>
     <lable>Phone Number :</lable>
-    <input type="text" id="number" name="number" /><br></br>
+    <input type="text" id="number" name="number" onChange={handleonchange}/><br></br>
     <lable>Address:</lable>
-    <input type="text" id="Address" name="Address" /><br></br> 
+    <input type="text" id="Address" name="Address" onChange={handleonchange}/><br></br> 
     <lable>Email:</lable>
-    <input type="text" id="email" name="email" /><br></br>
+    <input type="text" id="email" name="email"onChange={handleonchange} /><br></br>
     <lable>Date:</lable>
-    <input type="date" id="date_p" name="date_p" /><br></br> 
-    <button>Check Out</button>
+    <input type="date" id="date_p" name="date_p"onChange={handleonchange} /><br></br> 
+    <button>Add Payment</button>
 
     </form><br></br> 
-   
+   <a href="repoart">check out</a>
         </div>
     )
 }

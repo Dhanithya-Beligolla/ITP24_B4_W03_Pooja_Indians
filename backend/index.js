@@ -98,10 +98,14 @@ app.get("/order/:id", async (req, res) => {
 });
 
 const paymentchema=mongoose.Schema({
-    type_p:String,
-    number:String,
-    number:String,
-    date_p:String,
+    p_method:String,
+    amount:String,
+
+        number:String,
+      
+        address:String,
+        email:String,
+        date_p:String,
   
   
    
@@ -115,13 +119,14 @@ const paymentmodel=mongoose.model("payments",paymentchema)
 
 
 
-
-
-
 app.post("/create_payment",async(req,res)=>{
     const data=new paymentmodel(req.body)
     await data.save()
-})    
+    res.send({success:true,message:"data created successfuly"})
+})
+
+
+
 
 mongoose.connect("mongodb+srv://anjalibhagya22:1424a@cluster0.bc1d0nw.mongodb.net/rooms?retryWrites=true&w=majority&appName=Cluster0")
 .then(()=>{
