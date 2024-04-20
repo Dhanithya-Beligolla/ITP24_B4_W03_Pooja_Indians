@@ -7,6 +7,8 @@
 }
 
 .salary-form {
+    position: absolute;
+    top: 30%;
     width: 400px;
     padding: 20px;
     border: 1px solid #ccc;

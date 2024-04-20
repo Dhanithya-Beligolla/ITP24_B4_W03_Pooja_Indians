@@ -3,6 +3,7 @@ import "./addSalary.css";
 import axios from 'axios'
 
 
+
 function AddSalary(){
 
     const [salarydata,setsalarydata]=useState({
@@ -42,6 +43,7 @@ function AddSalary(){
     return(
         
         <div className="container-form">
+         
 
 
 
