@@ -6,6 +6,7 @@ import axios from 'axios'
 function AddSalary(){
 
     const [salarydata,setsalarydata]=useState({
+        fname:"",
         basicSalary:"",
         allowance:"",
         ot:"",
@@ -46,6 +47,17 @@ function AddSalary(){
             <center><h2>Pay Sheet Form</h2></center>
           
             <br></br>
+            <label for="bonus" className="form-label1">
+              Name :
+            </label>
+            <br></br>
+            <input
+              type="text"              
+              id="fname"
+              name="fname"
+              placeholder="Enter the Bonus Added"
+              onChange={handleonchange}
+            />
        
             <label for="basicSalary" className="form-label1">
               Basic Salary : 

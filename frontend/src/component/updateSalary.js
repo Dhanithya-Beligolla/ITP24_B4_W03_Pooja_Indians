@@ -6,6 +6,7 @@ function UpdateSalary() {
     const { id } = useParams();
 
     const [salarydata,setsalarydata]=useState({
+        fname:"",
         basicSalary:"",
         allowance:"",
         ot:"",
@@ -77,6 +78,19 @@ function UpdateSalary() {
          
             <h2>Update Salary Data</h2>
             <br></br>
+            <label for="bonus" className="form-label1">
+              Name :
+            </label>
+            <br></br>
+            <input
+              type="text"              
+              id="fname"
+              name="fname"
+              placeholder="Enter the Bonus Added"
+              onChange={handleInputChange}
+              value={salarydata.fname}
+
+            />
           
             <label for="basicSalary" className="form-label1">
               Basic Salary : 

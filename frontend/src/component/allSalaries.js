@@ -82,6 +82,7 @@ const calculateNetSalary = (e1) => {
 <table>
               
                         <tr>
+                            <th>Name</th>
                         <th>Basic Salary</th>
                         <th>Allowance</th>
                         <th>OT Hours</th>
@@ -100,6 +101,7 @@ const calculateNetSalary = (e1) => {
                                salarylist.map((e1)=>{
                                 return(
                                     <tr> 
+                                        <td>{e1.fname}</td>
                                       <td> {e1.basicSalary}</td> 
                                       <td> {e1.allowance}</td> 
                                       <td> {e1.ot}</td> 
