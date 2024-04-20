@@ -57,6 +57,7 @@ function AddPayment(){
     <lable>Date:</lable>
     <input type="date" id="date_p" name="date_p" /><br></br> 
     <button>payment</button>
+    <button>Add Card Details</button>
     </form><br></br> 
    
         </div>
