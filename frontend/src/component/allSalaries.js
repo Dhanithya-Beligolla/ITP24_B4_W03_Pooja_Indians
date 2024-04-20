@@ -3,6 +3,7 @@ import axios  from 'axios'
 import "./allSalaryStyle.css";
 
 
+
 function AllSalaries(){
 const [salarylist,setsalarylist]=useState([]);
 
@@ -62,7 +63,10 @@ const calculateNetSalary = (e1) => {
 
 
     return(
-<div>
+        <>
+
+    
+    
         <div className="container">
             <input
               className="srchinput"
@@ -132,7 +136,8 @@ const calculateNetSalary = (e1) => {
                             }
                         </tbody>
             </table>
-</div>
+
+</>
     )
 }
 export default AllSalaries

@@ -4,6 +4,7 @@ import axios from 'axios'
 
 
 
+
 function AddSalary(){
 
     const [salarydata,setsalarydata]=useState({
@@ -41,6 +42,9 @@ function AddSalary(){
         alert("data addded successfully!");
     }
     return(
+      
+
+     
         
         <div className="container-form">
          
@@ -207,7 +211,9 @@ function AddSalary(){
             <br/><br/><br/>
             <center><button className='sumitbtn'>Submit</button></center>
           </form>
-        </div>
+          </div>
+        
+        
     )
 }
 export default AddSalary;
