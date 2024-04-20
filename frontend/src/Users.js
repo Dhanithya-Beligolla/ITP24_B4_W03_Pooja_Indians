@@ -89,6 +89,12 @@ const Users = () => {
             });
     }
 
+    const handleUpdate = (data) => {
+        setSelectedUser(data);
+        setIsEdit(true);
+        setActiveTab(0); // Navigate to the "Form" tab
+    };
+
     return (
         <Grid
         sx={{
@@ -132,10 +138,7 @@ const Users = () => {
                     <>
                         <UsersTable
                             rows={users}
-                            selectedUser={data =>{
-                                setSelectedUser(data);
-                                setIsEdit(true);
-                            }}
+                            selectedUser={handleUpdate} // Pass the function handleUpdate as props
                             deleteUser={data => window.confirm('Do you want to delete this application?') && deleteUser(data)}
                         />
                         <Grid item xs={12}>

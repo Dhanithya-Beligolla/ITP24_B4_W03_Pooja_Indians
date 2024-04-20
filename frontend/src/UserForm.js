@@ -113,8 +113,10 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
         if (validateForm()) {
             if (isEdit) {
                 updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience });
+                alert('Application updated successfully');
             } else {
                 addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience });
+                alert('Application submitted successfully');
             }
             resetForm();
         }

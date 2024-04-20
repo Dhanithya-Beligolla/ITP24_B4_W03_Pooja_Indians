@@ -28,12 +28,12 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
         <TableContainer component={Paper}>
             <Grid ref={componentsRef}>
             <Grid container justifyContent="center">
-                <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '1.25rem', fontWeight: '500' }}>
+                <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '1.50rem', fontWeight: '500', color: 'blue' }}>
                     Application Table
                 </Typography>
             </Grid>
             <SearchBar onSearch={handleSearch} />
-            <Table>
+            <Table >
                 <TableHead>
                     <TableRow>
                         <TableCell>ID</TableCell>
