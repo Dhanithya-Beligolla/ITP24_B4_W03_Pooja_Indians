@@ -41,7 +41,7 @@ const generateSearch = (e)=>{
 
 const filterdata = (searchKey) => {
     const filteredData = salarylist.filter(customer =>
-        customer && customer.basicSalary && customer.basicSalary.toLowerCase().includes(searchKey.toLowerCase())
+        customer && customer.fname && customer.fname.toLowerCase().includes(searchKey.toLowerCase())
     );
     setsalarylist(filteredData);
 }
