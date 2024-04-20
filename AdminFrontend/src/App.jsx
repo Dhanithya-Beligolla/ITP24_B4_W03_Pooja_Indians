@@ -1,9 +1,14 @@
+import { Route, Routes } from "react-router-dom";
+import Posters from "./components/Posters"
+import AddPoster from "./components/AddPoster/AddPoster";
+
 const App = () => {
   return (
-    <h1 className="text-red-400">
-      hellow world
-    </h1>
-  )
+    <Routes>
+      <Route path="/" element={<Posters />} />
+      <Route path="/AddPoster" element={<AddPoster />} />
+    </Routes>
+  );
 }
 
 export default App
