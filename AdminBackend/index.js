@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-
+const connectDB = require("./database/database.js");
 
 const app = express();
 dotenv.config();
@@ -10,5 +10,6 @@ app.get("/", (req, res) => {
 });
 
 app.listen(process.env.PORT, () => {
+    connectDB();
     console.log("App is running at port " + process.env.PORT);
-})
+});
