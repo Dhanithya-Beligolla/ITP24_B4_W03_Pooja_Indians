@@ -7,6 +7,7 @@ function AddSalary(){
 
     const [salarydata,setsalarydata]=useState({
         fname:"",
+        fid:"",
         basicSalary:"",
         allowance:"",
         ot:"",
@@ -55,9 +56,23 @@ function AddSalary(){
               type="text"              
               id="fname"
               name="fname"
-              placeholder="Enter the Bonus Added"
+              placeholder="Enter the Name"
               onChange={handleonchange}
-            />
+            /><br/><br/>
+
+            <label for="bonus" className="form-label1">
+              ID :
+            </label>
+            <br></br>
+            <input
+              type="text"              
+              id="fid"
+              name="fid"
+              placeholder="Enter the ID"
+              onChange={handleonchange}
+            /><br/><br/>
+
+
        
             <label for="basicSalary" className="form-label1">
               Basic Salary : 
