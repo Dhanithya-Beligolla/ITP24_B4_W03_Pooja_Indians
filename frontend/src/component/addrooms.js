@@ -1,65 +1,60 @@
 import { useState } from "react";
 import axios from "axios";
-import './addrooms.css'
+import './addrooms.css';
+import backgroundImage from '../../src/image/backgroundImage.jpg';
 
 function AddRooms() {
-    const [rooms, setrooms] = useState({
+    const [rooms, setRooms] = useState({
         name: "",
         phone: "",
         email: "",
         date: "",
-        quentity_rooms: "",
-        quentity_people: "",
+        quantity_rooms: "",
+        quantity_people: "",
+    });
 
-    })
+    const handleOnChange = (e) => {
+        const { value, name } = e.target;
+        setRooms((prev) => ({
+            ...prev,
+            [name]: value
+        }));
+    };
 
-    const handleonchange = (e) => {
-        const { value, name } = e.target
-        setrooms((preve) => {
-            return {
-                ...preve,
-                [name]: value
-            }
-        })
-
-
-    }
-
-    const handlesubmit = async (e) => {
-
-        e.preventDefault()
-        const data = await axios.post("http://localhost:8030/create", rooms)
-        console.log(data)
-        alert("rooms reserve successfully!")
-
-
-    }
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = await axios.post("http://localhost:8030/create", rooms);
+        console.log(data);
+        alert("Rooms reserved successfully!");
+    };
 
     return (
+        <>
+        <h2>Booking Reservation Form</h2>
         <div className="add-rooms">
-            <h2> Booking Reservation Form</h2>
-            <form onSubmit={handlesubmit}>
-                <lable>Name:</lable>
-                <input type="text" id="name" name="name" onChange={handleonchange} /><br></br>
-                <lable>Phone Number:</lable>
-                <input type="number" id="phone" name="phone" onChange={handleonchange} /><br></br>
-                <lable>Email:</lable>
-                <input type="email" id="email" name="email" onChange={handleonchange} /><br></br>
-                <lable>Date:</lable>
-                <input type="date" id="date" name="date" onChange={handleonchange} /><br></br>
-                <lable>Quentity:</lable>
-                <input type="number" id="quentity_rooms" name="quentity_rooms" onChange={handleonchange} /><br></br>
-                <lable>Number of Guests:</lable>
-                <input type="number" id="quentity_people" name="quentity_people" onChange={handleonchange} /><br></br>
+            <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
+            
+            <div className="content">
+                <form onSubmit={handleSubmit}>
+                    <label>Name:</label>
+                    <input type="text" id="name" name="name" onChange={handleOnChange} /><br />
+                    <label>Phone Number:</label>
+                    <input type="number" id="phone" name="phone" onChange={handleOnChange} /><br />
+                    <label>Email:</label>
+                    <input type="email" id="email" name="email" onChange={handleOnChange} /><br />
+                    <label>Date:</label>
+                    <input type="date" id="date" name="date" onChange={handleOnChange} /><br />
+                    <label>Quantity:</label>
+                    <input type="number" id="quantity_rooms" name="quantity_rooms" onChange={handleOnChange} /><br />
+                    <label>Number of Guests:</label>
+                    <input type="number" id="quantity_people" name="quantity_people" onChange={handleOnChange} /><br />
 
-
-
-
-                <button>Reserve Rooms</button>
-
-            </form><br></br>
-
+                    <button>Reserve Rooms</button>
+                </form>
+            </div>
         </div>
-    )
+        </>
+    );
 }
+
 export default AddRooms;
