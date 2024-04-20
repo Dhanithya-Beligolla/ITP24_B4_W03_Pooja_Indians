@@ -41,7 +41,7 @@ function AddOrder(){
 <h2>Order Place</h2>
     <form onSubmit={handlesubmit}>
     <lable>Order Items:</lable>
-    <input type="text" id="extra" name="extra" onChange={handleonchange}/><br></br>
+    <input type="text" id="type" name="type" onChange={handleonchange}/><br></br>
     <lable>Quentity:</lable>
     <input type="number" id="quentity" name="quentity" onChange={handleonchange}/>
    <br></br> 
