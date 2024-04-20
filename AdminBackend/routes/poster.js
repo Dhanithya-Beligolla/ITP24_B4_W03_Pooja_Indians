@@ -43,6 +43,17 @@ route.post("/update/:id", async(req, res) => {
     } catch (error) {
         res.status(500).json({status : "FAILED", error});
     }
-})
+});
+
+//delete poster 
+route.post("/delete/:id", async(req, res) => {
+    const id = req.params.id;
+    try {
+        const deletePoster = await Poster.findByIdAndDelete(id);
+        res.status(200).json({status : "SUCCESS", deletePoster });
+    } catch (error) {
+        res.status(500).json({status : "FAILED", error});
+    }
+});
 
 module.exports = route;
