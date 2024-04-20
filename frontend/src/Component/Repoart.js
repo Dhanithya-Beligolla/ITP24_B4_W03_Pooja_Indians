@@ -68,6 +68,9 @@ customerlist.map((e)=>{
                                 {e.type} 
                                 </td>
                                 <td>
+                                {e.quentitys}
+                                </td>
+                                <td>
                                 {e.extra}
                                 </td>
                                 <td>
