@@ -19,6 +19,7 @@ body {
 .add-user h2 {
     text-align: center;
     color: #333;
+    padding-left: 60px;
 }
 
 .add-user form {
