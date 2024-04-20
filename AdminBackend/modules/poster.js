@@ -16,6 +16,6 @@ const posterSchema = mongoose.Schema({
     { timeStamps: true, collection : "posters" }
 );
 
-const Poster = mongoose.module("poster", posterSchema);
+const Poster = mongoose.model("poster", posterSchema);
 
 module.exports = Poster;
