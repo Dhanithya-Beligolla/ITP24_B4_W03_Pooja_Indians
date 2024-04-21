@@ -14,9 +14,9 @@ const roomsschema = mongoose.Schema({
     name: String,
     phone: Number,
     email: String,
-    date: String,
-    quentity_rooms: String,
-    quentity_people: String,
+    date: Date,
+    quentity_rooms: Number,
+    quentity_people: Number,
 
 
 
