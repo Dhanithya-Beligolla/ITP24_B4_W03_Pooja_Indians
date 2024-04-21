@@ -1,18 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from 'react-query';
+import { addPoster } from '../../fetchPoster/fetchPoster';
 
 const AddPoster = () => {
   const navigate = useNavigate();
 
   const [poster, setPoster] = useState({
-    title: "",
-    description: "",
+    jobTitle: "",
+    jobDescription: "",
     image: "",
+  });
+
+  ///add new poster
+  const { mutate, isLoading, isError} = useMutation(addPoster, {
+    onSuccess : (data) => console.log(data),
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(poster);
+    mutate(poster);
+    navigate("/");
   };
   return (
     <section>
@@ -30,16 +38,16 @@ const AddPoster = () => {
 
                 <h1 className="text-center text-xl font-medium">Add job vacancies</h1>
                 <input
-                  value={poster.title} 
-                  onChange={(e) => setPoster({...poster, title : e.target.value})
+                  value={poster.jobTitle} 
+                  onChange={(e) => setPoster({...poster, jobTitle : e.target.value})
                 } 
                   className='input' 
                   type='text' 
                   placeholder='enter job title...' 
                 />
                 <input
-                  value={poster.description} 
-                  onChange={(e) => setPoster({...poster, description : e.target.value})
+                  value={poster.jobDescription} 
+                  onChange={(e) => setPoster({...poster, jobDescription : e.target.value})
                 } 
                   className='input' 
                   type='text' 

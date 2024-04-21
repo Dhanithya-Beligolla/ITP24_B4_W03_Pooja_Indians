@@ -12,3 +12,29 @@ export const getAllData = async() => {
         console.log(error);
     }
 }
+
+//create new poster
+export const addPoster = async (data) => {
+    //uploading image
+    if(data.image){
+        const form = new FormData();
+        const name = Date.now() + data.image.name;
+        form.append("name", name);
+        form.append("file", data.image);
+
+        data.image = name;
+
+        try {
+            await axios.post(`${baseURL}/api/upload`,form);
+        } catch (error) {
+            throw new Error(error);
+        }
+
+    }
+    try {
+        const res = await axios.post(`${baseURL}/api/poster/create`,data);
+        return res.newPoster;
+    } catch (error) {
+        throw new Error(error);
+    }
+};

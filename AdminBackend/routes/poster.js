@@ -35,7 +35,7 @@ route.get("/:id", async(req, res) => {
 });
 
 //update poster 
-route.post("/update/:id", async(req, res) => {
+route.put("/update/:id", async(req, res) => {
     const id = req.params.id;
     try {
         const updatePoster = await Poster.findByIdAndUpdate(id, req.body);
@@ -46,7 +46,7 @@ route.post("/update/:id", async(req, res) => {
 });
 
 //delete poster 
-route.post("/delete/:id", async(req, res) => {
+route.delete("/delete/:id", async(req, res) => {
     const id = req.params.id;
     try {
         const deletePoster = await Poster.findByIdAndDelete(id);
