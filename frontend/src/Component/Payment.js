@@ -54,11 +54,11 @@ function AddPayment(){
     <lable>Amount :</lable>
     <input type="text" id="Amount" name="Amount" onChange={handleonchange} /><br></br>
     <lable>Phone Number :</lable>
-    <input type="text" id="number" name="number" onChange={handleonchange}/><br></br>
+    <input type="number" id="number" name="number" onChange={handleonchange}/><br></br>
     <lable>Address:</lable>
     <input type="text" id="Address" name="Address" onChange={handleonchange}/><br></br> 
     <lable>Email:</lable>
-    <input type="text" id="email" name="email"onChange={handleonchange} /><br></br>
+    <input type="email" id="email" name="email"onChange={handleonchange} /><br></br>
     <lable>Date:</lable>
     <input type="date" id="date_p" name="date_p"onChange={handleonchange} /><br></br> 
     <button>Payment</button>
