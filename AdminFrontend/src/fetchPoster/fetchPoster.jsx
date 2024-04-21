@@ -46,4 +46,13 @@ export const removePoster = async (id) => {
     } catch (error) {
         throw new Error(error);
     }
+};
+
+// update poster
+export const updatePoster = async (poster) => {
+    try {
+        await axios.put(`${baseURL}/api/poster/update/${poster._id}`, poster);
+    } catch (error) {
+        throw new Error(error);
+    }
 }
