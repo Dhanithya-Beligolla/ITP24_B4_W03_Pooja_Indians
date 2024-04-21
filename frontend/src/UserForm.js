@@ -48,7 +48,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
         let errors = {};
         let isValid = true;
 
-        const namePattern = /^[a-zA-Z]+$/;
+        const namePattern = /^[a-zA-Z\s]+$/;
         const numberPattern = /^[0-9]+$/;
 
         if (!name) {

@@ -13,9 +13,13 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
     };
 
     const handleDelete = (row) => {
-        deleteUser(row);
-        setFilteredRows(prevRows => prevRows.filter(filteredRow => filteredRow.id !== row.id));
+        const isConfirmed = window.confirm('Do you want to delete this application?');
+        if (isConfirmed) {
+            deleteUser(row);
+            setFilteredRows(prevRows => prevRows.filter(filteredRow => filteredRow.id !== row.id));
+        }
     };
+    
 
     const componentsRef = useRef();
     const handlePrint = useReactToPrint({

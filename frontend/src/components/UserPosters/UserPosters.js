@@ -39,6 +39,10 @@ function CustomCard({ title, description, image, alt }) {
 
 function UserPosters() {
   return (
+    <div>
+      <Typography variant="h4" align="center" style={{ marginTop: 60, color: '#2196f3' }}>
+        Available Job Vacancies
+      </Typography>
     <div style={{ display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', margin: 50, marginTop: 75, }}>
       <CustomCard 
         title="Senior Chef"
@@ -89,6 +93,7 @@ function UserPosters() {
         image="https://www.mitacs.ca/wp-content/uploads/2022/03/MANINNOVATION-SUB-PAGE_FINANCEMGR_IMAGE1_iStock-968943368.jpg"
         alt="Finance Manager"
       />
+    </div>
     </div>
   );
 }

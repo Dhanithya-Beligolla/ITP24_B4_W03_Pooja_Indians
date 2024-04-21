@@ -72,7 +72,7 @@ const Users = () => {
             .then(() => {
                 getUsers();
                 setSubmitted(false);
-                isEdit(false);
+                setIsEdit(false); // This line sets isEdit to false after updating
             })
             .catch(error => {
                 console.error("Axios error :", error);
@@ -139,7 +139,7 @@ const Users = () => {
                         <UsersTable
                             rows={users}
                             selectedUser={handleUpdate} // Pass the function handleUpdate as props
-                            deleteUser={data => window.confirm('Do you want to delete this application?') && deleteUser(data)}
+                            deleteUser={deleteUser}
                         />
                         <Grid item xs={12}>
                             <Button
