@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useMutation } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
 import { addPoster } from '../../fetchPoster/fetchPoster';
 
 const AddPoster = () => {
@@ -13,8 +13,9 @@ const AddPoster = () => {
   });
 
   ///add new poster
+  const queryClient = useQueryClient();
   const { mutate, isLoading, isError} = useMutation(addPoster, {
-    onSuccess : (data) => console.log(data),
+    onSuccess : () => queryClient.invalidateQueries(poster)
   });
 
   const handleSubmit = (e) => {

@@ -38,3 +38,12 @@ export const addPoster = async (data) => {
         throw new Error(error);
     }
 };
+
+//delete posters
+export const removePoster = async (id) => {
+    try {
+        await axios.delete(`${baseURL}/api/poster/delete/${id}`);
+    } catch (error) {
+        throw new Error(error);
+    }
+}

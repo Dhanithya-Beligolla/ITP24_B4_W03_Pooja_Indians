@@ -16,13 +16,17 @@ app.get("/", (req, res) => {
     res.status(200).json("this new is the main page of the api");
 });
 
+//path the image with url
+app.use("/upload",express.static(path.join(__dirname, "upload")));
+
+
 //upload poster image
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, "upload");
     },
     filename: (req, file, cb) => {
-        cb(null, "image.png");
+        cb(null, req.body.name);
     },
 });
 
