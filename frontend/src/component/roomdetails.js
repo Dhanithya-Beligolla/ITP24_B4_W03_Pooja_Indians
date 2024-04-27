@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import './roomdetails.css';
 import Search from './Search';
+import moment from "moment"
+
 
 function RoomsDetails() {
     const [showrooms, setShowrooms] = useState([]);
@@ -94,7 +96,7 @@ function RoomsDetails() {
                             <td>{room.name}</td>
                             <td>{room.phone}</td>
                             <td>{room.email}</td>
-                            <td>{room.date}</td>
+                            <td>{moment(room.date).format("l")}</td>
                             <td>{room.quentity_rooms}</td>
                             <td>{room.quentity_people}</td>
                             <td>
