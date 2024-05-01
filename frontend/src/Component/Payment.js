@@ -52,7 +52,7 @@ function AddPayment(){
         
     </select><br></br>
     <lable>Amount :</lable>
-    <input type="text" id="Amount" name="Amount" onChange={handleonchange} /><br></br>
+    <input type="number" id="Amount" name="Amount" onChange={handleonchange} /><br></br>
     <lable>Phone Number :</lable>
     <input type="number" id="number" name="number" onChange={handleonchange}/><br></br>
     <lable>Address:</lable>
