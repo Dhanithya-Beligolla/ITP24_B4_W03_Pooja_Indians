@@ -13,6 +13,18 @@ function AddRooms() {
         quantity_people: "",
     });
 
+
+    const [errorMessage, setErrorMessage] = useState("");
+
+    const validateSchema = Yup.object().shape({
+    name: Yup.string().required('First Name is Required').matches(/^[A-Za-z\s]+$/, 'Name must contain only letters'), 
+    phone: Yup.string().matches(/^0\d{9}$/, 'Invalid Contact Number').required('Contact number is Required'),
+    email: Yup.string().matches(/^[a-zA-Z0-9._%+-]+@gmail\.com$/, 'Invalid Gmail address').required('Email is Required'),
+    date: Yup.string().required('Date is Required'),
+    
+
+  });
+
     const handleOnChange = (e) => {
         const { value, name } = e.target;
         setRooms((prev) => ({
