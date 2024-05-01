@@ -1,214 +1,23 @@
 const express = require("express")
 const cors = require("cors")
 const mongoose = require("mongoose")
+const adminRoutes = require("./routes/adminroutes");
+const roomsRoutes = require("./routes/roomsroutes");
+
 
 
 const app = express()
 
 app.use(cors())
 app.use(express.json())
+app.use("/", adminRoutes);
+app.use("/", roomsRoutes);
 
 const PORT = process.env.PORT || 8030
 
-const roomsschema = mongoose.Schema({
-    name: String,
-    phone: Number,
-    email: String,
-    date: Date,
-    quentity_rooms: Number,
-    quentity_people: Number,
 
 
 
-
-}, {
-    timestamps: true
-
-})
-
-const roomsmodel = mongoose.model("rooms", roomsschema)
-// read
-app.get("/", async (req, res) => {
-    const data = await roomsmodel.find({})
-
-    res.json({ success: true, data: data })
-})
-
-// create
-app.post("/create", async (req, res) => {
-    const data = new roomsmodel(req.body)
-    await data.save()
-    res.send({ success: true, message: "rooms added successfuly" })
-})
-
-// update
-app.put("/update", async (req, res) => {
-    const { id, ...rest } = req.body
-    const data = await roomsmodel.updateOne({ _id: id }, rest)
-    res.send({ success: true, message: "updated successfuly", data: data })
-})
-
-
-// delete
-app.delete("/delete/:id", async (req, res) => {
-    const id = req.params.id
-    const data = await roomsmodel.deleteOne({ _id: id })
-    res.send({ success: true, message: "deleted successfully", data: data })
-})
-
-
-// fetch updated
-app.get("/rooms/:id", async (req, res) => {
-    const id = req.params.id;
-
-    try {
-        const discount = await roomsmodel.findById(id);
-
-        if (!discount) {
-            return res.status(404).send({ success: false, message: "User not found" });
-        }
-
-        res.send({ success: true, message: "User fetched successfully", data: discount });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({ success: false, message: "Internal Server Error" });
-    }
-});
-
-//get count in rooms table
-app.get("/count_rooms", async (req, res) => {
-    try {
-        const users = await roomsmodel.find({});
-
-        return res.status(200).json({
-            count: users.length,
-            data: users
-        })
-
-    } catch (err) {
-        console.log(err.message);
-        res.json({ success: true, message: "discount count successfully", data: data })
-    }
-
-})
-
-
-
-
-
-
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-////////////////////////////////////////////////////////////
-
-//admin register
-const trackerregister = mongoose.Schema({
-    fname: String,
-    lname: String,
-    email: String,
-    password: String,
-
-
-
-}, {
-    timestamps: true
-
-})
-
-const registermodel = mongoose.model("admin", trackerregister)
-
-
-
-app.get("/_admin", async (req, res) => {
-    const data = await registermodel.find({})
-
-    res.json({ success: true, data: data })
-})
-
-
-app.post("/create_admin", async (req, res) => {
-    const data = new registermodel(req.body)
-    await data.save()
-    res.send({ success: true, message: "data created successfuly" })
-})
-
-
-app.put("/update_admin", async (req, res) => {
-    const { id, ...rest } = req.body
-    const data = await registermodel.updateOne({ _id: id }, rest)
-    res.send({ success: true, message: "updated successfuly", data: data })
-})
-
-
-
-
-app.delete("/delete_admin/:id", async (req, res) => {
-    const id = req.params.id
-    const data = await registermodel.deleteOne({ _id: id })
-    res.send({ success: true, message: "deleted successfully", data: data })
-})
-
-
-
-
-//update second
-app.get("/user_admin/:id", async (req, res) => {
-    const id = req.params.id;
-
-    try {
-        const discount = await registermodel.findById(id);
-
-        if (!discount) {
-            return res.status(404).send({ success: false, message: "User not found" });
-        }
-
-        res.send({ success: true, message: "User fetched successfully", data: discount });
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({ success: false, message: "Internal Server Error" });
-    }
-});
-
-app.post("/login_admin", async (req, res) => {
-    console.log('in-------------------------------');
-    const { email, password } = req.body;
-
-    try {
-        console.log(email);
-        const user = await registermodel.findOne({ email });
-
-        if (!user) {
-            return res.status(404).json({ success: false, message: "User not found" });
-        }
-
-
-        // const isPasswordValid = await bcrypt.compare(password, user.password);
-        const isPasswordValid1 = user.password === password;
-
-        console.log('Input password:', password);
-        console.log('Stored hashed password:', user.password);
-        console.log('isPasswordValid:', isPasswordValid1);
-
-        if (isPasswordValid1 === false) { // Fixed condition
-            console.log('Request body:', req.body);
-            return res.status(401).json({ success: false, message: "Incorrect password" });
-
-
-        }
-
-        // If password is valid, send success message and user data
-        res.status(200).json({ success: true, message: "Login successful", data: user });
-    } catch (error) {
-        console.log('Retrieved user:', user);
-
-        console.error("Login error:", error);
-        res.status(500).json({ success: false, message: error });
-    }
-});
 
 
 
