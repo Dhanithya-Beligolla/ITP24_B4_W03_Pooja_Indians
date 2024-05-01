@@ -71,6 +71,7 @@ const Addbuffet = () => {
             value={buffet.buffetType} 
             onChange={(e) => setBuffet({...buffet, buffetType: e.target.value})}
             className="input"
+            required
           >
             <option value="">Select Buffet Type</option>
             {buffetTypes.map((type, index) => (
@@ -80,9 +81,9 @@ const Addbuffet = () => {
             ))}
           </select>
           <input value={buffet.buffetDescription} onChange={(e) => setBuffet({...buffet,buffetDescription:e.target.value})} className="input"  type="text" placeholder="Buffet Description" />
-          <input value={buffet.buffetPrice} onChange={(e) => setBuffet({...buffet,buffetPrice:e.target.value})} className="input"  type="number" placeholder="Buffet Price" />
+          <input min="1" value={buffet.buffetPrice} onChange={(e) => setBuffet({...buffet,buffetPrice:e.target.value})} className="input"  type="number" placeholder="Buffet Price" required/>
           <input value={buffet.specialOffers} onChange={(e) => setBuffet({...buffet,specialOffers:e.target.value})} className="input"  type="text" placeholder="Special Offers" />
-          <input onChange={(e) => setBuffet({...buffet,image:e.target.files[0]})} className="input"  type="file"/>
+          <input onChange={(e) => setBuffet({...buffet,image:e.target.files[0]})} className="input"  type="file" required/>
           <button type="submit" className="button">{update ? "Update" : "Add"}</button>
 
         </form>

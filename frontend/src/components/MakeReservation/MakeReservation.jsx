@@ -88,6 +88,8 @@ const MakeReservation = () => {
 
     };
 
+    const today = new Date().toISOString().split('T')[0];
+
     return (
         <div style={{ position: 'relative' }}>
         <div style={{
@@ -111,10 +113,10 @@ const MakeReservation = () => {
 
                     <h1 className="text-center text-xl font-medium">{update ? "Update Reservation" : "Reservation Form"}</h1>
 
-                    <input value={buffetReservation.fristname} onChange={(e) => setBuffetReservation({...buffetReservation,fristname:e.target.value})} className="input" type="text" placeholder="First Name" />
-                    <input value={buffetReservation.lastname} onChange={(e) => setBuffetReservation({...buffetReservation,lastname:e.target.value})} className="input" type="text" placeholder="Last Name" />
-                    <input value={buffetReservation.mobile} onChange={(e) => setBuffetReservation({...buffetReservation,mobile:e.target.value})} className="input" type="number" placeholder="Mobile" />
-                    <input value={buffetReservation.email} onChange={(e) => setBuffetReservation({...buffetReservation,email:e.target.value})} className="input" type="email" placeholder="Email" />
+                    <input value={buffetReservation.fristname} onChange={(e) => setBuffetReservation({...buffetReservation,fristname:e.target.value})} className="input" type="text" placeholder="First Name" required/>
+                    <input value={buffetReservation.lastname} onChange={(e) => setBuffetReservation({...buffetReservation,lastname:e.target.value})} className="input" type="text" placeholder="Last Name" required/>
+                    <input value={buffetReservation.mobile} onChange={(e) => setBuffetReservation({...buffetReservation,mobile:e.target.value})} className="input" type="number" placeholder="Mobile" required/>
+                    <input value={buffetReservation.email} onChange={(e) => setBuffetReservation({...buffetReservation,email:e.target.value})} className="input" type="email" placeholder="Email" required/>
 
                     <div>
                         <p>Buffet Type</p>
@@ -124,7 +126,7 @@ const MakeReservation = () => {
                             const newPrice = quantity * buffetPrices[newBuffetType];
                             setPrice(newPrice);
                             setBuffetReservation({...buffetReservation, buffetType: newBuffetType, price: newPrice});
-                        }}>
+                        }} required>
                             <option value="">Choose one</option>
                             {buffetTypes.map((type, index) => (
                             <option key={index} value={type}>
@@ -135,17 +137,17 @@ const MakeReservation = () => {
                     </div>
                     <div>
                         <p>Date</p>
-                        <input value={buffetReservation.date} onChange={(e) => setBuffetReservation({...buffetReservation,date:e.target.value})}  className="input" type="date" />
+                        <input value={buffetReservation.date} onChange={(e) => setBuffetReservation({...buffetReservation,date:e.target.value})}  className="input" type="date"  min={today} required />
                     </div>
                     <div>
                         <p>Quantity</p>
-                        <input className="input" type="number" placeholder="Quantity" value={quantity} onChange={(e) => {
+                        <input className="input" type="number" placeholder="Quantity" min="1" value={quantity} onChange={(e) => {
                             const newQuantity = parseInt(e.target.value);
                             setQuantity(newQuantity);
                             const newPrice = newQuantity * buffetPrices[buffetType];
                             setPrice(newPrice);
                             setBuffetReservation({...buffetReservation, quantity: newQuantity, price: newPrice});
-                        }} />
+                        }} required />
                     </div>
                     <p className="input">Total Amount = {price}</p>
                                     

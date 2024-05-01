@@ -14,7 +14,7 @@ const BuffetPage = ({buffetAdmin}) => {
   return (
     <div>
      <div className="w-[100%] shadow-md shadow-gray-400 overflow-hidden rounded-lg border border-ash" onClick={() => setShowPopup(true)}>
-      <h2 className="text-lg font-bold text-gray-700">{buffetType} </h2>
+      <h2 className="text-lg font-bold text-gray-700 items-center justify-center">{buffetType} </h2>
       <img className="w-full h-[12rem] object-cover" src={image && folder + image} alt="buffetImg" />
       
       <div className="p-3 text-sm flex flex-col gap-1">
