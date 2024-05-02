@@ -1,8 +1,13 @@
 .navbar {
+  position: fixed; /* Position the navbar fixed at the top */
+  top: 0; /* Place the navbar at the top of the page */
+  width: 100%; /* Make the navbar span the entire width of the page */
+  z-index: 1000; /* Set a high z-index to ensure it's above other content */
   background-color: #333;
   overflow: hidden;
 }
 
+/* Rest of your styles for .navbar a and .navbar a:hover remain the same */
 .navbar a {
   float: left;
   display: block;

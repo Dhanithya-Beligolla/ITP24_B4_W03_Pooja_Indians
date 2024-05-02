@@ -5,7 +5,8 @@ function Header() {
     <div>
       <div class="navbar">
         <a href="/">Home</a>
-        <a href="/roomsdetails">Rooms Details</a>
+        <a href="/homescreen">Reservation</a>
+        <a href="/roomsdetails">Booking Details</a>
         <a href="/report">Reservation Repoart</a>
 
 

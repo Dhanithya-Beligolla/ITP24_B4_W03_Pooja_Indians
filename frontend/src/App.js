@@ -6,6 +6,7 @@ import RoomsDetails from './component/roomdetails';
 import UpdateRooms from './component/updaterooms';
 import Reportdetails from './component/report';
 import Header from './component/header';
+import HomeScreen from './component/homescreen';
 
 
 
@@ -31,6 +32,8 @@ function App() {
 
 
           <Route path="/report" element={<Reportdetails />}></Route>
+
+          <Route path="/homescreen" element={<HomeScreen />}></Route>
 
 
 
