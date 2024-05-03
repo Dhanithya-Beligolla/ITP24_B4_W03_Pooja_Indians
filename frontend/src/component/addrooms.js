@@ -33,7 +33,8 @@ function AddRooms() {
     return (
         <>
         
-        <h2>Booking Reservation Form </h2>
+        <h2 id="add-rooms1">Booking Reservation Form </h2>
+
         <div className="add-rooms">
             <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
             

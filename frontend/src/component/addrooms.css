@@ -7,22 +7,15 @@
   margin-top: 10%;
 }
 
-h2 {
+#add-rooms1  {
   font-size: 24px;
-  /* Adjust font size as needed */
   font-weight: bold;
-  /* Make the text bold */
-  color: white;
-  /* Text color */
+  color: white; 
   text-align: center;
-  /* Center align the text */
   margin-bottom: 20px;
-  /* Add some space below the heading */
   text-transform: uppercase;
   position: absolute;
   top: 12%;
-    /* Convert text to uppercase */
-  padding-left: 300px;
 }
 
 .add-rooms form {
@@ -72,7 +65,7 @@ h2 {
   z-index: -1;
   background-size: cover;
   background-position: center;
-  filter: blur(0.5px);
+  filter: grayscale(30%);
 }
 
 .content {
