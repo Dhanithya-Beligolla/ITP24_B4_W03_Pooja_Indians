@@ -1,0 +1,40 @@
+.prepoart {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .prepoart h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .prepoart p {
+    margin-bottom: 10px;
+  }
+  
+  .prepoart table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .prepoart th,
+  .prepoart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .prepoart th {
+    background-color: #f2f2f2;
+  }
+  
+  .prepoart tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .prepoart tbody tr:hover {
+    background-color: #f2f2f2;
+  }
+  
