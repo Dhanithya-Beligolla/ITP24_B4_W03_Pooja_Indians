@@ -2,7 +2,7 @@
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid white;
   border-radius: 5px;
   margin-top: 10%;
 }
@@ -12,7 +12,7 @@ h2 {
   /* Adjust font size as needed */
   font-weight: bold;
   /* Make the text bold */
-  color: #ebebf1;
+  color: white;
   /* Text color */
   text-align: center;
   /* Center align the text */
@@ -20,7 +20,7 @@ h2 {
   /* Add some space below the heading */
   text-transform: uppercase;
   position: absolute;
-  top: 15%;
+  top: 12%;
     /* Convert text to uppercase */
  padding-left: 300px;
 }
@@ -38,7 +38,7 @@ h2 {
 .add-rooms input[type="date"] {
   padding: 8px;
   margin-bottom: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid white;
   border-radius: 5px;
   font-size: 16px;
 }
@@ -46,7 +46,7 @@ h2 {
 .add-rooms button {
   padding: 10px 20px;
   background-color: #007bff;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -72,11 +72,11 @@ h2 {
   z-index: -1;
   background-size: cover;
   background-position: center;
-  filter: blur(2px);
+  filter: blur(1.5px);
 }
 
 .content {
   position: relative;
   z-index: 1;
-  color: #ebebf1;
+  color: white;
 }

@@ -1,0 +1,76 @@
+.home-background-image{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  
+}
+
+/* Styling for the large heading */
+.home-background-image h1 {
+    font-size: 65px; /* Adjust as needed */
+    font-weight: 400; /* Reduce the boldness */
+    color: white; /* Text color */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Add some space below the heading */
+    position: absolute;
+    top: 25%;
+    padding-left: 100px;
+}
+  
+/* Styling for the extra large heading */
+.home-background-image h3 {
+    font-size: 30px; /* Adjust as needed */
+    font-weight: 400; /* Reduce the boldness */
+    color: white; /* Text color */
+    text-align: center; /* Center align the text */
+    margin-bottom: 20px; /* Add some space below the heading */
+    position: absolute;
+    top: 43%;
+    padding-left: 105px;
+}
+  
+/* Styling for the smaller text */
+.home-background-image p {
+    position: absolute;
+    bottom: 30%;
+    left: 15%;
+    transform: translateX(-50%);
+}
+  
+.transparent-box {
+    background-color: rgba(255, 255, 255, 0.689); /* Light white color with some opacity */
+    /* Other styles for the transparent state */
+}
+
+.white-box {
+    background-color: white;
+    /* Other styles for the white state */
+}
+
+.home-background-image a {
+    color: black;
+    text-decoration: none;
+    border-radius: 0;
+    background-color: rgba(255, 255, 255, 0.3); /* Initially transparent with some opacity */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s, cursor 0.3s;
+}
+
+.home-background-image a:hover {
+    cursor: pointer;
+    background-color: rgb(209, 214, 219); /* Hover color */
+}
+
+.home-background-image a.clicked {
+    background-color: white; /* White background after clicking */
+}

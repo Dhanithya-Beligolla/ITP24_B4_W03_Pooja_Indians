@@ -4,8 +4,8 @@ function Header() {
   return (
     <div>
       <div class="navbar">
-        <a href="/">Home</a>
-        <a href="/homescreen">Reservation</a>
+        <a href="/homescreen">Home</a>
+        <a href="/">Reservation</a>
         <a href="/roomsdetails">Booking Details</a>
         <a href="/report">Reservation Repoart</a>
 
