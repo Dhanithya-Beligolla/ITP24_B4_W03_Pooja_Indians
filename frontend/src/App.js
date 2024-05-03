@@ -24,7 +24,7 @@ function App() {
         <Header />
         <Routes>
 
-          <Route path="/" element={<AddRooms />}></Route>
+          <Route path="/add" element={<AddRooms />}></Route>
 
           <Route path="/roomsdetails" element={<RoomsDetails />}></Route>
 
@@ -33,7 +33,7 @@ function App() {
 
           <Route path="/report" element={<Reportdetails />}></Route>
 
-          <Route path="/homescreen" element={<HomeScreen />}></Route>
+          <Route path="/" element={<HomeScreen />}></Route>
 
 
 
