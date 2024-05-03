@@ -10,6 +10,7 @@ const userSchema = new schema({
     age: Number,
     education_qualification: String,
     work_experience: String,
+    percentage: Number,
 })
 
 const User = mongoose.model('User', userSchema);

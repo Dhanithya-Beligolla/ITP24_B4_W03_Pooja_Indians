@@ -21,6 +21,7 @@ const addUser = (req, res, next) => {
         age: req.body.age,
         education_qualification: req.body.education_qualification,
         work_experience: req.body.work_experience,
+        percentage: "0"
     });
     user.save()
         .then(response => {
@@ -32,15 +33,21 @@ const addUser = (req, res, next) => {
 }
 
 const updateUser = (req, res, next) => {
-    const { id, name, job_title, email, contact_number, age, education_qualification, work_experience } = req.body;
-    User.updateMany({ id: id }, { $set: { name: name, job_title: job_title, email: email, contact_number: contact_number, age: age, education_qualification: education_qualification, work_experience: work_experience } })
+    const promises = req.body.map(element => {
+        const ID = element.id;
+        const percentage = element.percentage;
+
+        return User.updateMany({ id: ID }, { $set: { percentage: percentage } });
+    });
+
+    Promise.all(promises)
         .then(response => {
-            res.send({response})
+            res.send({ response });
         })
         .catch(error => {
-            res.json({ error })
+            res.json({ error });
         });
-}
+};
 
 const deleteUser = (req, res, next) => {
     const id = req.body.id;

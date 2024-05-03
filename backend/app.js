@@ -26,6 +26,8 @@ app.post('/createuser', (req, res) => {
 });
 
 app.post('/updateuser', (req, res) => {
+
+    console.log(req.body);
     controller.updateUser(req.body, (callack) => {
         res.send(callack);
     });

@@ -19,15 +19,19 @@ function AdminSkillsBar() {
     }, []);
 
     const handlePercentageChange = (index, value) => {
+        value = parseInt(value);
         const updatedApps = [...updatedApplications];
         updatedApps[index].percentage = value;
         setUpdatedApplications(updatedApps);
     };
 
     const handleSubmit = () => {
+
+        console.log(updatedApplications);
         Axios.post('http://localhost:3001/api/updateuser', updatedApplications) // Updated URL
             .then(() => {
-                // Success message or other action
+                
+                alert('Updated successfully');
             })
             .catch(error => {
                 console.error("Axios error:", error);

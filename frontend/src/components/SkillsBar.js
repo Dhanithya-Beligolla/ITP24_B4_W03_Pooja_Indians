@@ -9,8 +9,15 @@ function SkillsBar() {
         getApplications();
     }, []);
 
+    useEffect(() => {
+        // This useEffect will trigger whenever 'applications' state changes
+        // You can add code here to handle any side effects of 'applications' state change
+        // For now, let's just log the 'applications' whenever it changes
+        console.log("Applications updated:", applications);
+    }, [applications]); // Dependency array containing 'applications'
+
     const getApplications = () => {
-        Axios.get('http://localhost:3001/api/users') // Updated URL
+        Axios.get('http://localhost:3001/api/users')
             .then(response => {
                 setApplications(response.data.response || []);
             })
@@ -27,7 +34,9 @@ function SkillsBar() {
                     <span className="name">{application.name}</span>
                     <span className="name">{application.job_title}</span>
                     <div className="status-bar">
-                        <div className="status" style={{ width: `${application.percentage}%` }}></div>
+                        <div className="status" style={{ width: `${application.percentage}%` }}>
+                            {application.percentage}% {/* Display the percentage */}
+                        </div>
                     </div>
                 </div>
             ))}
