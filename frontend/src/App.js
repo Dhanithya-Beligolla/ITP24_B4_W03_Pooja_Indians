@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import './App.css';
@@ -7,6 +8,7 @@ import UpdateRooms from './component/updaterooms';
 import Reportdetails from './component/report';
 import Header from './component/header';
 import HomeScreen from './component/homescreen';
+import CategoryRooms from './component/caregoryrooms';
 
 
 
@@ -25,6 +27,8 @@ function App() {
         <Routes>
 
           <Route path="/" element={<HomeScreen />}></Route>
+
+          <Route path="/categoryrooms" element={<CategoryRooms />}></Route>
 
           <Route path="/addrooms" element={<AddRooms />}></Route>
 
