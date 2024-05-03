@@ -23,6 +23,7 @@ function App() {
 <Route path='/repoart' element={<OrderRepoart/>}></Route>
 
 <Route path='/pay' element={<AddPayment/>}></Route>
+
    </Routes>
    </Router>
     </div>

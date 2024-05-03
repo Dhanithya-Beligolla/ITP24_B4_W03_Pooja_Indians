@@ -1,71 +1,96 @@
-
 import { useState } from "react";
 import axios from "axios";
-
 
 function AddPayment(){
     const [order,setorder]=useState({
         amount:"",
-
-        number:"",
-      
+        Phonenumber:"",
         address:"",
         email:"",
         date_p:"",
     })
 
-    const handleonchange=(e)=>{
-        const {value,name}=e.target
-        setorder((preve)=>{
-               return{
-                ...preve,
-                [name]:value
-               }
-          })
-       
-        
-    }
-    
-    const handlesubmit=async(e)=>{
-     
-       e.preventDefault()
-       const data=await axios.post("http://localhost:8020/create_payment",order)
-          console.log(data)
-          alert("add payment!")
-         
-     
-    }
-  
+    const [errors, setErrors] = useState({});
 
+    const handleOnChange = (e) => {
+        const { value, name } = e.target;
+        setorder(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    }
 
-    return(
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Validation
+        const validationErrors = {};
+        if (!order.amount) {
+            validationErrors.amount = "Amount is required";
+        } else if (!/^\d+(\.\d{1,2})?$/.test(order.amount)) {
+            validationErrors.amount = "Invalid amount format";
+        }
+        if (!order.Phonenumber) {
+            validationErrors.Phonenumber = "Phone number is required";
+        } else if (!/^\d{10}$/.test(order.Phonenumber)) {
+            validationErrors.Phonenumber = "Phone number must be 10 digits";
+        }
+        if (!order.address) {
+            validationErrors.address = "Address is required";
+        }
+        if (!order.email) {
+            validationErrors.email = "Email is required";
+        } else if (!/\S+@\S+\.\S+/.test(order.email)) {
+            validationErrors.email = "Invalid email address";
+        }
+        if (!order.date_p) {
+            validationErrors.date_p = "Date is required";
+        }
+
+        if (Object.keys(validationErrors).length > 0) {
+            setErrors(validationErrors);
+            return;
+        }
+
+        try {
+            const response = await axios.post("http://localhost:8020/create_payment", order);
+            console.log(response);
+            alert("Payment added!");
+        } catch (error) {
+            console.error("Error adding payment:", error);
+        }
+    }
+
+    return (
         <div className="add-order">
-           
-<h2>Check Out</h2>
-    <form onSubmit={handlesubmit}>
-    <lable>Payment Method:</lable>
-    <select  id="p_method" name="p_method" onChange={handleonchange}>
-      
-      <option>card</option>
-      <option>cash</option>
-      <option>cod</option>
-        
-    </select><br></br>
-    <lable>Amount :</lable>
-    <input type="number" id="Amount" name="Amount" onChange={handleonchange} /><br></br>
-    <lable>Phone Number :</lable>
-    <input type="number" id="number" name="number" onChange={handleonchange}/><br></br>
-    <lable>Address:</lable>
-    <input type="text" id="Address" name="Address" onChange={handleonchange}/><br></br> 
-    <lable>Email:</lable>
-    <input type="email" id="email" name="email"onChange={handleonchange} /><br></br>
-    <lable>Date:</lable>
-    <input type="date" id="date_p" name="date_p"onChange={handleonchange} /><br></br> 
-    <button>Payment</button>
-
-    </form><br></br> 
-   <a href="repoart">check out</a>
+            <h2>Check Out</h2>
+            <form onSubmit={handleSubmit}>
+                <label>Payment Method:</label>
+                <select id="p_method" name="p_method" onChange={handleOnChange}>
+                    <option>card</option>
+                    <option>cash</option>
+                    <option>cod</option>
+                </select><br />
+                <label>Amount :</label>
+                <input type="number" min="0" max="50000" id="amount" name="amount" onChange={handleOnChange} />
+                {errors.amount && <div className="error">{errors.amount}</div>}<br />
+                <label>PhoneNumber :</label>
+                <input type="text" id="Phonenumber" name="Phonenumber" onChange={handleOnChange} />
+                {errors.Phonenumber && <div className="error">{errors.Phonenumber}</div>}<br />
+                <label>Address:</label>
+                <input type="text" id="address" name="address" onChange={handleOnChange} />
+                {errors.address && <div className="error">{errors.address}</div>}<br />
+                <label>Email:</label>
+                <input type="email" id="email" name="email" onChange={handleOnChange} />
+                {errors.email && <div className="error">{errors.email}</div>}<br />
+                <label>Date:</label>
+                <input type="date" id="date_p" name="date_p" onChange={handleOnChange} />
+                {errors.date_p && <div className="error">{errors.date_p}</div>}<br />
+                <button>Payment</button>
+            </form><br />
+            <a href="repoart">check out</a>
         </div>
-    )
+    );
 }
+
 export default AddPayment;

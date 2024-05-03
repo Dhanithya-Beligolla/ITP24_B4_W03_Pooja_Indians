@@ -1,7 +1,8 @@
 import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import './orderupdate.css'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 function UpdateOrder(){
   const navigate=useNavigate();
 
@@ -54,13 +55,13 @@ function UpdateOrder(){
               ...updateorder,
             }),
           });
-    
+
           const data = await response.json();
     
           if (data.success) {
             console.log('Order updated successfully');
            alert("Order updated successfully");
-           navigate("orderdetails");
+           navigate("/orderdetails");
 
           } else {
             console.error(data.message);
