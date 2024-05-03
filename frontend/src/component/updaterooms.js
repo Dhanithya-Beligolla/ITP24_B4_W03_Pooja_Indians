@@ -31,8 +31,7 @@ function UpdateRooms() {
     };
 
     fetchUserData();
-  }, []);
-
+  }, [id]); // Include 'id' in the dependency array
 
 
   const handleInputChange = (e) => {
@@ -41,6 +40,7 @@ function UpdateRooms() {
       [e.target.name]: e.target.value,
     });
   };
+
   const handleUpdate = async () => {
     try {
       const response = await fetch(`http://localhost:8030/update`, {
@@ -73,25 +73,20 @@ function UpdateRooms() {
     <div className='rooms-update'>
       <h2>Update Details</h2>
 
-      <lable>Name:</lable>
+      <label>Name:</label>
       <input type="text" id="name" name="name" onChange={handleInputChange} value={updaterooms?.name} /><br></br>
-      <lable>Phone Number:</lable>
+      <label>Phone Number:</label>
       <input type="number" id="phone" name="phone" onChange={handleInputChange} value={updaterooms?.phone} /><br></br>
-      <lable>Email:</lable>
+      <label>Email:</label>
       <input type="email" id="email" name="email" onChange={handleInputChange} value={updaterooms?.email} /><br></br>
-      <lable>Date:</lable>
+      <label>Date:</label>
       <input type="date" id="date" name="date" onChange={handleInputChange} value={updaterooms?.date} /><br></br>
-      <lable>Quentity:</lable>
-      <input type="number" id="quentity_rooms" name="quentity_rooms" onChange={handleInputChange} value={updaterooms?.quentity_rooms} /><br></br>
-      <lable>Number of Guests:</lable>
-      <input type="number" id="quentity_people" name="quentity_people" onChange={handleInputChange} value={updaterooms?.quentity_people} /><br></br>
-
-
-
+      <label>Quantity:</label>
+      <input type="number" min="1" max="10" id="quentity_rooms" name="quentity_rooms" onChange={handleInputChange} value={updaterooms?.quentity_rooms} /><br></br>
+      <label>Number of Guests:</label>
+      <input type="number" min="1" id="quentity_people" name="quentity_people" onChange={handleInputChange} value={updaterooms?.quentity_people} /><br></br>
 
       <button onClick={handleUpdate} >Update</button><br></br> <br></br>
-
-
     </div>
   )
 }

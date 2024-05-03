@@ -1,9 +1,27 @@
 const mongoose=require("mongoose")
+
 const trackerregister = mongoose.Schema({
-    fname: String,
-    lname: String,
-    email: String,
-    password: String,
+
+    fname: {
+        type: String,
+        required: true
+    },
+
+    lname: {
+        type: String,
+        required: true
+    },
+
+    email: {
+        type: String,
+        required: true,
+    },
+    
+    password: {
+        type: String,
+        required: true,
+        minlength: 6 // Minimum length for password
+    }
 
 
 

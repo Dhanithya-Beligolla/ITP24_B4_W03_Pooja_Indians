@@ -1,13 +1,36 @@
 const mongoose=require("mongoose")
 const roomsschema = mongoose.Schema({
-    name: String,
-    phone: Number,
-    email: String,
-    date: Date,
-    quentity_rooms: Number,
-    quentity_people: Number,
+    name: {
+        type: String,
+        required: true
+    },
 
+    phone: {
+        type: Number,
+        required: true,
+    },
 
+    email: {
+        type: String,
+        required: true,
+    },
+
+    date: {
+        type: Date,
+        required: true
+    },
+
+    quentity_rooms: {
+        type: Number,
+        required: true,
+        min: 1 // Minimum number of rooms
+    },
+
+    quentity_people: {
+        type: Number,
+        required: true,
+        min: 1 // Minimum number of people
+    }
 
 
 }, {

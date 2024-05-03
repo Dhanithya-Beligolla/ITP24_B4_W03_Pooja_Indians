@@ -48,9 +48,9 @@ function AddRooms() {
                     <label>Date:</label>
                     <input type="date" id="date" name="date" onChange={handleOnChange} /><br />
                     <label>Quantity:</label>
-                    <input type="number" id="quantity_rooms" name="quantity_rooms" onChange={handleOnChange} /><br />
+                    <input type="number" min = "1"  max = "10" id="quantity_rooms" name="quantity_rooms" onChange={handleOnChange} /><br />
                     <label>Number of Guests:</label>
-                    <input type="number" id="quantity_people" name="quantity_people" onChange={handleOnChange} /><br />
+                    <input type="number" min = "1" id="quantity_people" name="quantity_people" onChange={handleOnChange} /><br />
 
                     <button>Reserve Rooms</button>
                 </form>
