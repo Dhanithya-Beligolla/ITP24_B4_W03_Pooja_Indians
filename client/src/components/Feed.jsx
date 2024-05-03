@@ -8,7 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import StarRating from './StarRating';
 
 const Feed = ({datas}) => {
-const {fullName, email,phoneNumber,image,feedback,_id } = datas;
+const {fullName, email,phoneNumber,image,feedback,_id,starRating } = datas;
 const{setUpdate,update}=FeedbackContextShare();
 const navigate=useNavigate();
 const folder = import.meta.env.VITE_IMAGE_URL;
@@ -36,9 +36,11 @@ const { mutate, isLoading, isError } =useMutation(
       <div className='flex gap-10 mt'>
         
       <span className="text-lg font-bold text-white mt-3 ml-10">{fullName}</span>
-      <div className='ml-[250px]'>
-      <  StarRating/>
-      </div>
+      
+
+      <span className="text-sm font-bold text-white mt-3 ml-[400px]">Rating:5 out of {starRating}</span>
+
+      <div></div>
       </div>
         
        

@@ -6,6 +6,11 @@ import { addFeedback,updateFeedback } from '../../fetchContact/FetchContact';
 import { FeedbackContextShare } from '../../coontext/Coontext';
 import { useEffect } from 'react';
 
+// Import Material-UI components
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import Rating from '@mui/material/Rating';
+
 
 
 const AddFeedback = () => {
@@ -21,6 +26,7 @@ const AddFeedback = () => {
     feedback: "",
     image: "",
     date: "",
+    starRating: 0,
   });
 
   const [errors, setErrors] = useState({});
@@ -66,7 +72,7 @@ const AddFeedback = () => {
   };
 
   useEffect(() => {
-    if(update){
+    if (update && update.date) {
       setFeedback({
         ...feedback,
         fullName: update.fullName,
@@ -76,9 +82,15 @@ const AddFeedback = () => {
         image: update.image,
         date: update.date.split("T")[0],
         _id: update._id,
-      })
+        starRating: update.starRating,
+      });
     }
-  },[update])
+  }, [update]);
+  
+
+  const handleRatingChange = (event, newValue) => {
+    setFeedback({ ...feedback, starRating: newValue }); // Update star rating in feedback state
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -153,6 +165,17 @@ const AddFeedback = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500">{feedback.feedback.length}/100 characters</span>
                   
+                </div>
+
+                <div>
+                  <Typography marginLeft={2} variant="subtitle2">Rating:</Typography>
+                  <Box marginTop={1} marginLeft={1} sx={{ display: 'flex', alignItems: 'center' }}>
+                    <Rating 
+                      value={feedback.starRating} 
+                      onChange={handleRatingChange} // Handle rating change
+                    />
+                    <Typography variant="body1" sx={{ ml: 1 }}>{feedback.starRating}/5</Typography>
+                  </Box>
                 </div>
 
                 <button className='button1 bg-green-600'>{update ? "Update" : "Submit"}</button>

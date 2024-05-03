@@ -24,6 +24,12 @@ const formSchema =new mongoose.Schema(
     date:{
         type:Date,
     },
+    starRating: {
+        type: Number,
+        required: true,
+        min: 1,
+        max: 5,
+      },
    
 },
 {
