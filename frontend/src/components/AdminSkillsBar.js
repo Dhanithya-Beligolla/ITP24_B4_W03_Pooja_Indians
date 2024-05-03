@@ -28,7 +28,7 @@ function AdminSkillsBar() {
     const handleSubmit = () => {
 
         console.log(updatedApplications);
-        Axios.post('http://localhost:3001/api/updateuser', updatedApplications) // Updated URL
+        Axios.post('http://localhost:3001/api/percentageUpdate', updatedApplications) // Updated URL
             .then(() => {
                 
                 alert('Updated successfully');

@@ -32,7 +32,7 @@ const addUser = (req, res, next) => {
         });
 }
 
-const updateUser = (req, res, next) => {
+const percentageUpdate = (req, res, next) => {
     const promises = req.body.map(element => {
         const ID = element.id;
         const percentage = element.percentage;
@@ -49,8 +49,24 @@ const updateUser = (req, res, next) => {
         });
 };
 
+const updateUser = (req, res, next) => {
+    const { id, name, job_title, email, contact_number, age, education_qualification, work_experience } = req.body;
+    User.updateMany({ id: id }, { $set: { name: name, job_title: job_title, email: email, contact_number: contact_number, age: age, education_qualification: education_qualification, work_experience: work_experience } })
+        .then(response => {
+            res.send({response})
+        })
+        .catch(error => {
+            res.json({ error })
+        });
+}
+
 const deleteUser = (req, res, next) => {
     const id = req.body.id;
+    //vlidation 
+    
+    res.status(400).send("ID is required")
+
+
     User.deleteMany({ id: id })
         .then(response => {
             res.send({response})
@@ -64,3 +80,4 @@ exports.getUsers = getUsers;
 exports.addUser = addUser;
 exports.updateUser = updateUser;
 exports.deleteUser = deleteUser;
+exports.percentageUpdate = percentageUpdate;
