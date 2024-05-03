@@ -7,11 +7,12 @@
   z-index: -1;
   background-size: cover;
   background-position: center;
-  
+  filter: grayscale(30%);
 }
 
 /* Styling for the large heading */
 .home-background-image h1 {
+    font-family: Raleway; 
     font-size: 65px; /* Adjust as needed */
     font-weight: 400; /* Reduce the boldness */
     color: white; /* Text color */
@@ -24,6 +25,7 @@
   
 /* Styling for the extra large heading */
 .home-background-image h3 {
+    font-family: Raleway;
     font-size: 30px; /* Adjust as needed */
     font-weight: 400; /* Reduce the boldness */
     color: white; /* Text color */
