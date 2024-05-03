@@ -69,17 +69,17 @@ paylist.map((e)=>{
                 return(
                             <tr>
                                 <td>
-                                {e.basicSalary} 
+                                {parseInt(e.basicSalary)}
                                 </td>
                                 <td>
-                                {e.basicSalary=e.basicSalary+(e.bonus*2/100)}
+                                {e.bonus+e.allowance+e.other+(e.ot)*500}
                                 </td>
                                 <td>
-                                 {e.basicSalary=e.basicSalary-(e.deductionTax*2/100)}
+                                 {e.deductionTax+e.deductionOther}
 
                                 </td>
                                 <td>
-                                    {e.basicSalary=e.basicSalary-(e.other*2/100)}
+                                {e.deductionTax+e.deductionOther-e.other}
                                 </td>
                             
  

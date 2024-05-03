@@ -52,7 +52,7 @@ const calculateNetSalary = (e1) => {
     const netSalary = (
         parseFloat(e1.basicSalary) +
         parseFloat(e1.allowance) +
-        parseFloat(e1.ot) * 1000 +
+        parseFloat(e1.ot) * 500 +
         parseFloat(e1.bonus) +
         parseFloat(e1.other) -
         parseFloat(e1.deductionTax) -
