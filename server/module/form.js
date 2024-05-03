@@ -9,19 +9,18 @@ const formSchema =new mongoose.Schema(
     email:{
         type:String,
         required:true,
+        unique:true,
     },
     phoneNumber:{
         type:String,
         required:true,
+        unique:true,
     },
     feedback:{
         type:String,
         required:true
     },
-    image:{
-        type:String,
-        
-    },
+   
     date:{
         type:Date,
     },
