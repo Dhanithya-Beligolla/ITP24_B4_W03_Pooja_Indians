@@ -1,0 +1,86 @@
+/* General styles */
+.category-rooms-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.category-rooms-dark-grey {
+    background-color: #534d4dc2;
+    color: black;
+}
+
+.category-rooms-center {
+    text-align: center;
+}
+
+.category-rooms-row-padding {
+    margin-top: 20px;
+}
+
+/* Padding styles */
+.category-rooms-padding-16,
+.category-rooms-padding-24 {
+    padding: 16px; /* Consolidated padding styles */
+}
+
+.category-rooms-padding-24 {
+    padding: 24px;
+}
+
+/* List styles */
+.category-rooms-ul {
+    list-style-type: none;
+}
+
+/* Box hover effect */
+.category-rooms-hover-shadow:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Button styles */
+.category-rooms-button {
+    border: none;
+    outline: none;
+    display: inline-block;
+    padding: 8px 16px;
+    vertical-align: middle;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Header styles */
+.category-rooms-container h3 {
+    font-size: 34px;
+    color: white;
+    margin-top: -90px;
+}
+
+.category-rooms-container p {
+    font-size: 25px;
+    color: white;
+}
+
+/* Box styles */
+.category-rooms-third {
+    width: 25%;
+    margin-right: 20px;
+}
+
+/* Ensure the last box doesn't have right margin */
+.category-rooms-third:last-child {
+    margin-right: 0;
+}
+
+/* Box content styles */
+.category-rooms-third .category-rooms-ul {
+    background-color: white;
+    height: 450px;
+}
+
+.category-rooms-third .category-rooms-ul li {
+    text-align: center;
+    padding: 26px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
