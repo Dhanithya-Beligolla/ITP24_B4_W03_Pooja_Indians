@@ -24,6 +24,8 @@ function App() {
         <Header />
         <Routes>
 
+          <Route path="/" element={<HomeScreen />}></Route>
+
           <Route path="/addrooms" element={<AddRooms />}></Route>
 
           <Route path="/roomsdetails" element={<RoomsDetails />}></Route>
