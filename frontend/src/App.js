@@ -7,6 +7,7 @@ import UpdateOrder from './Component/UpdateOrders';
 import OrderRepoart from './Component/Repoart';
 import Header from './Component/header';
 import AddPayment from './Component/Payment';
+import Paymentmethod from './Component/paymentmethod';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
 <Route path='/orderdetails' element={<OrderDetails/>}></Route>
 <Route path='/updateorder/:id' element={<UpdateOrder/>}></Route>
 <Route path='/repoart' element={<OrderRepoart/>}></Route>
-
+<Route path='/method' element={<Paymentmethod/>}></Route>
 
 
 <Route path='/pay' element={<AddPayment/>}></Route>

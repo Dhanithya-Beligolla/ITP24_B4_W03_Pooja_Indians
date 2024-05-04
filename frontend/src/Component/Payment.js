@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-
+import { Link} from "react-router-dom"; // Import useHistory for navigation
 
 function AddPayment() {
-    const navigate=useNavigate();
+    const history = Link(); // Initialize useHistory hook
     const [order, setOrder] = useState({
         Name: "",
         number: "", 
@@ -71,8 +70,8 @@ function AddPayment() {
             } catch (error) {
                 console.error("Error occurred:", error);
                 alert("Payment failed. Please try again later.");
-                navigate("/paymentmethod")
             }
+            history.push("/paymentmethod"); // Navigate to paymentmethod page after successful submission
         }
     };
 
@@ -85,7 +84,7 @@ function AddPayment() {
                 {errors.Name && <span className="error">{errors.Name}</span>}
                 <br />
                 <label>Phone Number:</label>
-                <input type="number" id="number" name="number" value={order.number} onChange={handleChange} />
+                <input type="text" id="number" name="number" value={order.number} onChange={handleChange} />
                 {errors.number && <span className="error">{errors.number}</span>}
                 <br />
                 <label>Address:</label>
@@ -97,8 +96,9 @@ function AddPayment() {
                 {errors.email && <span className="error">{errors.email}</span>}
                 <br />
                 <button type="submit">Payment</button>
-            </form><br />
-            <a href="repoart">check out</a>
+            </form>
+            <br />
+            <Link to="/paymentmethod">Go to Payment Method</Link> {/* Link to paymentmethod page */}
         </div>
     );
 }

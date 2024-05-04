@@ -1,103 +1,75 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-
 function Paymentmethod() {
-    const [order, setOrder] = useState({
-        Name: "",
-        number: "", 
-        address: "",
-        email: "",
+    const stripe = require('stripe');
+const express = require('express');
+const { collection, doc, setDoc } = require('firebase/firestore');
+const dotenv = require('dotenv');
+dotenv.config();
+
+const app = express();
+app.use(express.json());
+
+const stripeGateway = stripe(process.env.STRIPE_KEY);
+const DOMAIN = process.env.DOMAIN;
+
+app.post('/stripe-checkout', async (req, res) => {
+    try {
+        const session = await stripeGateway.checkout.sessions.create({
+            payment_method_types: ["card"],
+            mode: "payment",
+            success_url: `${DOMAIN}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${DOMAIN}/checkout?payment_fail=true`,
+            line_items: req.body.items.map(item => ({
+                price_data: {
+                    currency: "usd",
+                    product_data: {
+                        name: item.name,
+                        description: item.shortDesc,
+                        images: [item.image]
+                    },
+                    unit_amount: item.price * 100
+                },
+                quantity: item.quantity 
+            }))
+        });
+
+        res.json({ url: session.url });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error occurred while creating session.' });
+    }
+});
+
+app.get('/success', async (req, res) => {
+    try {
+        const { order, session_id } = req.query;
+        const decodedOrder = decodeURIComponent(order);
         
-    });
+        const session = await stripeGateway.checkout.sessions.retrieve(session_id);
+        const customerEmail = session.customer_email;
 
-    const [errors, setErrors] = useState({});
+        const date = new Date();
+        const ordersCollection = collection(db, "orders");
+        const docName = `${customerEmail}-order-${date.getTime()}`;
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setOrder((prevOrder) => ({
-            ...prevOrder,
-            [name]: value
-        }));
-    };
+        await setDoc(doc(ordersCollection, docName), JSON.parse(decodedOrder));
+        res.redirect('/checkout?payment=done');
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'An error occurred while processing payment success.' });
+    }
+});
 
-    const validateForm = () => {
-        let isValid = true;
-        const newErrors = {};
+// Add more routes and middleware as needed...
 
-        // Validate name
-        if (!order.Name.trim()) {
-            newErrors.Name = "Name is required";
-            isValid = false;
-        }
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+});
 
-        // Validate number
-        if (!order.number.trim()) {
-            newErrors.number = "Phone number is required";
-            isValid = false;
-        } else if (!/^\d{10}$/.test(order.number)) {
-            newErrors.number = "Phone number must be 10 digits";
-            isValid = false;
-        }
-
-        // Validate address
-        if (!order.address.trim()) {
-            newErrors.address = "Address is required";
-            isValid = false;
-        }
-
-        // Validate email
-        if (!order.email.trim()) {
-            newErrors.email = "Email is required";
-            isValid = false;
-        } else if (!/\S+@\S+\.\S+/.test(order.email)) {
-            newErrors.email = "Email is invalid";
-            isValid = false;
-        }
-
-        setErrors(newErrors);
-        return isValid;
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        if (validateForm()) {
-            try {
-                const data = await axios.post("http://localhost:8020/create_payment", order);
-                console.log(data);
-                alert("Payment successful!");
-            } catch (error) {
-                console.error("Error occurred:", error);
-                alert("Payment failed. Please try again later.");
-            }
-        }
-    };
-
-    return (
-        <div className="add-order">
-            <h2>Payment</h2>
-            <form onSubmit={handleSubmit}>
-                <label>Name:</label>
-                <input type="text" id="Name" name="Name" value={order.Name} onChange={handleChange} />
-                {errors.Name && <span className="error">{errors.Name}</span>}
-                <br />
-                <label>Phone Number:</label>
-                <input type="number" id="number" name="number" value={order.number} onChange={handleChange} />
-                {errors.number && <span className="error">{errors.number}</span>}
-                <br />
-                <label>Address:</label>
-                <input type="text" id="address" name="address" value={order.address} onChange={handleChange} />
-                {errors.address && <span className="error">{errors.address}</span>}
-                <br />
-                <label>Email:</label>
-                <input type="email" id="email" name="email" value={order.email} onChange={handleChange} />
-                {errors.email && <span className="error">{errors.email}</span>}
-                <br />
-                <button type="submit">Payment</button>
-            </form><br />
-            <a href="repoart">check out</a>
-        </div>
-    );
+    
 }
-
+   
 export default Paymentmethod;
