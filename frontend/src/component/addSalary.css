@@ -9,11 +9,11 @@
 .salary-form {
     position: absolute;
     top: 30%;
-    width: 400px;
+    width: 800px;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #cbcfd3;
 }
 
 .salary-form h2, .salary-form h3 {
