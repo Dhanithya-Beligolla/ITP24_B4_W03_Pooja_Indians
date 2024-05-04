@@ -73,7 +73,7 @@ function AddPayment(){
                 <input type="number" min="0" max="50000" id="amount" name="amount" onChange={handleOnChange} />
                 {errors.amount && <div className="error">{errors.amount}</div>}<br />
                 <label>PhoneNumber :</label>
-                <input type="text" id="number" name="number" onChange={handleOnChange} />
+                <input type="text" id="Phonenumber" name="Phonenumber" onChange={handleOnChange} />
                 {errors.Phonenumber && <div className="error">{errors.Phonenumber}</div>}<br />
                 <label>Address:</label>
                 <input type="text" id="address" name="address" onChange={handleOnChange} />

@@ -74,13 +74,13 @@ customerlist.map((e)=>{
                                 {e.type} 
                                 </td>
                                 <td>
-                                {e.Quentity}
+                                {e.quantity}
                                 </td>
                                 <td>
-                                {e.extra}
+                                {e.subItems}
                                 </td>
                                 <td>
-                                {e.quentity}
+                                {e.subQuantity}
                                 </td>
                                 
                                 

@@ -42,12 +42,12 @@ function AddOrder() {
                     <label>Order Items:</label>
                     <select id="type" name="type" onChange={handleOnChange}>
                         <option value="">Select an item</option>
-                        <option value="Item 1">Pizza Pepperoni</option>
-                        <option value="Item 2">Meatball</option>
-                        <option value="Item 3">Hamburger</option>
-                        <option value="Item 4">Fried Potatoes</option>
-                        <option value="Item 5">Chicken Soup</option>
-                        <option value="Item 6">Vegetables Pizza</option>
+                        <option value="Pizza Pepperoni">Pizza Pepperoni</option>
+                        <option value="Meatball">Meatball</option>
+                        <option value="Hamburger">Hamburger</option>
+                        <option value="Fried Potatoes">Fried Potatoes</option>
+                        <option value="Chicken Soup">Chicken Soup</option>
+                        <option value="Vegetables Pizza">Vegetables Pizza</option>
 
                     </select><br></br>
                     <label>Quantity:</label>
@@ -61,12 +61,12 @@ function AddOrder() {
                     <label>Sub Items :</label>
                     <select id="subItems" name="subItems" onChange={handleOnChange}>
                     <option value="">Select an subItems</option>
-                        <option value="Item 1">Mojhitos</option>
-                        <option value="Item 2">Chicken Kuruma</option>
-                        <option value="Item 3">Coca cola</option>
-                        <option value="Item 4">Pepsi</option>
-                        <option value="Item 5">Fried rice</option>
-                        <option value="Item 6">Lime Juice</option>
+                        <option value="Mojhitos">Mojhitos</option>
+                        <option value="Chicken Kuruma">Chicken Kuruma</option>
+                        <option value="Coca cola">Coca cola</option>
+                        <option value="Pepsi">Pepsi</option>
+                        <option value="Fried rice">Fried rice</option>
+                        <option value="Lime Juice">Lime Juice</option>
 
                     </select><br></br>
                     <label>Sub Quantity:</label>
