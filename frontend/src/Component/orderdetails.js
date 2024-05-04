@@ -70,8 +70,8 @@ const handledelete= async(id)=>{
           pdf.addImage(imgData, 'jpeg', imgX, imgY, imgWidth * ratio, imgHeight * ratio);
           pdf.save('Order Details.pdf');
     
-        })
-      };
+    })
+    };
 
 
     return(

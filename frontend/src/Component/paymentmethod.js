@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 
-function AddPayment() {
-    const navigate=useNavigate();
+function Paymentmethod() {
     const [order, setOrder] = useState({
         Name: "",
         number: "", 
@@ -71,7 +69,6 @@ function AddPayment() {
             } catch (error) {
                 console.error("Error occurred:", error);
                 alert("Payment failed. Please try again later.");
-                navigate("/paymentmethod")
             }
         }
     };
@@ -103,4 +100,4 @@ function AddPayment() {
     );
 }
 
-export default AddPayment;
+export default Paymentmethod;
