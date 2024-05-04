@@ -1,3 +1,5 @@
+@import '@fortawesome/fontawesome-free/css/all.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -17,3 +19,4 @@
 .button1{
     @apply py-2 text-white rounded-lg hover:opacity-90;
 }
+

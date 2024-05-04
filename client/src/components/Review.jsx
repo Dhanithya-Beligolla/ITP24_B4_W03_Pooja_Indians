@@ -5,7 +5,7 @@ import {useQuery} from "react-query";
 import { getAllData } from "../fetchContact/FetchContact";
 import NavBar from "./NavBar";
 import image from '../assets/jj.jpg';
-
+import Foot from "./Foot";
 
 const Review = () => {
  
@@ -67,7 +67,11 @@ const Review = () => {
             )}
           </div>
         </div>
+
+            <Foot/>
+            
         </div>
+        
       );
 }
 
