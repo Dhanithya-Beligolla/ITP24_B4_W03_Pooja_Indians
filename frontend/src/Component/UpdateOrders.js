@@ -1,17 +1,16 @@
 import {useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import './orderupdate.css'
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate } from 'react-router-dom';
 function UpdateOrder(){
   const navigate=useNavigate();
 
     const { id } = useParams();
     const [updateorder,setupdateorder]=useState({
         type:"",
-        quantity:"",
+        Quentity:"",
         extra:"",
-        subQuantity:"",
+        quentity:"",
         date:"",
     })
 
@@ -55,7 +54,7 @@ function UpdateOrder(){
               ...updateorder,
             }),
           });
-
+    
           const data = await response.json();
     
           if (data.success) {
@@ -79,11 +78,11 @@ function UpdateOrder(){
 <lable>Order Items:</lable>
     <input type="text" id="type" name="type" onChange={handleInputChange} value={updateorder?.type }/><br></br>
     <lable>Quentity:</lable>
-    <input type="text" id="quantity" name="quantity" onChange={handleInputChange} value={updateorder?.quantity}/><br></br>
+    <input type="text" id="Quentity" name="Quentity" onChange={handleInputChange} value={updateorder?.Quentity}/><br></br>
     <lable>Sub Items :</lable>
     <input type="text" id="extra" name="extra" onChange={handleInputChange} value={updateorder?.extra}/><br></br>
     <lable>Sub Quentity:</lable>
-    <input type="text" id="subQuantity" name="subQuantity" onChange={handleInputChange} value={updateorder?.subQuantity}/><br></br> 
+    <input type="text" id="quentity" name="quentity" onChange={handleInputChange} value={updateorder?.quentity}/><br></br> 
     <lable>Date:</lable>
     <input type="date" id="date" name="date" onChange={handleInputChange} value={updateorder?.date}/><br></br> 
   

@@ -4,12 +4,16 @@
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
-  
+    color: rgba(253, 250, 250, 0.941);
     margin-top:10%;
+    background-image: url('../../src/Component/addorderbackground.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your background image */
+    background-size: cover; /* Ensures the background image covers the entire container */
+    background-position: side;
+    
   }
   .img{
     position: absolute;
-    top:4%;
+    top:10%;
     left:85%
   }
   .add-order form {
@@ -23,10 +27,10 @@
   
   .add-order input[type="text"],
   .add-order input[type="date"] {
-    padding: 8px;
+    padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
     font-size: 16px;
   }
   
