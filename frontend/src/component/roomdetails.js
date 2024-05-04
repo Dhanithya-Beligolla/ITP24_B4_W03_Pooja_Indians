@@ -29,7 +29,7 @@ function RoomsDetails() {
     // Function to fetch data
     const getFetchData = async () => {
         try {
-            const data = await axios.get("http://localhost:8030/");
+            const data = await axios.get("http://localhost:8030/api");
             if (data.data.success) {
                 setShowrooms(data.data.data);
             }
@@ -97,8 +97,8 @@ function RoomsDetails() {
                             <td>{room.phone}</td>
                             <td>{room.email}</td>
                             <td>{moment(room.date).format("l")}</td>
-                            <td>{room.quentity_rooms}</td>
-                            <td>{room.quentity_people}</td>
+                            <td>{room.quantity_rooms}</td>
+                            <td>{room.quantity_people}</td>
                             <td>
                                 <a href={`/roomsupdate/${room._id}`}>Edit Details</a>
                                 <button onClick={() => handleDelete(room._id)}>Delete Item</button>

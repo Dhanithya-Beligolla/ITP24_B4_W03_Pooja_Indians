@@ -11,7 +11,7 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 app.use("/", adminRoutes);
-app.use("/", roomsRoutes);
+app.use("/api", roomsRoutes);
 
 const PORT = process.env.PORT || 8030
 
