@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import axios from "axios"
-import './repoart.css'
+import './paymentreport.css'
 
-function OrderRepoart(){
+function Paymentreport(){
     const [countlist,setcountlist]=useState([]);
     const [customerlist,setcustomerlist]=useState([]);
 
@@ -112,4 +112,4 @@ customerlist.map((e)=>{
 
 
 }
-export default OrderRepoart;
+export default Paymentreport;
