@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom"; // Import Link from React Router
+
+import { Link, Navigate } from "react-router-dom"; // Import Link from React Router
 
 function AddPayment() {
+    const [isClicked, setIsClicked] = useState(false);
     const [order, setOrder] = useState({
         amount: "",
         Phonenumber: "",
@@ -59,6 +61,8 @@ function AddPayment() {
             const response = await axios.post("http://localhost:8020/create_payment", order);
             console.log(response);
             alert("Payment added!");
+            Navigate("/paymentreport")
+            
         } catch (error) {
             console.error("Error adding payment:", error);
         }
@@ -89,7 +93,7 @@ function AddPayment() {
                 <input type="date" id="date_p" name="date_p" onChange={handleOnChange} />
                 {errors.date_p && <div className="error">{errors.date_p}</div>}<br />
 
-                <button type="submit">Payment</button>
+                <button onClick={() => setIsClicked(true)}>Payment</button>
             </form>
             <br />
             

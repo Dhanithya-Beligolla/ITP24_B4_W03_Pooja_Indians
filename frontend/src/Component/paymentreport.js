@@ -3,57 +3,60 @@ import axios from 'axios';
 import './paymentreport.css';
 
 function Paymentreport() {
-    const [countlist, setCountlist] = useState(null);
-    const [customerlist, setCustomerlist] = useState([]);
+    const [plist, setplist] = useState(null);
+    const [paymentlist, setpaymentlist] = useState([]);
 
-    useEffect(() => {
-        const getFetchData = async () => {
-            try {
-                const response = await axios.get('http://localhost:8020/count');
-                const { count, data } = response.data;
-                setCountlist(count);
-                setCustomerlist(data);
-            } catch (error) {
-                console.error('Error fetching payment data:', error);
-                alert('Error fetching payment data');
-            }
-        };
-
-        getFetchData();
-    }, []);
+    const getfetchdata=async()=>{
+        try{
+        const data=await axios.get("http://localhost:8020/count")
+       const { count } = data.data;
+       setplist(count);//get count
+       setpaymentlist(data.data.data);//get table data
+     
+    }catch(err){
+        alert(err)
+    }
+    }
+    useEffect(()=>{
+        getfetchdata()   
+    },[])
 
     return (
         <div className="preport">
             <h3>Total Payment</h3>
-            {countlist !== null ? (
-                <p>Total Payment: {countlist}</p>
+            {plist !== null ? (
+                <p>Total Payment: {plist}</p>
             ) : (
                 <p>Loading...</p>
             )}
 
             <h3>Summary Payment</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Payment Method</th>
+            <table> <tr>
+                 <th>Payment Method</th>
                         <th>Amount</th>
                         <th>Phone Number</th>
                         <th>Address</th>
                         <th>Email</th>
                         <th>Date</th>
+                       
                     </tr>
-                </thead>
+                
                 <tbody>
-                    {customerlist.map((e, index) => (
-                        <tr key={index}>
+                    {
+                    paymentlist.map((e)=>{
+                        return(
+                        <tr>
                             <td>{e.p_method}</td>
                             <td>{e.amount}</td>
                             <td>{e.Phonenumber}</td>
                             <td>{e.address}</td>
                             <td>{e.email}</td>
                             <td>{e.date_p}</td>
+                           
                         </tr>
-                    ))}
+                    )
+                })
+            }
                 </tbody>
             </table>
         </div>
