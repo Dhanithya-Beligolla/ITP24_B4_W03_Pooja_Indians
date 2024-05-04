@@ -12,7 +12,7 @@ function AddOrder() {
     const [order, setOrder] = useState({
         type: "",
         quantity: "", // Changed Quentity to quantity
-        extra: "",
+        subItems: "",
         subQuantity: "", // Changed subQuentity to subQuantity
         date: "",
     });
@@ -61,13 +61,12 @@ function AddOrder() {
                     <label>Sub Items :</label>
                     <select id="subItems" name="subItems" onChange={handleOnChange}>
                     <option value="">Select an subItems</option>
-                    <option value="Item 1">Pizza Pepperoni</option>
-                        <option value="Item 2">Mojhitos</option>
-                        <option value="Item 3">Chicken Kuruma</option>
-                        <option value="Item 4">Coca cola</option>
-                        <option value="Item 5">Pepsi</option>
-                        <option value="Item 6">Fried rice</option>
-                        <option value="Item 7">Lime Juice</option>
+                        <option value="Item 1">Mojhitos</option>
+                        <option value="Item 2">Chicken Kuruma</option>
+                        <option value="Item 3">Coca cola</option>
+                        <option value="Item 4">Pepsi</option>
+                        <option value="Item 5">Fried rice</option>
+                        <option value="Item 6">Lime Juice</option>
 
                     </select><br></br>
                     <label>Sub Quantity:</label>

@@ -1,9 +1,9 @@
 const mongoose=require("mongoose")
 const orderschema=mongoose.Schema({
     type:String,
-    Quentity:String,
-    extra:String,
-    quentity:String,
+    quantity:String,
+    subItems:String,
+    subQuantity:String,
     date:String,
   
   
