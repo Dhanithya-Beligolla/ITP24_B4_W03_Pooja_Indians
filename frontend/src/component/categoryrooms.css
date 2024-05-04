@@ -51,11 +51,13 @@
 /* Header styles */
 .category-rooms-container h3 {
     font-size: 34px;
+    font-family: Raleway; 
     color: white;
     margin-top: -90px;
 }
 
 .category-rooms-container p {
+    font-family: Raleway; 
     font-size: 25px;
     color: white;
 }
