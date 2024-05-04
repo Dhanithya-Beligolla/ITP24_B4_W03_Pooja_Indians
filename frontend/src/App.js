@@ -22,6 +22,8 @@ function App() {
 <Route path='/updateorder/:id' element={<UpdateOrder/>}></Route>
 <Route path='/repoart' element={<OrderRepoart/>}></Route>
 
+
+
 <Route path='/pay' element={<AddPayment/>}></Route>
    </Routes>
    </Router>
