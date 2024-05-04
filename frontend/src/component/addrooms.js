@@ -106,7 +106,7 @@ function AddRooms() {
             <label>Name:</label>
             <input type="text" id="name" name="name" onChange={handleOnChange} /><br />
             <label>Phone Number:</label>
-            <input type="number" id="phone" name="phone" onChange={handleOnChange} /><br />
+            <input type="tel" id="phone" name="phone" onChange={handleOnChange} /><br />
             <label>Email:</label>
             <input type="email" id="email" name="email" onChange={handleOnChange} /><br />
             <label>Date:</label>
