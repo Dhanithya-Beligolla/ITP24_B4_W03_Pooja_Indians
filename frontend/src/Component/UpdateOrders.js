@@ -9,9 +9,9 @@ function UpdateOrder(){
     const { id } = useParams();
     const [updateorder,setupdateorder]=useState({
         type:"",
-        Quentity:"",
+        quantity:"",
         extra:"",
-        quentity:"",
+        subQuantity:"",
         date:"",
     })
 
@@ -79,11 +79,11 @@ function UpdateOrder(){
 <lable>Order Items:</lable>
     <input type="text" id="type" name="type" onChange={handleInputChange} value={updateorder?.type }/><br></br>
     <lable>Quentity:</lable>
-    <input type="text" id="Quentity" name="Quentity" onChange={handleInputChange} value={updateorder?.Quentity}/><br></br>
+    <input type="text" id="quantity" name="quantity" onChange={handleInputChange} value={updateorder?.quantity}/><br></br>
     <lable>Sub Items :</lable>
     <input type="text" id="extra" name="extra" onChange={handleInputChange} value={updateorder?.extra}/><br></br>
     <lable>Sub Quentity:</lable>
-    <input type="text" id="quentity" name="quentity" onChange={handleInputChange} value={updateorder?.quentity}/><br></br> 
+    <input type="text" id="subQuantity" name="subQuantity" onChange={handleInputChange} value={updateorder?.subQuantity}/><br></br> 
     <lable>Date:</lable>
     <input type="date" id="date" name="date" onChange={handleInputChange} value={updateorder?.date}/><br></br> 
   

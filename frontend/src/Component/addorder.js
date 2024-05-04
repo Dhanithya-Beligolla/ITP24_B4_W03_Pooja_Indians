@@ -27,7 +27,7 @@ function AddOrder(){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+    
         // Simple validation
         const errors = {};
         if (!order.type.trim()) {
@@ -39,25 +39,26 @@ function AddOrder(){
         if (!order.extra.trim()) {
             errors.extra = "Sub Items is required";
         }
-        if (!order.subQuantity) {
+        if (order.subQuantity === "") {
             errors.subQuantity = "Sub Quantity is required";
         }
         if (!order.date) {
             errors.date = "Date is required";
         }
         setErrors(errors);
-
+    
         if (Object.keys(errors).length === 0) {
             try {
                 const response = await axios.post("http://localhost:8020/create", order);
                 console.log(response.data);
                 alert("Order added to Cart!");
-                navigate("orderdetails");
+                navigate("/orderdetails");
             } catch (error) {
                 console.error("Error adding order: ", error);
             }
         }
     };
+    
 
     return (
         <div className="add-order">
@@ -69,7 +70,7 @@ function AddOrder(){
                 {errors.type && <div className="error">{errors.type}</div>}
                 <br />
                 <label>Quantity:</label>
-                <input type="number" min="0" name="quantity" value={order.quantity} onChange={handleChange} />
+                <input type="number" min="1" name="quantity" value={order.quantity} onChange={handleChange} />
                 {errors.quantity && <div className="error">{errors.quantity}</div>}
                 <br />
                 <label>Sub Items :</label>
@@ -77,7 +78,7 @@ function AddOrder(){
                 {errors.extra && <div className="error">{errors.extra}</div>}
                 <br />
                 <label>Sub Quantity:</label>
-                <input type="number" min="0" name="subQuantity" value={order.subQuantity} onChange={handleChange} />
+                <input type="number" min="1" name="subQuantity" value={order.subQuantity} onChange={handleChange} />
                 {errors.subQuantity && <div className="error">{errors.subQuantity}</div>}
                 <br />
                 <label>Date</label>

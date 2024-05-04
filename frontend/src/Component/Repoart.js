@@ -80,7 +80,7 @@ customerlist.map((e)=>{
                                 {e.extra}
                                 </td>
                                 <td>
-                                {e.quentity}
+                                {e.subQuantity}
                                 </td>
                                 
                                 
