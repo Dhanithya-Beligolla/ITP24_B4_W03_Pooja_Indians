@@ -1,24 +1,25 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom"; // Import Link from React Router
 
-function AddPayment(){
-    const [order,setorder]=useState({
-        amount:"",
-        Phonenumber:"",
-        address:"",
-        email:"",
-        date_p:"",
-    })
+function AddPayment() {
+    const [order, setOrder] = useState({
+        amount: "",
+        Phonenumber: "",
+        address: "",
+        email: "",
+        date_p: "",
+    });
 
     const [errors, setErrors] = useState({});
 
     const handleOnChange = (e) => {
         const { value, name } = e.target;
-        setorder(prevState => ({
+        setOrder((prevState) => ({
             ...prevState,
-            [name]: value
+            [name]: value,
         }));
-    }
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,6 +48,8 @@ function AddPayment(){
             validationErrors.date_p = "Date is required";
         }
 
+        // Other validation rules...
+
         if (Object.keys(validationErrors).length > 0) {
             setErrors(validationErrors);
             return;
@@ -59,15 +62,16 @@ function AddPayment(){
         } catch (error) {
             console.error("Error adding payment:", error);
         }
-    }
+    };
 
     return (
         <div className="add-order">
             <h2>Check Out</h2>
             <form onSubmit={handleSubmit}>
-                <label>Payment Method:</label>
+            <label>Payment Method:</label>
                 <select id="p_method" name="p_method" onChange={handleOnChange}>
                     <option>card</option>
+                    
                 </select><br />
                 <label>Amount :</label>
                 <input type="number" min="0" max="50000" id="amount" name="amount" onChange={handleOnChange} />
@@ -84,9 +88,12 @@ function AddPayment(){
                 <label>Date:</label>
                 <input type="date" id="date_p" name="date_p" onChange={handleOnChange} />
                 {errors.date_p && <div className="error">{errors.date_p}</div>}<br />
-                <button>Payment</button>
-            </form><br />
-            <a href="repoart">check out</a>
+
+                <button type="submit">Payment</button>
+            </form>
+            <br />
+            
+            <Link to="/paymentreport">Check out</Link>
         </div>
     );
 }
