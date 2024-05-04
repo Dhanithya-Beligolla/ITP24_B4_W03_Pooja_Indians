@@ -11,7 +11,7 @@ export const dbconnect = async () => {
         useUnifiedTopology: true,
       });
 
-      await seedFoods();
+      
       
       console.log('connect successfully---');
     } catch (error) {
@@ -19,17 +19,4 @@ export const dbconnect = async () => {
     }
   };
 
-  async function seedFoods() {
-    const foods = await FoodModel.countDocuments();
-    if (foods > 0) {
-      console.log('Foods seed is already done!');
-      return;
-    }
   
-    for (const food of sample_foods) {
-      food.imageUrl = `/foods/${food.imageUrl}`;
-      await FoodModel.create(food);
-    }
-  
-    console.log('Foods seed Is Done!');
-  }

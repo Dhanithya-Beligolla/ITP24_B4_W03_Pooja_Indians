@@ -9,7 +9,7 @@ import foodRouter from './routers/food.router.js';
 import uploadRouter from './routers/upload.router.js';
 
 import { dbconnect } from './config/database.config.js';
-import path, { dirname } from 'path';
+import path2, { dirname } from 'path';
 dbconnect();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: ['http://localhost:3000'],
+    origin: ['http://localhost:3174'],
   })
 );
 
@@ -28,13 +28,10 @@ app.use('/api/foods', foodRouter);
 
 app.use('/api/upload', uploadRouter);
 
-const publicFolder = path.join(__dirname, 'public');
+const publicFolder = path2.join(__dirname, 'public');
 app.use(express.static(publicFolder));
 
-app.get('*', (req, res) => {
-  const indexFilePath = path.join(publicFolder, 'index.html');
-  res.sendFile(indexFilePath);
-});
+
 
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
