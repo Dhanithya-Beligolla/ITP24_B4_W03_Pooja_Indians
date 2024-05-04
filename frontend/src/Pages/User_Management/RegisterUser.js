@@ -24,6 +24,9 @@ const RegisterUser = () => {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
+        nic: values.nic,
+        address: values.address,
+        telephone: values.telephone,
         password: values.password,
         role: values.userRole,
       });
@@ -80,6 +83,16 @@ const RegisterUser = () => {
           <Form.Item label="Email" name="email" rules={[{ required: true, message: 'Please enter your email' }, { type: 'email', message: 'Please enter a valid email' }]}>
             <Input />
           </Form.Item>
+         <Form.Item label="NIC" name="nic" rules={[{ required: true, message: 'Please enter your NIC number' }, { type: 'nic', message: 'Please enter your nic' }]}>
+            <Input />
+            </Form.Item>
+            <Form.Item label="Address" name="address" rules={[{ required: true, message: 'Please enter your address' }, { type: 'address', message: 'Please enter your address' }]}>
+            <Input />
+            </Form.Item>
+            <Form.Item label="Telephone number" name="telephone" rules={[{ required: true, message: 'Please enter your telephone number' }, { type: 'telephone', message: 'Please enter your telephone number' }]}>
+            <Input />
+            </Form.Item>
+
           <Form.Item label="User Role" name="userRole" rules={[{ required: true, message: 'Please select a user role' }]}>
             <Select>
               <Option value="user">User</Option>

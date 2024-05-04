@@ -11,6 +11,7 @@ import AdminDashboard from "./Pages/User_Management/AdminDashboard";
 
 import ContactUs from "./Pages/User_Management/ContactUs";
 import Profile from "./Pages/User_Management/Profile";
+import ReportUser from "./Components/ReportUser"
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     <>
       <NavBar />
       <Routes>
+        <Route exact path="/repo" element={<ReportUser/>}/>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/ContactUs" element={<ContactUs />} />
         <Route exact path="/Login" element={<Login />} />

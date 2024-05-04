@@ -31,7 +31,7 @@ const authMiddleware = (req, res, next) => {
 
 // Register a new user
 app.post('/register', async (req, res) => {
-    const { firstName, lastName, email, password, role } = req.body;
+    const { firstName, lastName, email, nic, address, telephone, password, role } = req.body;
 
     try {
         // Check if the user already exists
@@ -48,6 +48,9 @@ app.post('/register', async (req, res) => {
             firstName,
             lastName,
             email,
+            nic,
+            address,
+            telephone,
             password: hashedPassword,
             role,
         });
@@ -92,7 +95,7 @@ app.post('/login', async (req, res) => {
 // Add user (only for admins)
 app.post('/addUser', async (req, res) => {
     console.log(req.body)
-    const { firstName, lastName, email, password, role } = req.body;
+    const { firstName, lastName, email, nic, address, telephone, password, role } = req.body;
 
     try {
         // Check if the requesting user is an admin
@@ -112,6 +115,9 @@ app.post('/addUser', async (req, res) => {
             firstName,
             lastName,
             email,
+            nic,
+            address,
+            telephone,
             password: hashedPassword,
             role,
         });

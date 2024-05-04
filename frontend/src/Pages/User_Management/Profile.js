@@ -20,6 +20,9 @@ const Profile = () => {
                 firstName: user.firstName,
                 lastName: user.lastName,
                 email: user.email,
+                nic: user.nic,
+                address: user.address,
+                telephone: user.telephone,
                 role: user.role
             });
         }).catch(err => {
@@ -70,6 +73,9 @@ const Profile = () => {
                         firstName: user.firstName,
                         lastName: user.lastName,
                         email: user.email,
+                        nic: user.nic,
+                        address: user.address,
+                        telephone: user.telephone,
                         role: user.role
                     }}
                     style={{ minWidth: '600px' }}
@@ -107,6 +113,32 @@ const Profile = () => {
                         <Input placeholder="Email" />
                     </Form.Item>
                     <Form.Item>
+
+                    <Form.Item
+                        label="NIC"
+                        name="nic"
+                        rules={[{ required: true, message: 'Please input your NIC!' }]}
+                    >
+                        <Input placeholder="NIC" />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Address"
+                        name="address"
+                        rules={[{ required: true, message: 'Please input your address !' }]}
+                    >
+                        <Input placeholder="Address" />
+                    </Form.Item>
+
+                    <Form.Item
+                        label="Telephone number"
+                        name="telephone"
+                        rules={[{ required: true, message: 'Please input your telephone number!' }]}
+                    >
+                        <Input placeholder="Telephone number" />
+                    </Form.Item>
+
+
                         <center><Button type="primary" htmlType="submit">
                             Update
                         </Button>

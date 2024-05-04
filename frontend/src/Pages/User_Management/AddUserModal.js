@@ -19,6 +19,9 @@ const AddUserModal = ({ visible, onCancel, onAdd }) => {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
+        nic: values.nic,
+        address: values.address,
+        telephone: values.telephone,
         password: values.password,
         role: values.role,
       });
@@ -69,6 +72,27 @@ const AddUserModal = ({ visible, onCancel, onAdd }) => {
             { required: true, message: 'Please enter the email' },
             { type: 'email', message: 'Please enter a valid email' },
           ]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="NIC"
+          name="nic"
+          rules={[{ required: true, message: 'Please enter the NIC' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Address"
+          name="address"
+          rules={[{ required: true, message: 'Please enter the address' }]}
+        >
+          <Input />
+        </Form.Item>
+        <Form.Item
+          label="Telephone number"
+          name="telephone"
+          rules={[{ required: true, message: 'Please enter the telephone number' }]}
         >
           <Input />
         </Form.Item>

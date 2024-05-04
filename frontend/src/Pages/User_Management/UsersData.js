@@ -11,17 +11,22 @@ const UsersData = () => {
     const [modalVisible, setModalVisible] = useState(false);
     const [selectedUser, setSelectedUser] = useState({});
     const [form] = Form.useForm();
-    const [addUser, setAddUser] = useState(false)
+    const [addUser, setAddUser] = useState(false);
+    const [searchText, setSearchText] = useState('');
+
     useEffect(() => {
         fetchUsers();
     }, []);
 
     const fetchUsers = async () => {
         try {
-            const response = await axios.get('http://localhost:4000/api/users/');
+            setLoading(true);
+            const response = await axios.get(`http://localhost:4000/api/users/?search=${searchText}`);
             setUsers(response.data.users);
+            setLoading(false);
         } catch (error) {
-            message.error(`${error}`)
+            setLoading(false);
+            message.error(`${error}`);
             console.error('Failed to fetch users', error);
         }
     };
@@ -51,7 +56,6 @@ const UsersData = () => {
     const handleModalOk = async () => {
         try {
             const values = await form.validateFields();
-            //console.log(values)
             const updatedUser = { ...selectedUser, ...values };
 
             await axios.put(`http://localhost:4000/api/users/${selectedUser._id}`, updatedUser);
@@ -70,6 +74,9 @@ const UsersData = () => {
         { title: 'First Name', dataIndex: 'firstName', key: 'firstName' },
         { title: 'Last Name', dataIndex: 'lastName', key: 'lastName' },
         { title: 'Email', dataIndex: 'email', key: 'email' },
+        { title: 'NIC', dataIndex: 'nic', key: 'nic' },
+        { title: 'Address', dataIndex: 'address', key: 'address' },
+        { title: 'Telephone number', dataIndex: 'telephone', key: 'telephone' },
         { title: 'Role', dataIndex: 'role', key: 'role' },
         {
             title: 'Actions',
@@ -89,15 +96,19 @@ const UsersData = () => {
 
     return (
         <div className="users-data">
-            <Button onClick={(e) => { setAddUser(true) }}>Add User</Button>
-            <Table dataSource={users} columns={columns} loading={loading} rowKey="id" />
-            <AddUserModal visible={addUser}
-                onCancel={() => {
-                    setAddUser(false)
-                }}
-                onAdd={() => {
-                    fetchUsers()
-                }}
+            <div style={{ marginBottom: '16px' }}>
+                <Input.Search
+                    placeholder="Search users"
+                    onSearch={(value) => setSearchText(value)}
+                    enterButton
+                />
+                <Button onClick={(e) => { setAddUser(true) }} style={{ marginLeft: '8px' }}>Add User</Button>
+            </div>
+            <Table dataSource={users} columns={columns} loading={loading} rowKey="_id" />
+            <AddUserModal
+                visible={addUser}
+                onCancel={() => setAddUser(false)}
+                onAdd={() => fetchUsers()}
             />
             <Modal
                 title="Edit User"
@@ -116,6 +127,15 @@ const UsersData = () => {
                     <Form.Item label="Email" name="email" rules={[{ required: true, message: 'Please enter the email' }, { type: 'email', message: 'Please enter a valid email' }]}>
                         <Input />
                     </Form.Item>
+                    <Form.Item label="NIC" name="nic" rules={[{ required: true, message: 'Please enter the NIC' }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item label="Address" name="address" rules={[{ required: true, message: 'Please enter the address' }]}>
+                        <Input />
+                    </Form.Item>
+                    <Form.Item label="Telephone number" name="telephone" rules={[{ required: true, message: 'Please enter the telephone number' }]}>
+                        <Input />
+                    </Form.Item>
                     <Form.Item label="Role" name="role" rules={[{ required: true, message: 'Please select a role' }]}>
                         <Select>
                             <Option value="admin">Admin</Option>
@@ -129,3 +149,4 @@ const UsersData = () => {
 };
 
 export default UsersData;
+

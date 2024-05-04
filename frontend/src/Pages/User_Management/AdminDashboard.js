@@ -6,14 +6,18 @@ import {
 } from '@ant-design/icons';
 import UsersData from './UsersData';
 import WelcomeDashboard from './WelcomeDashboard';
+import PrintDetails from './PrintDetails';
 
 const { Sider, Content } = Layout;
+
+
 
 const AdminDashboard = () => {
     const [activeIndex, setActiveIndex] = useState(0)
     const content = [
         <WelcomeDashboard />,
         <UsersData />,
+        <PrintDetails/>,
         <div></div>,
         <div></div>,
         <div></div>,
@@ -41,6 +45,13 @@ const AdminDashboard = () => {
                         }}
                         key="users" icon={<UserOutlined />}>
                         Users
+                    </Menu.Item>
+                    <Menu.Item
+                        onClick={() => {
+                            setActiveIndex(2)
+                        }}
+                        key="report" icon={<UserOutlined />}>
+                        Report
                     </Menu.Item>
                 </Menu>
             </Sider>
