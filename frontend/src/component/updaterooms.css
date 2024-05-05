@@ -4,14 +4,13 @@
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
-
-  margin-top: 15%
+  margin-top: 15%;
 }
 
 .rooms-update h2 {
   position: absolute;
   top: 25%;
-  left: 42%
+  left: 42%;
 }
 
 .rooms-update label {
@@ -19,8 +18,8 @@
   display: block;
 }
 
-.rooms-update input[type="text"],
-.rooms-update input[type="date"] {
+.rooms-update input[type='text'],
+.rooms-update input[type='date'] {
   padding: 8px;
   margin-bottom: 10px;
   border: 1px solid #ccc;
@@ -40,7 +39,7 @@
 
 .rooms-update button:hover {
   background-color: #0056b3;
-} 
+}
 
 
 
