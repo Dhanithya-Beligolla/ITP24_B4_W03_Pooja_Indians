@@ -288,13 +288,13 @@
 
 // export default UpdateRooms;
 
-
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom'; // Import useNavigate
 import './updaterooms.css';
 
 function UpdateRooms() {
   const { id } = useParams();
+  const navigate = useNavigate(); // Define useNavigate
   const [updaterooms, setupdaterooms] = useState({
     name: '',
     phone: '',
@@ -337,26 +337,26 @@ function UpdateRooms() {
     // Basic form validation
     const validationErrors = {};
     if (!updaterooms.name.trim()) {
-      validationErrors.name = "Name is required";
+      validationErrors.name = 'Name is required';
     }
     if (!updaterooms.phone.trim()) {
-      validationErrors.phone = "Phone number is required";
+      validationErrors.phone = 'Phone number is required';
     } else if (!/^\d{10}$/i.test(updaterooms.phone)) {
-      validationErrors.phone = "Invalid phone number";
+      validationErrors.phone = 'Invalid phone number';
     }
     if (!updaterooms.email.trim()) {
-      validationErrors.email = "Email is required";
+      validationErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(updaterooms.email)) {
-      validationErrors.email = "Invalid email address";
+      validationErrors.email = 'Invalid email address';
     }
     if (!updaterooms.date.trim()) {
-      validationErrors.date = "Date is required";
+      validationErrors.date = 'Date is required';
     }
     if (!updaterooms.quantity_rooms.trim()) {
-      validationErrors.quantity_rooms = "Quantity is required";
+      validationErrors.quantity_rooms = 'Quantity is required';
     }
     if (!updaterooms.quantity_people.trim()) {
-      validationErrors.quantity_people = "Number of guests is required";
+      validationErrors.quantity_people = 'Number of guests is required';
     }
 
     setErrors(validationErrors);
@@ -383,6 +383,7 @@ function UpdateRooms() {
       if (data.success) {
         console.log('Room updated successfully');
         alert('Room updated successfully');
+        navigate('/roomsdetails'); // Navigate to a different route after successful reservation
       } else {
         console.error(data.message);
         alert('Error updating room');
@@ -422,7 +423,7 @@ function UpdateRooms() {
         <input type='number' min='1' name='quantity_people' onChange={handleInputChange} value={updaterooms.quantity_people} />
         {errors.quantity_people && <span className='error'>{errors.quantity_people}</span>}<br />
 
-        <button type="submit">Update</button>
+        <button type='submit'>Update</button>
       </form>
     </div>
   );
