@@ -55,6 +55,7 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                     <TableRow>
                         <TableCell>ID</TableCell>
                         <TableCell>NAME</TableCell>
+                        <TableCell>IDnumber</TableCell>
                         <TableCell>JOB TITLE</TableCell>
                         <TableCell>EMAIL</TableCell>
                         <TableCell>CONTACT NUMBER</TableCell>
@@ -70,6 +71,7 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
                             <TableRow key={row.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
                                 <TableCell component='th' scope="row">{row.id}</TableCell>
                                 <TableCell>{row.name}</TableCell>
+                                <TableCell>{row.idnumber}</TableCell>
                                 <TableCell>{row.job_title}</TableCell>
                                 <TableCell>{row.email}</TableCell>
                                 <TableCell>{row.contact_number}</TableCell>

@@ -40,6 +40,7 @@ const Users = () => {
         const payload = {
             id: nextId, // Use the calculated nextId
             name: data.name,
+            idnumber: data.idnumber,
             job_title: data.job_title,
             email: data.email,
             contact_number: data.contact_number,
@@ -64,6 +65,7 @@ const Users = () => {
         const payload = {
             id: data.id,
             name: data.name,
+            idnumber: data.idnumber,
             job_title: data.job_title,
             email: data.email,
             contact_number: data.contact_number,

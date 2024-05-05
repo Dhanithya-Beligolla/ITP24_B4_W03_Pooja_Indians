@@ -5,6 +5,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
 
     const [id, setID] = useState(0);
     const [name, setNAME] = useState('');
+    const [idnumber, setIDNUMBER] = useState(''); // Add this line
     const [job_title, setJOB_TITLE] = useState('');
     const [email, setEMAIL] = useState('');
     const [contact_number, setCONTACT_NUMBER] = useState('');
@@ -23,6 +24,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
         if(data?.id && data.id !== 0){
             setID(data.id);
             setNAME(data.name);
+            setIDNUMBER(data.idnumber); // Add this line
             setJOB_TITLE(data.job_title);
             setEMAIL(data.email);
             setCONTACT_NUMBER(data.contact_number);
@@ -35,6 +37,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
     const resetForm = () => {
         setID(0);
         setNAME('');
+        setIDNUMBER(''); // Add this line
         setJOB_TITLE('');
         setEMAIL('');
         setCONTACT_NUMBER('');
@@ -105,6 +108,15 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
             isValid = false;
         }
 
+        if (!idnumber) {
+            errors.idnumber = 'ID number is required';
+            isValid = false;
+        }
+        else if (idnumber.length !== 5 || !numberPattern.test(idnumber)) {
+            errors.idnumber = 'ID number should be exactly 5 digits';
+            isValid = false;
+        }
+
         setErrors(errors);
         return isValid;
     };
@@ -112,15 +124,15 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
     const handleSubmit = () => {
         if (validateForm()) {
             if (isEdit) {
-                updateUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience });
+                updateUser({ id, name, idnumber, job_title, email, contact_number, age, education_qualification, work_experience });
                 alert('Application updated successfully');
             } else {
-                addUser({ id, name, job_title, email, contact_number, age, education_qualification, work_experience });
+                addUser({ id, name, idnumber, job_title, email, contact_number, age, education_qualification, work_experience });
                 alert('Application submitted successfully');
             }
             resetForm();
         }
-    };
+    };    
 
     return (
         <Grid
@@ -189,6 +201,31 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                     onChange={e => setNAME(e.target.value)}
                 />
                 {errors.name && <Typography sx={{ color: 'red' }}>{errors.name}</Typography>}
+            </Grid>
+
+            <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
+                <Typography 
+                    component={'label'} 
+                    htmlFor="idnumber" 
+                    sx={{
+                        color: '#000000',
+                        display: 'block',
+                        marginRight: '20px',
+                        fontSize: '16px',
+                        widows: '100px',
+                    }}
+                >
+                    IDnumber
+                </Typography>
+                <Input
+                    type="number"
+                    id='idnumber'
+                    name="idnumber"
+                    sx={{ widows: '400px' }}
+                    value={idnumber}
+                    onChange={e => setIDNUMBER(e.target.value)}
+                />
+                {errors.idnumber && <Typography sx={{ color: 'red' }}>{errors.idnumber}</Typography>}
             </Grid>
 
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>

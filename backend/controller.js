@@ -12,16 +12,17 @@ const getUsers = (req, res, next) => {
 };
 
 const addUser = (req, res, next) => {
-    const { id, name, job_title, email, contact_number, age, education_qualification, work_experience } = req.body;
+    const { id, name,idnumber, job_title, email, contact_number, age, education_qualification, work_experience } = req.body;
 
     // Validate required fields
-    if (!id || !name || !job_title || !email || !contact_number || !age || !education_qualification || !work_experience) {
+    if (!id || !name || !idnumber || !job_title || !email || !contact_number || !age || !education_qualification || !work_experience) {
         return res.status(400).json({ error: "All fields are required." });
     }
 
     const user = new User({
         id: id,
         name: name,
+        idnumber: idnumber,
         job_title: job_title,
         email: email,
         contact_number: contact_number,
@@ -58,14 +59,14 @@ const percentageUpdate = (req, res, next) => {
 };
 
 const updateUser = (req, res, next) => {
-    const { id, name, job_title, email, contact_number, age, education_qualification, work_experience } = req.body;
+    const { id, name, idnumber, job_title, email, contact_number, age, education_qualification, work_experience } = req.body;
 
     // Validate required fields
-    if (!id || !name || !job_title || !email || !contact_number || !age || !education_qualification || !work_experience) {
+    if (!id || !name || !idnumber || !job_title || !email || !contact_number || !age || !education_qualification || !work_experience) {
         return res.status(400).json({ error: "All fields are required." });
     }
 
-    User.updateMany({ id: id }, { $set: { name: name, job_title: job_title, email: email, contact_number: contact_number, age: age, education_qualification: education_qualification, work_experience: work_experience } })
+    User.updateMany({ id: id }, { $set: { name: name, idnumber: idnumber , job_title: job_title, email: email, contact_number: contact_number, age: age, education_qualification: education_qualification, work_experience: work_experience } })
         .then(response => {
             res.send({ response })
         })
