@@ -9,6 +9,7 @@ const [salarylist,setsalarylist]=useState([]);
 
 const [searchbtn, setSearchBtn]=useState('');
 
+
 //read
 const getfetchdetails=async()=>{
     try{
@@ -46,6 +47,9 @@ const filterdata = (searchKey) => {
     );
     setsalarylist(filteredData);
 }
+
+
+
 
 // Calculate net salary
 const calculateNetSalary = (e1) => {
