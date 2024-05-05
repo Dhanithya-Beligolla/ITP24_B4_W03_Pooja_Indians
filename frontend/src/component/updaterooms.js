@@ -303,6 +303,7 @@ function UpdateRooms() {
     quantity_rooms: '',
     quantity_people: '',
   });
+  
   const [errors, setErrors] = useState({});
 
   useEffect(() => {
