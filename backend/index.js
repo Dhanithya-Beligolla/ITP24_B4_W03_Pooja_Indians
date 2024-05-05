@@ -86,17 +86,6 @@ app.get("/count_pay",async(req,res)=>{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 mongoose.connect("mongodb+srv://silva:Silva00@cluster0.cg8h5e2.mongodb.net/Finanacial?retryWrites=true&w=majority&appName=Cluster0").then(()=>{
     console.log(`server connection ${PORT} !`);
     app.listen(PORT,()=>console.log("server connection successful "))
