@@ -135,7 +135,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                 <Container
                     sx={{
                         border: '1px solid #CBD5E0',
-                        backgroundColor: '#f0f0f0',
+                        backgroundColor: '#ADB3C4',
                         width: '30rem',
                         padding: '1.25rem',
                         display: 'flex',
@@ -153,10 +153,14 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                 <Typography 
                         variant="h1" sx={{
                         textAlign: 'center', 
-                        fontSize: '1.25rem', 
-                        fontWeight: '500', 
+                        fontSize: '1.85rem', 
+                        fontWeight: 'bold',
+                        color: '#000000', 
                       }} 
-                >Vacancy Application Form
+                >
+                <span style={{ fontFamily: 'Arial', fontStyle: 'Times New Roman' }}>
+                    Vacancy Application Form
+                </span>
                 </Typography>
             </Grid>
             

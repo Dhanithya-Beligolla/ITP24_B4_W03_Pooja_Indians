@@ -30,10 +30,23 @@ const UsersTable = ({ rows, selectedUser, deleteUser }) => {
 
     return (
         <TableContainer component={Paper}>
-            <Grid ref={componentsRef}>
+            <Grid ref={componentsRef}
+                sx={{
+                    backgroundColor: '#ADB3C4',
+                }}
+            >
             <Grid container justifyContent="center">
-                <Typography variant="h1" sx={{ textAlign: 'center', fontSize: '1.50rem', fontWeight: '500', color: 'blue' }}>
+            <Typography 
+                        variant="h1" sx={{
+                        textAlign: 'center', 
+                        fontSize: '1.85rem', 
+                        fontWeight: 'bold',
+                        color: '#000000', 
+                      }} 
+                >
+                <span style={{ fontFamily: 'Arial', fontStyle: 'Times New Roman' }}>
                     Application Table
+                </span>
                 </Typography>
             </Grid>
             <SearchBar onSearch={handleSearch} />

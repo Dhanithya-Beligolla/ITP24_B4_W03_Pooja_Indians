@@ -98,7 +98,8 @@ const Users = () => {
     return (
         <Grid
         sx={{
-            backgroundImage: 'url("https://www.t-systems.com/resource/image/608558/ratio3x2/1440/960/d871eba91b7383568cee4c1ac72228cd/4630D1CE0AE81DC8FDA980245DA58EE5/im-application-management-services.jpg")',
+            //https://www.t-systems.com/resource/image/608558/ratio3x2/1440/960/d871eba91b7383568cee4c1ac72228cd/4630D1CE0AE81DC8FDA980245DA58EE5/im-application-management-services.jpg
+            backgroundImage: 'url("https://www.jadeglobal.com/sites/default/files/2019-07/application-management-assessment_1.jpg")',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             minHeight: '100vh',
@@ -109,12 +110,18 @@ const Users = () => {
                     sx={{ 
                         color: '#FFFFFF',
                         fontWeight: 'bold',
+                        marginTop: '7px',
+                        fontSize: '1.35rem',
+                        fontFamily: 'Arial',
                     }}
                 />
                 <Tab label="Application Table"
                     sx={{ 
                         color: '#FFFFFF', 
                         fontWeight: 'bold',
+                        marginTop: '7px',
+                        fontSize: '1.35rem',
+                        fontFamily: 'Arial',
                     }}
                 />
             </Tabs>
