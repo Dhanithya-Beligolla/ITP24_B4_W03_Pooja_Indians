@@ -14,7 +14,7 @@ const dataschema = mongoose.Schema({
         required: true
     },
     fid: {
-        type: String,
+        type: Number,
         required: true
     },
     ftitle: {
