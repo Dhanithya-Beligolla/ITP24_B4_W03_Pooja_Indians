@@ -34,8 +34,11 @@ const Users = () => {
     const addUser = (data) =>{
         setSubmitted(true);
 
+        // Calculate the next available ID based automatically
+        const nextId = users.length > 0 ? Math.max(...users.map(user => user.id)) + 1 : 1;
+
         const payload = {
-            id: data.id,
+            id: nextId, // Use the calculated nextId
             name: data.name,
             job_title: data.job_title,
             email: data.email,

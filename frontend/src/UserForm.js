@@ -164,29 +164,7 @@ const UserForm = ({ addUser, updateUser, submitted, data, isEdit }) => {
                 </Typography>
             </Grid>
             
-            <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
-                <Typography 
-                    component={'label'} 
-                    htmlFor="id" 
-                    sx={{
-                        color: '#000000',
-                        display: 'block',
-                        marginRight: '20px',
-                        fontSize: '16px',
-                        widows: '100px',
-                    }}
-                >
-                    ID
-                </Typography>
-                <Input
-                    type="number"
-                    id='id'
-                    name="id"
-                    sx={{ widows: '400px' }}
-                    value={id}
-                    onChange={e => setID(e.target.value)}
-                />
-            </Grid>
+            
             
             <Grid item xs={12} sm={6} sx={{ display: 'flex' }}>
                 <Typography 
