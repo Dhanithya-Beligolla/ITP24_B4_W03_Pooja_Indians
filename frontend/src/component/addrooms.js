@@ -124,16 +124,16 @@
 // }
 
 // export default AddRooms;
-
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import './addrooms.css';
 import backgroundImage from '../../src/image/backgroundImage.jpg';
 
 function AddRooms() {
-  const navigate = useNavigate(); // Define useNavigate
+  const navigate = useNavigate();
   const [rooms, setRooms] = useState({
+    id: "",
     name: "",
     phone: "",
     email: "",
@@ -145,6 +145,14 @@ function AddRooms() {
 
   const handleOnChange = (e) => {
     const { value, name } = e.target;
+
+    if (name === "id") {
+      // Check if the entered value is a number with exactly 4 digits
+      if (!/^\d{4}$/.test(value)) {
+        return;
+      }
+    }
+
     setRooms(prev => ({
       ...prev,
       [name]: value
@@ -154,14 +162,20 @@ function AddRooms() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic form validation
     const validationErrors = {};
+
+    if (!rooms.id.trim()) {
+      validationErrors.id = "ID is required";
+    } else if (rooms.id.length !== 4) {
+      validationErrors.id = "ID must be a 4-digit number";
+    }
+
     if (!rooms.name.trim()) {
       validationErrors.name = "Name is required";
     }
     if (!rooms.phone.trim()) {
       validationErrors.phone = "Phone number is required";
-    } else if (!/^\d{10}$/i.test(rooms.phone)) {
+    } else if (!/^\d{10}$/.test(rooms.phone)) {
       validationErrors.phone = "Invalid phone number";
     }
     if (!rooms.email.trim()) {
@@ -181,15 +195,14 @@ function AddRooms() {
 
     setErrors(validationErrors);
 
-    // If there are validation errors, don't submit the form
     if (Object.keys(validationErrors).length > 0) {
       return;
     }
 
     try {
-        await axios.post("http://localhost:8030/api/create", rooms);
-        alert("Rooms reserved successfully!");
-        navigate('/roomsdetails'); // Navigate to a different route after successful reservation
+      await axios.post("http://localhost:8030/api/create", rooms);
+      alert("Rooms reserved successfully!");
+      navigate('/roomsdetails');
     } catch (error) {
       console.error(error);
       alert("An error occurred while reserving rooms");
@@ -203,6 +216,9 @@ function AddRooms() {
         <div className="background-image" style={{ backgroundImage: `url(${backgroundImage})` }}></div>
         <div className="content">
           <form onSubmit={handleSubmit}>
+            <label>ID:</label>
+            <input type="text" id="id" name="id" onChange={handleOnChange} />
+            {errors.id && <span className="error">{errors.id}</span>}<br />
             <label>Name:</label>
             <input type="text" id="name" name="name" onChange={handleOnChange} />
             {errors.name && <span className="error">{errors.name}</span>}<br />
