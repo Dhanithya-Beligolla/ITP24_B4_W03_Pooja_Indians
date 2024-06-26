@@ -2,7 +2,7 @@ import axios from "axios";
 
 //base url
 //const baseURL = import.meta.env.VITE_BASEURL;
-const baseURL = "http://localhost:5500";
+const baseURL = "http://localhost:5534";
 
 //get all data from the api
 export const getAllBuffets = async () => {

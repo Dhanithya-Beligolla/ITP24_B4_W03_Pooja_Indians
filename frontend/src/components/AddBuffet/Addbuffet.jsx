@@ -13,6 +13,7 @@ const Addbuffet = () => {
   const buffetTypes = ['Breakfast', 'Lunch', 'High Tea', 'Dinner']; // Buffet types
 
   const [buffet, setBuffet] = useState({
+    buffetID: "",
     buffetType: "",
     buffetDescription: "",
     buffetPrice: "",
@@ -51,9 +52,11 @@ const Addbuffet = () => {
     if(update){
       updateBuffets(buffet);
       navigate("/buffet-admin");
+      alert("Successfully Updated");
     }else{
       mutate(buffet);
       navigate("/buffet-admin");
+      alert("Successfully Added");
     }
 
     
@@ -67,6 +70,8 @@ const Addbuffet = () => {
       <div className="flex items-center justify-center h-screen">
         <form onSubmit={handleSubmit} className="border border-gray-400 w-[30rem] p-5 flex flex-col gap-5 rounded-md shadow-md shadow-gray-400 m-5 lg:-0">
           <h1 className="text-center text-xl font-medium">{update ? "Update Buffet" : "Add Buffets"}</h1>
+
+          <input value={buffet.buffetID} onChange={(e) => setBuffet({...buffet,buffetID:e.target.value})} className="input" type="text" maxLength="4" placeholder="Buffet ID" />
           <select 
             value={buffet.buffetType} 
             onChange={(e) => setBuffet({...buffet, buffetType: e.target.value})}
